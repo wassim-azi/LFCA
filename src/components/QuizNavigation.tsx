@@ -37,7 +37,10 @@ export const QuizNavigation = ({
     const parsed = parseInt(gotoValue, 10);
     if (!Number.isNaN(parsed) && parsed >= 1 && parsed <= totalQuestions) {
       onGoto?.(parsed);
-      setGotoValue('');
+      // Value will be synced by useEffect when currentQuestion changes
+    } else {
+      // Reset to current question if invalid
+      setGotoValue(String(currentQuestion));
     }
   };
 
@@ -88,11 +91,32 @@ export const QuizNavigation = ({
             <span className="hidden text-sm font-semibold sm:inline">Prev</span>
           </Button>
 
-          {/* Center: Question indicator */}
-          <div className="flex flex-1 items-center justify-center gap-1 text-sm">
-            <span className="font-semibold text-foreground">{currentQuestion}</span>
-            <span className="text-muted-foreground">/</span>
-            <span className="text-muted-foreground">{totalQuestions}</span>
+          {/* Center: Interactive question number input */}
+          <div className="flex flex-1 items-center justify-center gap-1.5">
+            <input
+              type="number"
+              inputMode="numeric"
+              min={1}
+              max={totalQuestions}
+              value={gotoValue}
+              onChange={(e) => setGotoValue(e.target.value)}
+              onKeyDown={handleKeyDown}
+              onBlur={() => setGotoValue(String(currentQuestion))}
+              aria-label="Current question number - click to jump to question"
+              className="w-10 rounded border border-border bg-background px-1 py-0.5 text-center text-sm font-semibold text-foreground outline-none transition focus:border-primary focus:ring-1 focus:ring-primary sm:w-12"
+            />
+            <span className="text-sm text-muted-foreground">/</span>
+            <span className="text-sm font-medium text-muted-foreground">{totalQuestions}</span>
+            {gotoValue !== String(currentQuestion) && (
+              <Button
+                onClick={handleGoto}
+                size="sm"
+                variant="ghost"
+                className="h-6 px-2 text-xs font-medium"
+              >
+                Go
+              </Button>
+            )}
           </div>
 
           <Button
