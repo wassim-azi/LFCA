@@ -130,7 +130,7 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
                 <Label
                   htmlFor={choice.id}
                   className={cn(
-                    'flex-1 cursor-pointer select-none text-xs leading-snug sm:text-sm sm:leading-relaxed md:text-base',
+                    'flex-1 cursor-pointer select-none text-sm leading-snug sm:text-sm sm:leading-relaxed md:text-base',
                     submitted && 'cursor-default',
                   )}
                 >
@@ -190,7 +190,7 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
                   <Label
                     htmlFor={choice.id}
                     className={cn(
-                      'flex-1 cursor-pointer select-none text-xs leading-snug sm:text-sm sm:leading-relaxed md:text-base',
+                      'flex-1 cursor-pointer select-none text-sm leading-snug sm:text-sm sm:leading-relaxed md:text-base',
                       submitted && 'cursor-default',
                     )}
                   >
