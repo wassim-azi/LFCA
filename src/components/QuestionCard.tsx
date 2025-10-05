@@ -80,15 +80,14 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
 
   return (
     <div
-      className="overflow-y-auto rounded-lg border border-border bg-card p-4 shadow-lg sm:p-6 md:p-8"
-      style={{ maxHeight: 'calc(100vh - 180px)' }}
+      className="flex h-full flex-col overflow-y-auto rounded-lg border border-border bg-card p-3 pb-20 shadow-lg sm:p-6 sm:pb-24 md:p-8 md:pb-24"
       role="article"
       aria-labelledby={`question-${questionNumber}`}
     >
-      <div className="mb-4 sm:mb-6">
+      <div className="mb-3 sm:mb-4 md:mb-6">
         <h2
           id={`question-${questionNumber}`}
-          className="mb-2 text-base font-semibold text-foreground sm:text-xl md:text-2xl"
+          className="mb-1.5 text-sm font-semibold leading-tight text-foreground sm:mb-2 sm:text-base md:text-xl lg:text-2xl"
         >
           {question.text}
         </h2>
@@ -97,7 +96,11 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
         )}
       </div>
 
-      <div className="mb-4 space-y-2 sm:mb-6 sm:space-y-3" role="group" aria-label="Answer choices">
+      <div
+        className="mb-3 space-y-2 sm:mb-4 sm:space-y-2.5 md:mb-6 md:space-y-3"
+        role="group"
+        aria-label="Answer choices"
+      >
         {question.multiple ? (
           // Render checkboxes for multiple-choice questions
           question.choices.map((choice, index) => {
@@ -108,7 +111,7 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
               <div
                 key={choice.id}
                 className={cn(
-                  'flex items-start gap-2 rounded-md border-2 p-3 transition-all duration-300 sm:gap-3 sm:p-4',
+                  'flex items-start gap-2 rounded-md border-2 p-2 transition-all duration-300 sm:gap-3 sm:p-3 md:p-4',
                   getChoiceStyle(index),
                   !submitted && 'cursor-pointer',
                 )}
@@ -124,13 +127,13 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
                   checked={isSelected}
                   onCheckedChange={() => handleCheckboxChange(index)}
                   disabled={submitted}
-                  className="mt-0.5 h-4 w-4 sm:h-5 sm:w-5"
+                  className="mt-0.5 h-4 w-4 flex-shrink-0 sm:h-5 sm:w-5"
                   tabIndex={-1}
                 />
                 <Label
                   htmlFor={choice.id}
                   className={cn(
-                    'flex-1 cursor-pointer select-none text-sm leading-relaxed sm:text-base',
+                    'flex-1 cursor-pointer select-none text-xs leading-snug sm:text-sm sm:leading-relaxed md:text-base',
                     submitted && 'cursor-default',
                   )}
                 >
@@ -169,7 +172,7 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
                 <div
                   key={choice.id}
                   className={cn(
-                    'flex items-start gap-2 rounded-md border-2 p-3 transition-all duration-300 sm:gap-3 sm:p-4',
+                    'flex items-start gap-2 rounded-md border-2 p-2 transition-all duration-300 sm:gap-3 sm:p-3 md:p-4',
                     getChoiceStyle(index),
                     !submitted && 'cursor-pointer',
                   )}
@@ -184,13 +187,13 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
                     value={index.toString()}
                     id={choice.id}
                     disabled={submitted}
-                    className="mt-0.5 h-4 w-4 sm:h-5 sm:w-5"
+                    className="mt-0.5 h-4 w-4 flex-shrink-0 sm:h-5 sm:w-5"
                     tabIndex={-1}
                   />
                   <Label
                     htmlFor={choice.id}
                     className={cn(
-                      'flex-1 cursor-pointer select-none text-sm leading-relaxed sm:text-base',
+                      'flex-1 cursor-pointer select-none text-xs leading-snug sm:text-sm sm:leading-relaxed md:text-base',
                       submitted && 'cursor-default',
                     )}
                   >
@@ -222,8 +225,8 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
         <Button
           onClick={handleSubmit}
           disabled={selectedIndices.length === 0}
-          className="w-full sm:w-auto"
-          size="lg"
+          className="mt-4 w-full sm:mt-6 sm:w-auto"
+          size="default"
           aria-label="Submit answer"
         >
           Submit Answer
@@ -231,20 +234,20 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
       )}
 
       {submitted && (
-        <div className="mt-4 rounded-lg border border-border bg-secondary p-3 sm:mt-6 sm:p-4">
-          <div className="mb-2 flex items-center gap-2">
-            <p className={cn('text-base font-semibold sm:text-lg', getFeedback().color)}>
+        <div className="mt-3 rounded-lg border border-border bg-secondary p-2.5 sm:mt-4 sm:p-3 md:mt-6 md:p-4">
+          <div className="mb-1.5 flex items-center gap-2 sm:mb-2">
+            <p className={cn('text-sm font-semibold sm:text-base md:text-lg', getFeedback().color)}>
               {getFeedback().message}
             </p>
           </div>
-          <p className="mb-2 text-xs text-muted-foreground sm:text-sm">
+          <p className="mb-1.5 text-xs text-muted-foreground sm:mb-2 sm:text-sm">
             You selected{' '}
             {selectedIndices.filter((idx) => question.correctIndices.includes(idx)).length}/
             {question.correctIndices.length} correct answer
             {question.correctIndices.length !== 1 ? 's' : ''}
           </p>
           {question.explanation && (
-            <p className="mt-3 text-xs leading-relaxed text-foreground sm:text-sm">
+            <p className="mt-2 text-xs leading-snug text-foreground sm:mt-3 sm:text-sm sm:leading-relaxed">
               <span className="font-medium">Explanation:</span> {question.explanation}
             </p>
           )}

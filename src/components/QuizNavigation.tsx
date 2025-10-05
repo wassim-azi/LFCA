@@ -53,20 +53,26 @@ export const QuizNavigation = ({
       role="navigation"
       aria-label="Quiz navigation"
     >
-      <div className="mx-auto flex max-w-4xl items-center justify-center gap-4 px-4 py-2">
-        {/* left column intentionally removed; question number is shown in the input box */}
+      <div className="mx-auto flex max-w-4xl flex-col">
+        {/* small progress bar at top */}
+        <div className="h-1 w-full bg-border">
+          <div
+            className="h-1 bg-primary transition-all duration-300"
+            style={{ width: `${Math.round((currentQuestion / totalQuestions) * 100)}%` }}
+          />
+        </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between gap-2 px-3 py-2 sm:gap-4 sm:px-4">
           <Button
             onClick={() => onFirst?.()}
             disabled={!canGoPrevious}
             variant="outline"
             size="sm"
-            className="gap-2 rounded-md px-3 py-2 text-[0.95rem] transition hover:shadow-md"
+            className="gap-1 rounded-md px-2 py-2 transition hover:shadow-md sm:px-3"
             aria-label="First question"
             aria-disabled={!canGoPrevious}
           >
-            <SkipBack className="h-5 w-5 text-muted-foreground" />
+            <SkipBack className="h-4 w-4 text-muted-foreground sm:h-5 sm:w-5" />
             <span className="hidden text-sm text-muted-foreground sm:inline">First</span>
           </Button>
 
@@ -74,56 +80,31 @@ export const QuizNavigation = ({
             onClick={onPrevious}
             disabled={!canGoPrevious}
             size="sm"
-            className="gap-2 rounded-md bg-gradient-to-r from-primary to-primary/80 px-3 py-2 text-white shadow-md transition hover:opacity-95"
+            className="gap-1 rounded-md bg-gradient-to-r from-primary to-primary/80 px-2 py-2 text-white shadow-md transition hover:opacity-95 sm:gap-2 sm:px-3"
             aria-label="Previous question"
             aria-disabled={!canGoPrevious}
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
             <span className="hidden text-sm font-semibold sm:inline">Prev</span>
           </Button>
 
-          <div className="flex items-center gap-2">
-            <input
-              id="goto-question"
-              name="goto-question"
-              type="number"
-              inputMode="numeric"
-              autoComplete="off"
-              min={1}
-              max={totalQuestions}
-              value={gotoValue}
-              onChange={(e) => setGotoValue(e.target.value)}
-              onKeyDown={handleKeyDown}
-              aria-label="Go to question number"
-              placeholder="#"
-              className="w-20 rounded-lg border border-border bg-background px-3 py-1 text-center text-sm font-medium text-foreground outline-none focus:ring-2 focus:ring-primary"
-            />
-            <Button
-              onClick={handleGoto}
-              size="sm"
-              className="rounded-md bg-primary px-3 py-2 text-white shadow-sm hover:opacity-95"
-            >
-              Go
-            </Button>
-            <div className="ml-2 flex items-center gap-1">
-              <span className="inline-block rounded-full bg-primary/10 px-2 py-0.5 text-sm font-semibold text-primary">
-                {currentQuestion}
-              </span>
-              <span className="text-sm text-muted-foreground">/</span>
-              <span className="text-sm text-muted-foreground">{totalQuestions}</span>
-            </div>
+          {/* Center: Question indicator */}
+          <div className="flex flex-1 items-center justify-center gap-1 text-sm">
+            <span className="font-semibold text-foreground">{currentQuestion}</span>
+            <span className="text-muted-foreground">/</span>
+            <span className="text-muted-foreground">{totalQuestions}</span>
           </div>
 
           <Button
             onClick={onNext}
             disabled={!canGoNext}
             size="sm"
-            className="gap-2 rounded-md bg-gradient-to-r from-primary/80 to-primary px-3 py-2 text-white shadow-md transition hover:opacity-95"
+            className="gap-1 rounded-md bg-gradient-to-r from-primary/80 to-primary px-2 py-2 text-white shadow-md transition hover:opacity-95 sm:gap-2 sm:px-3"
             aria-label="Next question"
             aria-disabled={!canGoNext}
           >
             <span className="hidden text-sm font-semibold sm:inline">Next</span>
-            <ChevronRight className="h-5 w-5" />
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
 
           <Button
@@ -131,23 +112,13 @@ export const QuizNavigation = ({
             disabled={!canGoNext}
             variant="outline"
             size="sm"
-            className="gap-2 rounded-md px-3 py-2 text-[0.95rem] transition hover:shadow-md"
+            className="gap-1 rounded-md px-2 py-2 transition hover:shadow-md sm:px-3"
             aria-label="Last question"
             aria-disabled={!canGoNext}
           >
             <span className="hidden text-sm text-muted-foreground sm:inline">Last</span>
-            <SkipForward className="h-5 w-5 text-muted-foreground" />
+            <SkipForward className="h-4 w-4 text-muted-foreground sm:h-5 sm:w-5" />
           </Button>
-        </div>
-
-        {/* small progress bar */}
-        <div className="absolute bottom-0 left-0 right-0 mx-auto mt-2 flex w-full max-w-4xl justify-center px-4">
-          <div className="h-1 w-full rounded-full bg-border">
-            <div
-              className="h-1 rounded-full bg-primary"
-              style={{ width: `${Math.round((currentQuestion / totalQuestions) * 100)}%` }}
-            />
-          </div>
         </div>
       </div>
     </div>

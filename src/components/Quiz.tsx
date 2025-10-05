@@ -133,41 +133,39 @@ export const Quiz = ({ category }: QuizProps) => {
     <div className="flex h-screen w-screen flex-col overflow-hidden">
       <header className="border-b border-border bg-card shadow-sm" role="banner">
         {/* three-column layout: left placeholder (for back button), centered title, right placeholder */}
-        <div className="mx-auto max-w-4xl px-4 py-4">
+        <div className="mx-auto max-w-4xl px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <div className="flex w-12 items-center">
+            <div className="flex w-10 items-center sm:w-12">
               {category && (
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => navigate('/')}
                   aria-label="Back to categories"
-                  className="-ml-1 h-10 w-10 transform-gpu p-2 shadow-md transition duration-150 ease-in-out hover:scale-105 hover:bg-accent/70 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="-ml-1 h-8 w-8 transform-gpu p-1.5 shadow-md transition duration-150 ease-in-out hover:scale-105 hover:bg-accent/70 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring sm:h-10 sm:w-10 sm:p-2"
                 >
-                  <FontAwesomeIcon icon={faArrowLeft} className="h-5 w-5 text-foreground" />
+                  <FontAwesomeIcon
+                    icon={faArrowLeft}
+                    className="h-4 w-4 text-foreground sm:h-5 sm:w-5"
+                  />
                 </Button>
               )}
             </div>
             <div className="flex-1 text-center">
-              <h1 className="text-2xl font-bold text-foreground sm:text-3xl">LFCA</h1>
-              <p className="mt-1 text-sm text-muted-foreground">
+              <h1 className="text-lg font-bold text-foreground sm:text-2xl md:text-3xl">LFCA</h1>
+              <p className="mt-0.5 text-xs text-muted-foreground sm:mt-1 sm:text-sm">
                 {category
                   ? `Category: ${category.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())}`
                   : 'Linux Foundation Certified IT Associate (LFCA)'}
               </p>
             </div>
-            <div className="w-10" aria-hidden />
+            <div className="w-10 sm:w-10" aria-hidden />
           </div>
         </div>
       </header>
 
-      <main
-        className="flex-1 overflow-hidden"
-        /* adjusted calc to account for slightly smaller header */
-        style={{ height: 'calc(100vh - 140px)' }}
-        role="main"
-      >
-        <div className="mx-auto h-full max-w-4xl px-4 py-6">
+      <main className="flex-1 overflow-hidden" role="main">
+        <div className="mx-auto h-full max-w-4xl px-3 py-3 sm:px-4 sm:py-6">
           <QuestionCard
             key={currentQuestion.id}
             question={currentQuestion}
