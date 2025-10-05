@@ -72,9 +72,6 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
     if (correctCount === question.correctIndices.length && incorrectCount === 0) {
       return { message: 'Correct!', color: 'text-success' };
     }
-    if (correctCount > 0 && incorrectCount === 0 && correctCount < question.correctIndices.length) {
-      return { message: 'Partially correct', color: 'text-primary' };
-    }
     return { message: 'Incorrect', color: 'text-destructive' };
   };
 
