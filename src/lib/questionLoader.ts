@@ -1,13 +1,21 @@
 import { Question, QuestionJSON, CategoryData } from '@/types/quiz';
 
-// Map category IDs to JSON file paths
-const categoryFiles: Record<string, string> = {
-  linux: '/src/data/linux.json',
-  system: '/src/data/system.json',
-  cloud: '/src/data/cloud.json',
-  security: '/src/data/security.json',
-  devops: '/src/data/devops.json',
-  it: '/src/data/it.json',
+// Import JSON files directly as modules
+import linuxData from '@/data/Linux.json';
+import systemData from '@/data/System.json';
+import cloudData from '@/data/Cloud.json';
+import securityData from '@/data/Security.json';
+import devopsData from '@/data/DevOps.json';
+import itData from '@/data/IT.json';
+
+// Map category IDs to imported data
+const categoryData: Record<string, CategoryData> = {
+  linux: linuxData as CategoryData,
+  system: systemData as CategoryData,
+  cloud: cloudData as CategoryData,
+  security: securityData as CategoryData,
+  devops: devopsData as CategoryData,
+  it: itData as CategoryData,
 };
 
 // Convert letter indices (a, b, c, d) to numeric indices (0, 1, 2, 3)
@@ -38,19 +46,13 @@ export const transformQuestion = (jsonQuestion: QuestionJSON, index: number): Qu
 
 // Load questions for a specific category
 export const loadCategoryQuestions = async (category: string): Promise<Question[]> => {
-  const filePath = categoryFiles[category];
+  const data = categoryData[category];
 
-  if (!filePath) {
+  if (!data) {
     throw new Error(`Unknown category: ${category}`);
   }
 
   try {
-    const response = await fetch(filePath);
-    if (!response.ok) {
-      throw new Error(`Failed to load category: ${category}`);
-    }
-
-    const data: CategoryData = await response.json();
     return data.questions.map((q, idx) => transformQuestion(q, idx));
   } catch (error) {
     console.error(`Error loading category ${category}:`, error);
@@ -60,5 +62,5 @@ export const loadCategoryQuestions = async (category: string): Promise<Question[
 
 // Get all available categories
 export const getAvailableCategories = (): string[] => {
-  return Object.keys(categoryFiles);
+  return Object.keys(categoryData);
 };
