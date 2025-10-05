@@ -1,0 +1,3809 @@
+{
+  "questions": [
+    {
+      "question": "Which tool exclusively manages cron jobs for a specific user?",
+      "answers": [
+        "systemctl",
+        "crontab -e",
+        "at",
+        "cron",
+        "anacron"
+      ],
+      "explanation": "`crontab -e` edits the current user's crontab (user-specific cron jobs). System-wide cron jobs live in /etc/cron* or systemd timers, anacron handles jobs that run periodically on systems that are not always up.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command safely reboots a Linux system?",
+      "answers": [
+        "kill -9 1",
+        "reboot",
+        "shutdown -h now",
+        "init 0",
+        "shutdown -r now"
+      ],
+      "explanation": "`shutdown -r now` tells init/systemd to cleanly stop services and reboot. `reboot` usually works but `shutdown -r now` is explicit and allows orderly shutdown. Avoid `kill -9 1` which forcibly kills PID 1 and may corrupt state.",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "What is the primary purpose of /etc/fstab?",
+      "answers": [
+        "Configures network interfaces",
+        "Defines filesystem mounting at boot",
+        "Stores SSH keys",
+        "Manages user permissions",
+        "Stores mount options"
+      ],
+      "explanation": "/etc/fstab lists filesystems and where/how they should be mounted at boot (device, mountpoint, fs type and options).",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command checks disk usage for /home?",
+      "answers": [
+        "df -h /home",
+        "free -h",
+        "top",
+        "netstat",
+        "du -sh /home"
+      ],
+      "explanation": "`df -h /home` shows filesystem disk usage for the filesystem containing /home in human-readable form. `du -sh /home` shows disk usage of that directory tree.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Why should routine tasks not use the root account?",
+      "answers": [
+        "It slows down the system",
+        "It increases security risk from accidental errors",
+        "It consumes more RAM",
+        "It requires a password every time",
+        "It bypasses auditing and least-privilege controls"
+      ],
+      "explanation": "Using root for routine tasks increases the risk of accidental harmful changes and gives processes excessive privileges. Principle of least privilege and auditing recommend using an unprivileged account and elevating only when necessary.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command initializes a block device /dev/sdb1 as an LVM physical volume?",
+      "answers": [
+        "pvcreate /dev/sdb1",
+        "vgcreate /dev/sdb1",
+        "lvcreate /dev/sdb1",
+        "mkfs.ext4 /dev/sdb1",
+        "pvdisplay /dev/sdb1"
+      ],
+      "explanation": "`pvcreate /dev/sdb1` initializes the device for use by LVM. `vgcreate` and `lvcreate` are for volume groups and logical volumes, `mkfs.ext4` creates a filesystem and would destroy LVM metadata.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which rsync option preserves symbolic links, permissions, modification times, group and owner in a single shorthand?",
+      "answers": [
+        "-r",
+        "-a",
+        "-z",
+        "-v",
+        "-l"
+      ],
+      "explanation": "`-a` is archive mode and is shorthand for -rlptgoD (recursive, links, perms, times, group, owner, devices). It preserves symlinks, permissions, times, group and owner.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which RAID level uses distributed parity and requires a minimum of three disks?",
+      "answers": [
+        "RAID 0",
+        "RAID 1",
+        "RAID 5",
+        "RAID 10",
+        "RAID 6"
+      ],
+      "explanation": "RAID 5 stripes data with distributed parity and needs at least three disks. RAID 6 offers two-parity blocks and can survive two disk failures.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which packet-filtering framework was introduced to replace legacy iptables with a more modern internal API?",
+      "answers": [
+        "nftables",
+        "ip6tables",
+        "ufw",
+        "pf",
+        "firewalld"
+      ],
+      "explanation": "`nftables` is the successor to the iptables family and provides a single, modern API for IPv4/IPv6/bridge/arp packet filtering.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which single systemctl command both stops a service immediately and disables it from starting at boot?",
+      "answers": [
+        "systemctl stop --now sshd",
+        "systemctl disable sshd",
+        "systemctl disable --now sshd",
+        "systemctl mask sshd",
+        "systemctl stop sshd && systemctl disable sshd"
+      ],
+      "explanation": "`systemctl disable --now <service>` will stop the service immediately and also disable its automatic start at boot.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which backup strategy describes: one full backup weekly and daily incremental backups?",
+      "answers": [
+        "Full-weekly + incremental-daily",
+        "Differential-daily + full-monthly",
+        "Snapshot-hourly + mirror-weekly",
+        "Continuous replication only",
+        "Hybrid full + differential"
+      ],
+      "explanation": "One full backup weekly plus daily incremental backups is a common strategy: full-weekly + incremental-daily. Incrementals capture only changes since the last backup.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command lists open file descriptors and network sockets for process PID 1234?",
+      "answers": [
+        "lsof -p 1234",
+        "ss -p 1234",
+        "ps aux | grep 1234",
+        "fuser -m 1234",
+        "lsof -i -a -p 1234"
+      ],
+      "explanation": "`lsof -p 1234` lists files and network sockets opened by the process with PID 1234. `ss -p` shows sockets and programs but `lsof` is the standard tool to list all open file descriptors.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the default TCP port number used by SSH?",
+      "answers": [
+        "21",
+        "22",
+        "23",
+        "443",
+        "2200"
+      ],
+      "explanation": "SSH uses TCP port 22 by default (although administrators may change it for security by obscurity).",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which cron keyword runs a job once at system reboot for the owning user’s crontab?",
+      "answers": [
+        "@hourly",
+        "@daily",
+        "@reboot",
+        "0 0 * * *",
+        "@reboot once per boot"
+      ],
+      "explanation": "The special string `@reboot` schedules a job to run once at system boot for that user's crontab.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which command runs a filesystem check and attempts to automatically repair errors on /dev/sda1?",
+      "answers": [
+        "fsck -y /dev/sda1",
+        "mount -o remount /dev/sda1",
+        "badblocks -w /dev/sda1",
+        "e2fsck -n /dev/sda1",
+        "e2fsck -y /dev/sda1"
+      ],
+      "explanation": "`fsck -y` (or `e2fsck -y` for ext filesystems) runs checks and automatically answers 'yes' to repair prompts. `-n` is read-only and `badblocks -w` is destructive testing.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following is a key responsibility of a system administrator?",
+      "answers": [
+        "Developing new programming languages.",
+        "Preparing backup procedures to prevent data loss.",
+        "Designing marketing materials.",
+        "Managing employee salaries.",
+        "Ensuring system availability and backups"
+      ],
+      "explanation": "System administrators plan and implement backup and recovery procedures, ensure system availability, and manage infrastructure — they are not typically responsible for marketing or payroll.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "A RAID configuration that offers protection against the failure of any two disks is:",
+      "answers": [
+        "RAID 0",
+        "RAID 1",
+        "RAID 5",
+        "RAID 6",
+        "RAID 60"
+      ],
+      "explanation": "RAID 6 uses two independent parity blocks allowing recovery from up to two simultaneous disk failures.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "How does a common SSD (Solid State Drive) compare to a common HDD (Hard Disk Drive)?",
+      "answers": [
+        "SSD has faster read/write speeds and is more shock-resistant.",
+        "HDD has faster read/write speeds but is less durable.",
+        "SSD offers more storage capacity for the same price.",
+        "HDD is quieter and consumes less power.",
+        "SSDs are generally faster and more power-efficient"
+      ],
+      "explanation": "SSDs typically provide much faster I/O and are more shock resistant than spinning HDDs, they are usually more expensive per GB, not cheaper.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Network Attached Storage (NAS) solution is best described as:",
+      "answers": [
+        "A storage device directly attached to a server's motherboard.",
+        "A dedicated storage device that provides shared storage over a network.",
+        "A cloud-only storage service with no on-premise hardware.",
+        "A type of memory used to speed up CPU operations.",
+        "A file-level storage server"
+      ],
+      "explanation": "NAS devices provide shared file-level storage to clients across a network, usually via SMB/CIFS or NFS.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command is used to view currently running processes on a Linux system?",
+      "answers": [
+        "list",
+        "ps",
+        "top",
+        "run",
+        "htop"
+      ],
+      "explanation": "`ps` shows process snapshots, `top`/`htop` show dynamic, real-time views. The question asks for a command used to view running processes — `ps` is the classic choice.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "The main Apache web server configuration file is typically named:",
+      "answers": [
+        "httpd.conf",
+        "apache.cfg",
+        "www.conf",
+        "server.xml",
+        "apache2.conf"
+      ],
+      "explanation": "Many distributions use `httpd.conf` (Apache legacy) while Debian-based systems use `apache2.conf`, `httpd.conf` is the traditional filename.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command is used to install a software package on a Debian-based Linux system using APT?",
+      "answers": [
+        "apt-get update",
+        "apt-get install package",
+        "dpkg -i package",
+        "yum install package",
+        "apt install package"
+      ],
+      "explanation": "`apt-get install <package>` (or the newer `apt install <package>`) installs packages on Debian-based systems. `apt-get update` updates package lists, `dpkg -i` installs a .deb file directly.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command adds a new user to a Linux system?",
+      "answers": [
+        "useradd username",
+        "adduser username",
+        "usermod -aG group username",
+        "newuser username",
+        "sudo adduser username"
+      ],
+      "explanation": "`useradd <username>` (low-level) creates a new user. `adduser` is a friendlier wrapper on Debian systems. Either may be used but `useradd` is the standard low-level command.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file is typically edited to configure a static IP address on a Linux system using NetworkManager?",
+      "answers": [
+        "/etc/network/interfaces",
+        "/etc/NetworkManager/system-connections/ifcfg-eth0",
+        "/etc/sysconfig/network-scripts/ifcfg-eth0",
+        "/etc/netplan/01-netcfg.yaml",
+        "/etc/resolv.conf"
+      ],
+      "explanation": "NetworkManager stores connection profiles under `/etc/NetworkManager/system-connections/` (or distribution-specific locations). On Debian with netplan, `/etc/netplan/*.yaml` can be used, and RHEL uses `/etc/sysconfig/network-scripts/`.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command displays real-time information about CPU and memory usage on a Linux system?",
+      "answers": [
+        "ps aux",
+        "top",
+        "free -m",
+        "vmstat",
+        "htop"
+      ],
+      "explanation": "`top` provides a real-time, updating view of CPU and memory usage. `htop` is an enhanced interactive alternative.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In systemd-based systems, which command checks the status of a service?",
+      "answers": [
+        "service status myservice",
+        "systemctl status myservice",
+        "initctl status myservice",
+        "journalctl -u myservice",
+        "systemctl is-active myservice"
+      ],
+      "explanation": "`systemctl status <service>` shows whether the service is running and recent log lines from the journal.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which type of backup captures all data since the last full backup and is useful for disaster recovery?",
+      "answers": [
+        "Incremental backup",
+        "Differential backup",
+        "Full backup",
+        "Mirror backup",
+        "Snapshot"
+      ],
+      "explanation": "An incremental backup captures changes since the last backup (full or incremental). Differential captures changes since the last full backup. Incrementals are space-efficient but require a chain of backups to restore.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file is used for local DNS resolution on a Linux system?",
+      "answers": [
+        "/etc/hosts",
+        "/etc/resolv.conf",
+        "/etc/nsswitch.conf",
+        "/etc/hosts.allow",
+        "/etc/network/interfaces"
+      ],
+      "explanation": "`/etc/hosts` provides static hostname to IP address mappings for local resolution before DNS, depending on nsswitch configuration.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command tests network connectivity by sending ICMP echo requests to a host?",
+      "answers": [
+        "ping",
+        "traceroute",
+        "nc",
+        "curl",
+        "arping"
+      ],
+      "explanation": "`ping` sends ICMP Echo Request packets and reports replies, commonly used to verify basic network reachability.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command is used to create a compressed archive of files for backup purposes?",
+      "answers": [
+        "tar -czf archive.tar.gz files",
+        "zip -r archive.zip files",
+        "gzip -c files > files.gz",
+        "cpio -ov | gzip > archive.cpio.gz",
+        "7z a archive.7z files"
+      ],
+      "explanation": "`tar -czf` creates a gzip-compressed tar archive commonly used for backups. `zip` and `7z` are alternatives.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which tool is commonly used to check and repair filesystem errors on a Linux system?",
+      "answers": [
+        "fsck",
+        "e2fsck",
+        "badblocks",
+        "tune2fs",
+        "parted"
+      ],
+      "explanation": "`fsck` is the front-end filesystem check and repair tool, for ext-family filesystems `e2fsck` is used. Use with care (usually unmounted or in maintenance mode).",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "After modifying GNU GRUB's configuration file, which command must be run for the changes to take effect?",
+      "answers": [
+        "kill -HUP $(pidof grub)",
+        "grub-install",
+        "grub",
+        "No action is required",
+        "update-grub"
+      ],
+      "explanation": "No immediate action changes apply at next boot",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "After moving data to a new filesystem, how can the former path of the data be kept intact in order to avoid reconfiguration of existing applications?",
+      "answers": [
+        "By creating an ACL redirection from the old to the new path of the data.",
+        "By creating a hard link from the old to the new path of the data.",
+        "By creating a symbolic link from the old to the new path of the data.",
+        "By running the command touch on the old path.",
+        "By mounting the new filesystem on the original path of the data."
+      ],
+      "explanation": "Create a symlink or mount the new filesystem at the original path",
+      "correct_response": [
+        "c",
+        "e"
+      ]
+    },
+    {
+      "question": "After successfully creating a hard link called bar to the ordinary file foo, foo is deleted from the filesystem. Which of the following describes the resulting situation?",
+      "answers": [
+        "foo and bar would both be removed.",
+        "foo would be removed while bar would remain accessible.",
+        "foo would be removed. bar would still exist but would be unusable.",
+        "Both foo and bar would remain accessible.",
+        "The user is prompted whether bar should be removed, too."
+      ],
+      "explanation": "Data remains accessible via bar after foo is removed",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "An IT associate would find the log files for syslog in which of the following directories?",
+      "answers": [
+        "/var/log",
+        "/usr/local/logs",
+        "/home/logs",
+        "/etc/logs",
+        "/var/logs"
+      ],
+      "explanation": "System log files are stored in /var/log directory",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Creating a hard link to an ordinary file returns an error. What could be the reason for this?",
+      "answers": [
+        "The source file is hidden.",
+        "The source file is read-only.",
+        "The source file is a shell script.",
+        "The source file is already a hard link.",
+        "The source and the target are on different filesystems."
+      ],
+      "explanation": "Hard links cannot span different filesystems",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "How can the existing environment variable FOOBAR be suppressed for the execution of the script ./myscript only?",
+      "answers": [
+        "unset -v FOOBAR",
+        "./myscript",
+        "./myscript",
+        "env -u FOOBAR ./myscript",
+        "./myscript"
+      ],
+      "explanation": "env -u removes the variable only for that specific command execution",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "How can you give a user sudo access without editing /etc/sudoers directly?",
+      "answers": [
+        "Add them to the wheel group",
+        "Add them to the sudo group",
+        "Run visudo -a username",
+        "Use usermod -S sudo username",
+        "Edit /etc/group and add to admin"
+      ],
+      "explanation": "On Debian-based systems, adding a user to the sudo group grants sudo privileges",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "How many IP-addresses can be used for unique hosts inside the IPv4 subnet 192.168.2.128/28? (Specify the number only without any additional information.)",
+      "answers": [
+        "14",
+        "16",
+        "30",
+        "32",
+        "62"
+      ],
+      "explanation": "/28 subnet has 4 host bits = 16 addresses - 2 (network and broadcast) = 14 usable hosts",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "If a script hello.sh has permissions -rw-r--r--, which command makes it executable for the owner?",
+      "answers": [
+        "chmod +x hello.sh",
+        "chmod u+x hello.sh",
+        "chmod g+x hello.sh",
+        "chmod o+x hello.sh",
+        "chmod 755 hello.sh"
+      ],
+      "explanation": "chmod u+x adds execute permission for the user (owner)",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In LVM, which command creates a physical volume?",
+      "answers": [
+        "pvcreate",
+        "vgcreate",
+        "lvcreate",
+        "lvextend",
+        "vgdisplay"
+      ],
+      "explanation": "pvcreate initializes a disk or partition for use by LVM",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "In order to display all currently mounted filesystems, which of the following commands could be used?",
+      "answers": [
+        "cat /proc/self/mounts",
+        "free",
+        "mount",
+        "lsmounts",
+        "cat /proc/filesystems"
+      ],
+      "explanation": "Both /proc/self/mounts and mount show current mounts",
+      "correct_response": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "question": "In which directory must definition files be placed to add additional repositories to yum?",
+      "answers": [
+        "/etc/yum.repos.d"
+      ],
+      "explanation": "Repo definitions are placed in /etc/yum.repos.d",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "The command 'cut -d ' ' -f1,2' applied to the output of 'id' will output what?",
+      "answers": [
+        "The username and group",
+        "The UID and GID",
+        "The first two fields delimited by space",
+        "The user and primary group",
+        "The user and all groups"
+      ],
+      "explanation": "It cuts the first two fields using space as the delimiter",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "To limit user alovelace to a maximum of 50 processes, which file should be modified?",
+      "answers": [
+        "/etc/security/limits.conf",
+        "/etc/pam.d/limits",
+        "/etc/security/limits.d/alovelace.conf",
+        "/etc/sysctl.conf",
+        "/etc/ulimit.conf"
+      ],
+      "explanation": "User-specific limits are best placed in /etc/security/limits.d/",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What command displays the current runlevel in a SysV init system?",
+      "answers": [
+        "systemctl get-default",
+        "runlevel",
+        "who -r",
+        "initctl status",
+        "cat /etc/inittab"
+      ],
+      "explanation": "The runlevel command shows previous and current runlevels in SysV",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What command shows active TCP connections?",
+      "answers": [
+        "netstat",
+        "ps",
+        "top",
+        "who",
+        "w"
+      ],
+      "explanation": "netstat displays network connections and routing tables",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What command shows service status?",
+      "answers": [
+        "systemctl status",
+        "service status",
+        "status-service",
+        "sysctl status",
+        "initctl status"
+      ],
+      "explanation": "systemctl status shows service status and logs",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does DHCP stand for?",
+      "answers": [
+        "Dynamic Host Configuration Protocol",
+        "Direct Host Communication Protocol",
+        "Distributed Hardware Control Protocol",
+        "Digital Host Connectivity Protocol",
+        "Data Highway Control Protocol"
+      ],
+      "explanation": "DHCP automatically assigns IP addresses to network clients",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does LVM stand for in the context of Linux storage management?",
+      "answers": [
+        "Logical Virtualization Manager",
+        "Linux Volume Manager",
+        "Logical Volume Manager",
+        "Linux Virtualization Manager",
+        "Local Volume Manager"
+      ],
+      "explanation": "Logical Volume Manager provides flexible disk management",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What does LVM stand for?",
+      "answers": [
+        "Logical Volume Manager",
+        "Linux Virtual Memory",
+        "Local Volume Mount",
+        "Large Volume Management",
+        "Linux Version Manager"
+      ],
+      "explanation": "LVM provides flexible disk space management",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does systemctl do?",
+      "answers": [
+        "Controls systemd services",
+        "Manages system time",
+        "Controls user accounts",
+        "Manages file systems",
+        "Controls network interfaces"
+      ],
+      "explanation": "systemctl manages systemd services and units",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the ? symbol within regular expressions represent?",
+      "answers": [
+        "Match the preceding qualifier one or more times.",
+        "Match the preceding qualifier zero or more times.",
+        "Match the preceding qualifier zero or one times.",
+        "Match a literal ? character."
+      ],
+      "explanation": "Matches the preceding qualifier zero or one times",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What does the command find /home -type f -perm -g=x do?",
+      "answers": [
+        "Finds files with group execute permission",
+        "Finds directories with group execute",
+        "Finds files missing group execute",
+        "Finds all executable files",
+        "Finds files with any special permissions"
+      ],
+      "explanation": "The -perm -g=x matches files that have at least group execute permission set",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the command tar -xjf archive.tar.bz2 do?",
+      "answers": [
+        "Creates a bzip2 compressed archive",
+        "Extracts a bzip2 compressed archive",
+        "Lists contents of a gzip archive",
+        "Extracts a gzip archive",
+        "Creates an xz archive"
+      ],
+      "explanation": "The -xjf flags extract a bzip2-compressed tar archive (j for bzip2, x for extract)",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What does the command mount -a do?",
+      "answers": [
+        "It ensures that all file systems listed with the option noauto in /etc/fstab are mounted.",
+        "It shows all mounted file systems that have been automatically mounted.",
+        "It opens an editor with root privileges and loads /etc/fstab for editing.",
+        "It ensures that all file systems listed with the option auto in /etc/fstab are mounted.",
+        "It ensures that all file systems listed in /etc/fstab are mounted regardless of their options."
+      ],
+      "explanation": "Mounts all filesystems marked 'auto' in /etc/fstab",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "What does the df command show?",
+      "answers": [
+        "Disk free space",
+        "Directory files",
+        "Disk format",
+        "Data files",
+        "Default files"
+      ],
+      "explanation": "df displays file system disk space usage",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the insmod command do?",
+      "answers": [
+        "Installs kernel modules",
+        "Installs software packages",
+        "Installs users",
+        "Installs services",
+        "Installs drivers"
+      ],
+      "explanation": "insmod loads kernel modules into running kernel",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the jobs command show?",
+      "answers": [
+        "Active jobs in current shell",
+        "All system processes",
+        "Scheduled cron jobs",
+        "Print jobs",
+        "Network jobs"
+      ],
+      "explanation": "jobs shows active jobs in current shell session",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the ping command test?",
+      "answers": [
+        "Network connectivity",
+        "Disk space",
+        "Memory usage",
+        "CPU load",
+        "File permissions"
+      ],
+      "explanation": "ping tests network connectivity between hosts",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does virtualization provide?",
+      "answers": [
+        "Multiple OS instances on single hardware",
+        "Faster processing",
+        "More storage",
+        "Better graphics",
+        "Enhanced security"
+      ],
+      "explanation": "Virtualization runs multiple operating systems on one physical machine",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does VNC provide?",
+      "answers": [
+        "Remote desktop access",
+        "File sharing",
+        "Network routing",
+        "Print services",
+        "Email services"
+      ],
+      "explanation": "VNC enables remote graphical desktop access",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What file system type is commonly used for Linux root partitions?",
+      "answers": [
+        "ext4",
+        "ntfs",
+        "fat32",
+        "xfs",
+        "btrfs"
+      ],
+      "explanation": "ext4 is the most common Linux root filesystem",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What information can the lspci command display about the system hardware?",
+      "answers": [
+        "Device IRQ settings",
+        "PCI bus speed",
+        "System battery type",
+        "Device vendor identification",
+        "Ethernet MAC address"
+      ],
+      "explanation": "Shows IRQ, bus speed and vendor ID",
+      "correct_response": [
+        "a",
+        "b",
+        "d"
+      ]
+    },
+    {
+      "question": "What is a purpose of an SSH host key?",
+      "answers": [
+        "It must be sent by any SSH client in addition to a user key in order to identify the client's host.",
+        "It provides the server's identity information to connecting SSH clients.",
+        "It is the root key by which all user SSH keys must be signed.",
+        "It authenticates any user that logs into a remote machine from the key's host.",
+        "Itis used by system services like cron, syslog or a backup job to automatically connect to remote hosts."
+      ],
+      "explanation": "SSH host keys verify server identity to prevent man-in-the-middle attacks",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is an inode?",
+      "answers": [
+        "A data structure that stores file metadata",
+        "A type of file system",
+        "A network protocol",
+        "A user account",
+        "A directory entry"
+      ],
+      "explanation": "Inodes store file metadata like permissions and timestamps",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is load balancing?",
+      "answers": [
+        "Distributing traffic across multiple servers",
+        "Disk partitioning",
+        "Memory management",
+        "Process scheduling",
+        "File compression"
+      ],
+      "explanation": "Load balancing distributes workload across multiple resources",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is systemd?",
+      "answers": [
+        "A system and service manager",
+        "A file system",
+        "A network protocol",
+        "A text editor",
+        "A package manager"
+      ],
+      "explanation": "systemd is an init system and service manager",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the correct syntax to add a user to a secondary group without removing existing groups?",
+      "answers": [
+        "usermod -g groupname username",
+        "usermod -G groupname username",
+        "usermod -a -G groupname username",
+        "groupadd -u username groupname",
+        "adduser username groupname"
+      ],
+      "explanation": "usermod -a -G appends the user to additional groups without affecting existing ones",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the correct way to create a snapshot of an LVM logical volume?",
+      "answers": [
+        "lvcreate -s -n snapname -L 1G /dev/vg/lv",
+        "lvcreate --snapshot --name snapname --size 1G /dev/vg/lv",
+        "Both A and B",
+        "lvsnap create snapname /dev/vg/lv",
+        "lvclone -s snapname /dev/vg/lv"
+      ],
+      "explanation": "Both syntaxes are valid for creating LVM snapshots",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the correct way to extend a logical volume and its filesystem in one command?",
+      "answers": [
+        "lvextend -L +1G /dev/vg/lv && resize2fs /dev/vg/lv",
+        "lvresize -L +1G --resizefs /dev/vg/lv",
+        "lvextend -r -L +1G /dev/vg/lv",
+        "Both A and C",
+        "Only B"
+      ],
+      "explanation": "lvextend with -r flag automatically resizes the filesystem after extending the LV",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the first program that is usually started, at boot time, by the Linux kernel when using SysV init?",
+      "answers": [
+        "/lib/init.so",
+        "/sbin/init",
+        "/etc/rc.d/rcinit",
+        "/proc/sys/kernel/init",
+        "/boot/init"
+      ],
+      "explanation": "Kernel starts /sbin/init",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the format of a cron entry?",
+      "answers": [
+        "minute hour day month weekday command",
+        "hour minute day month weekday command",
+        "day month year hour minute command",
+        "month day year hour minute command",
+        "weekday day month hour minute command"
+      ],
+      "explanation": "Cron format: minute hour day month weekday command",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the loopback IP address?",
+      "answers": [
+        "192.168.1.1",
+        "10.0.0.1",
+        "172.16.0.1",
+        "127.0.0.1",
+        "0.0.0.0"
+      ],
+      "explanation": "127.0.0.1 is the standard loopback address",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "What is the purpose of /etc/fstab?",
+      "answers": [
+        "Defines file systems to mount at boot",
+        "Shows currently mounted systems",
+        "Contains file system logs",
+        "Stores backup information",
+        "Lists available disks"
+      ],
+      "explanation": "/etc/fstab configures automatic mounting at boot",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the purpose of the /proc filesystem?",
+      "answers": [
+        "Stores process information",
+        "Contains system logs",
+        "Holds temporary files",
+        "Stores user home directories",
+        "Contains device files"
+      ],
+      "explanation": "/proc is a virtual filesystem showing kernel and process information",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the purpose of the command mailq?",
+      "answers": [
+        "It fetches new emails from a remote server using POP3 or IMAP.",
+        "Itis a multi-user mailing list manager.",
+        "Itis a proprietary tool contained only in the qmail MTA.",
+        "It queries the mail queue of the local MTA.",
+        "It is a command-line based tool for reading and writing emails."
+      ],
+      "explanation": "mailq displays pending emails in the mail transfer agent queue",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "What is the role of the init process in a Linux system?",
+      "answers": [
+        "To manage the boot process",
+        "To manage system security",
+        "To manage all system processes",
+        "To manage system configuration files"
+      ],
+      "explanation": "init (PID 1) is the parent that manages system processes",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is true about the file /etc/localtime?",
+      "answers": [
+        "It is a plain text file containing a string such as Europe/Berlin.",
+        "It is created and maintained by the NTP service based on the geolocation of the system's IP address.",
+        "It is a symlink to /sys/device/clock/ltime and always contains the current local time",
+        "It is either a symlink to or a copy of a timezone information file such as /usr/share/zoneinfo/Europe/Berlin.",
+        "It specifies the system timezone data used by the OS"
+      ],
+      "explanation": "/etc/localtime defines the system timezone by linking to zoneinfo files",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "What is true regarding a default route?",
+      "answers": [
+        "The default route is always used first. When the default route is not available more specific routes are tried.",
+        "When a default route is set, all other routes are disabled until the default route is deleted.",
+        "The default route is only used if there is not a more specific route to a destination host or network.",
+        "Without a default route, no network communication even in directly attached networks is possible.",
+        "Routes are matched by longest-prefix first and more specific routes take precedence"
+      ],
+      "explanation": "Default route is used only when no more specific route matches the destination",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What option with useradd creates the user's home directory?",
+      "answers": [
+        "-C",
+        "-m",
+        "-s",
+        "-U",
+        "-g"
+      ],
+      "explanation": "The -m option ensures the home directory is created",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What word is missing from the following SQL statement? insert into tablename ________(909, 'text')",
+      "answers": [
+        "columns",
+        "items",
+        "keys",
+        "values",
+        "new value"
+      ],
+      "explanation": "INSERT INTO requires VALUES keyword to specify the data to insert",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "When removing a package, which of the following dpkg options will completely remove the files including configuration files?",
+      "answers": [
+        "--clean",
+        "--delete",
+        "--purge",
+        "remove"
+      ],
+      "explanation": "--purge removes package and configuration files",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "When using rsync to mirror a local directory to a remote server, what is the significance of the --delete option?",
+      "answers": [
+        "Files absent from the remote directory will be restored from the local directory.",
+        "Files present in the local directory, but not present in the remote directory, will be deleted.",
+        "Files absent from the local directory will be restored from the remote directory.",
+        "Files present in the remote directory, but not present in the local directory, will be deleted.",
+        "It causes rsync to skip deletion and only add files"
+      ],
+      "explanation": "--delete removes files from remote that don't exist locally",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which awk command prints the sixth column of output from 'df -h'?",
+      "answers": [
+        "awk '{print $1}' df -h",
+        "awk '{print $6}' df -h",
+        "awk '/none/ {print $6}'",
+        "awk '{print $6}'",
+        "awk '/^/dev/ {print $6}'"
+      ],
+      "explanation": "Prints the sixth column (Mounted on) of the 'df -h' output",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which bootloader is commonly used in modern Linux distributions?",
+      "answers": [
+        "GRUB2",
+        "LILO",
+        "SYSLINUX",
+        "GRUB Legacy",
+        "rEFInd"
+      ],
+      "explanation": "GRUB2 is the standard bootloader for most Linux distributions",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which chage option sets the account expiration date?",
+      "answers": [
+        "-E",
+        "-m",
+        "-M",
+        "-d",
+        "-l"
+      ],
+      "explanation": "The -E option sets the account expiration date",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which character in the password field of /etc/passwd is used to indicate that the encrypted password is stored in /etc/shadow?",
+      "answers": [
+        "*",
+        "-",
+        "s",
+        "x",
+        "!"
+      ],
+      "explanation": "The 'x' character indicates password is stored in /etc/shadow file",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which command can be used to delete a group from a Linux system?",
+      "answers": [
+        "groupdel",
+        "groupmod",
+        "groups",
+        "groupedit",
+        "delgroup"
+      ],
+      "explanation": "groupdel removes a group from the system",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command chain will count the number of regular files with the name of foo.txt within /home?",
+      "answers": [
+        "ls -lR /home | grep foo.txt | wc -l",
+        "find /home -type f -name foo.txt | wc -l",
+        "find /home -name foo.txt -count",
+        "find /home -name foo.txt | wc -l",
+        "grep -R foo.txt /home | wc -l"
+      ],
+      "explanation": "find with -type f ensures only regular files are counted, not directories",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command changes a user's login shell to tcsh?",
+      "answers": [
+        "usermod -c /bin/tcsh alovelace",
+        "usermod -m /bin/tcsh alovelace",
+        "usermod -s /bin/tcsh alovelace",
+        "chsh -s /bin/tcsh alovelace",
+        "passwd -s /bin/tcsh alovelace"
+      ],
+      "explanation": "usermod -s changes the user's login shell",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which command changes the group ownership of a file?",
+      "answers": [
+        "chown",
+        "chgrp",
+        "chmod",
+        "chuser",
+        "usermod"
+      ],
+      "explanation": "chgrp specifically changes group ownership",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command checks file system integrity?",
+      "answers": [
+        "fsck",
+        "checkfs",
+        "verify",
+        "scan",
+        "test"
+      ],
+      "explanation": "fsck checks and repairs file system errors",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command configures network interfaces?",
+      "answers": [
+        "ifconfig",
+        "netconfig",
+        "ipconfig",
+        "netstat",
+        "route"
+      ],
+      "explanation": "ifconfig configures network interface parameters",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command creates a new group named babbage?",
+      "answers": [
+        "groupcreate babbage",
+        "addgroup babbage",
+        "groupadd babbage",
+        "newgrp babbage",
+        "gpasswd babbage"
+      ],
+      "explanation": "groupadd is the standard command to create a new group",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which command displays a list of all background tasks running in the current shell?",
+      "answers": [
+        "jobs",
+        "A"
+      ],
+      "explanation": "jobs shows background tasks for the current shell",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command displays routing table information?",
+      "answers": [
+        "route",
+        "netstat -r",
+        "ip route",
+        "routestat",
+        "netroute"
+      ],
+      "explanation": "Multiple commands can display routing information",
+      "correct_response": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "question": "Which command displays the octal permissions of a file?",
+      "answers": [
+        "ls -l",
+        "stat",
+        "ls -n",
+        "chmod",
+        "umask"
+      ],
+      "explanation": "stat command shows detailed file information including octal permissions",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command is used to check the status of the networking service in a SysV system?",
+      "answers": [
+        "systemctl status networking",
+        "initctl status networking",
+        "service networking status",
+        "status networking",
+        "netstat networking"
+      ],
+      "explanation": "service [service_name] status is used for SysV init scripts",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which command is used to create a new user with a home directory and bash shell in one step?",
+      "answers": [
+        "useradd -s /bin/bash -m username",
+        "adduser --shell /bin/bash username",
+        "usermod -d /home/username -s /bin/bash username",
+        "mkuser -h -s /bin/bash username",
+        "createuser --home --shell /bin/bash username"
+      ],
+      "explanation": "The useradd command with -m and -s options creates a user with home directory and specified shell",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command is used to create and initialize the files used to store quota information? (Specify ONLY the command without any path or parameters.)",
+      "answers": [
+        "quotacheck"
+      ],
+      "explanation": "quotacheck creates and initializes quota files",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command lists all logical volumes in an LVM setup?",
+      "answers": [
+        "lvscan",
+        "lvdisplay",
+        "lvlist",
+        "lvs",
+        "Both B and D"
+      ],
+      "explanation": "Both lvdisplay and lvs show logical volume information",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "Which command lists all processes owned by a specific user?",
+      "answers": [
+        "ps -u username",
+        "ps aux | grep username",
+        "top -u username",
+        "pgrep -u username",
+        "All of the above"
+      ],
+      "explanation": "All listed commands can show processes belonging to a specific user",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "Which command shows detailed information about a specific RAID array?",
+      "answers": [
+        "cat /proc/raidstat",
+        "mdadm --detail /dev/md0",
+        "raidinfo /dev/md0",
+        "cat /sys/block/md0/raid_level",
+        "lsraid -v"
+      ],
+      "explanation": "mdadm --detail provides comprehensive status of a software RAID device",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command shows directory space usage?",
+      "answers": [
+        "du",
+        "df",
+        "ls -l",
+        "stat",
+        "diskusage"
+      ],
+      "explanation": "du shows directory space usage recursively",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command shows network interface statistics?",
+      "answers": [
+        "ifconfig",
+        "netstat -i",
+        "ip -s link",
+        "iostat",
+        "vmstat"
+      ],
+      "explanation": "Multiple commands show interface statistics",
+      "correct_response": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "question": "Which command shows process tree hierarchy?",
+      "answers": [
+        "pstree",
+        "ps -ef",
+        "top",
+        "htop",
+        "proc"
+      ],
+      "explanation": "pstree displays processes in tree format",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command shows system boot messages?",
+      "answers": [
+        "dmesg",
+        "bootlog",
+        "messages",
+        "syslog",
+        "journalctl"
+      ],
+      "explanation": "dmesg and journalctl show boot messages",
+      "correct_response": [
+        "a",
+        "e"
+      ]
+    },
+    {
+      "question": "Which command shows the current ulimit settings for a user session?",
+      "answers": [
+        "ulimit -a",
+        "limits -l",
+        "cat /etc/security/limits.conf",
+        "getrlimit",
+        "quota -u"
+      ],
+      "explanation": "ulimit -a displays all current resource limits for the shell session",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command shows the UUID of a block device?",
+      "answers": [
+        "blkid",
+        "lsblk -f",
+        "uuidgen",
+        "cat /dev/disk/by-uuid/*",
+        "Both A and B"
+      ],
+      "explanation": "Both blkid and lsblk -f display filesystem UUIDs",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "Which command starts a service?",
+      "answers": [
+        "systemctl start",
+        "service start",
+        "start-service",
+        "initctl start",
+        "sysctl start"
+      ],
+      "explanation": "systemctl start starts systemd services",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command will create a compressed archive of the directory /home/user/docs and all its contents, using the gzip algorithm, and name the archive docs.tar.gz?",
+      "answers": [
+        "tar -cvf docs.tar.gz /home/user/docs",
+        "tar -xvf docs.tar.gz /home/user/docs",
+        "tar -czvf docs.tar.gz /home/user/docs",
+        "tar -xzvf docs.tar.gz /home/user/docs",
+        "gzip -c /home/user/docs > docs.tar.gz"
+      ],
+      "explanation": "tar -czvf creates a gzip-compressed archive",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which command will disable swapping on a device?",
+      "answers": [
+        "swapoff"
+      ],
+      "explanation": "swapoff disables swap on the specified device",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command will disable swapping on a device?",
+      "answers": [
+        "swapoff",
+        "swapon -d",
+        "disable-swap",
+        "umount -s",
+        "systemctl stop swap"
+      ],
+      "explanation": "swapoff disables swap on the specified device or file",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command will display messages from the kernel that were output during the normal boot sequence?",
+      "answers": [
+        "dmesg"
+      ],
+      "explanation": "Shows the kernel ring buffer (boot messages)",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which commands are used to manage process priority in Linux?",
+      "answers": [
+        "nice",
+        "renice",
+        "priority",
+        "chprio",
+        "setprio"
+      ],
+      "explanation": "nice sets initial priority, renice changes the priority of a running process",
+      "correct_response": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "question": "Which Debian package management tool asks the configuration questions for a specific already installed package just as if the package were being installed for the first time?",
+      "answers": [
+        "dpkg-reconfigure"
+      ],
+      "explanation": "dpkg-reconfigure re-asks package configuration questions",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which directory contains kernel modules?",
+      "answers": [
+        "/lib/modules",
+        "/etc/modules",
+        "/usr/modules",
+        "/var/modules",
+        "/boot/modules"
+      ],
+      "explanation": "Kernel modules are stored in /lib/modules",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which directory contains system log files?",
+      "answers": [
+        "/var/log",
+        "/etc/log",
+        "/usr/log",
+        "/tmp/log",
+        "/home/log"
+      ],
+      "explanation": "/var/log is the standard location for system log files",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which directory contains systemd service files?",
+      "answers": [
+        "/etc/systemd/system",
+        "/usr/lib/systemd/system",
+        "/var/systemd",
+        "/lib/systemd",
+        "/opt/systemd"
+      ],
+      "explanation": "Service files are in /etc/systemd/system and /usr/lib/systemd/system",
+      "correct_response": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "question": "Which directory contains SysV init scripts?",
+      "answers": [
+        "/etc/rc.d",
+        "/etc/init.d",
+        "/etc/systemd",
+        "/etc/upstart",
+        "/etc/rc.local"
+      ],
+      "explanation": "/etc/init.d contains the SysV init service scripts",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which file contains DNS server configuration?",
+      "answers": [
+        "/etc/resolv.conf",
+        "/etc/hosts",
+        "/etc/network",
+        "/etc/dns.conf",
+        "/etc/hostname"
+      ],
+      "explanation": "/etc/resolv.conf specifies DNS nameservers",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file contains encrypted passwords?",
+      "answers": [
+        "/etc/passwd",
+        "/etc/shadow",
+        "/etc/group",
+        "/etc/security",
+        "/etc/login"
+      ],
+      "explanation": "/etc/shadow stores encrypted password hashes",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which file contains mounted file systems?",
+      "answers": [
+        "/proc/mounts",
+        "/etc/mtab",
+        "/etc/fstab",
+        "/var/mounts",
+        "/usr/mounts"
+      ],
+      "explanation": "/proc/mounts and /etc/mtab show currently mounted filesystems",
+      "correct_response": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "question": "Which file contains scheduled tasks for all users?",
+      "answers": [
+        "/etc/crontab",
+        "/var/spool/cron",
+        "/etc/cron.d",
+        "/usr/cron",
+        "/home/cron"
+      ],
+      "explanation": "System-wide cron jobs are in /etc/crontab and /etc/cron.d",
+      "correct_response": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "question": "Which file contains the date of the last change of a user's password?",
+      "answers": [
+        "/etc/passwd",
+        "/etc/shadow",
+        "/var/log/shadow",
+        "/etc/pwdlog",
+        "/var/log/auth.log"
+      ],
+      "explanation": "/etc/shadow stores password aging info including last change date",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which file contains the list of filesystems to be mounted at boot time?",
+      "answers": [
+        "/etc/mounts",
+        "/etc/fstab",
+        "/etc/mtab",
+        "/proc/mounts",
+        "/boot/grub/fstab"
+      ],
+      "explanation": "/etc/fstab defines persistent mount points and filesystems for boot",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which file defines user resource limits via PAM?",
+      "answers": [
+        "/etc/security/limits.conf",
+        "/etc/pam.d/limits",
+        "/etc/limits.conf",
+        "/etc/login.defs",
+        "/etc/profile"
+      ],
+      "explanation": "/etc/security/limits.conf is used by pam_limits to enforce resource restrictions",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file in the /proc filesystem lists parameters passed from the bootloader to the kernel?",
+      "answers": [
+        "cmdline"
+      ],
+      "explanation": "Bootloader parameters are in /proc/cmdline",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file should be edited to select the network locations from which Debian installation package files are loaded?",
+      "answers": [
+        "/etc/dpkg/dpkg.cfg",
+        "/etc/apt/apt.conf",
+        "/etc/apt/apt.conf.d",
+        "/etc/apt/sources.list",
+        "/etc/dpkg/dselect.cfg"
+      ],
+      "explanation": "Package sources are listed in /etc/apt/sources.list",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which file stores system-wide environment variables?",
+      "answers": [
+        "/etc/profile",
+        "/etc/bash.bashrc",
+        "/etc/environment",
+        "/home/.bashrc",
+        "/var/log/environment"
+      ],
+      "explanation": "/etc/environment contains system-wide environment variables",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which fstab field specifies the filesystem type?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "explanation": "Field 3 in /etc/fstab specifies the filesystem type (e.g., ext4, swap)",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which grep command will print only the lines that do not end with a / in the file foo?",
+      "answers": [
+        "grep '/$' foo",
+        "grep '/#' foo",
+        "grep -v '/$' foo",
+        "grep -v '/#' foo"
+      ],
+      "explanation": "Use grep -v '/$' to show lines that do not end with /",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which is a common best practice to automatically reduce disk usage associated with the storage of log files?",
+      "answers": [
+        "Use the logrotate utility to periodically rotate the log files.",
+        "Create a cron job that deletes all log files in the folder every day.",
+        "Delete the /var/log directory so the log files are prevented from being created.",
+        "Manually empty the log files every day of the week.",
+        "Compress rotated logs and keep limited rotated generations"
+      ],
+      "explanation": "logrotate automatically manages log file rotation and cleanup",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which keyword must be listed in the hosts option of the Name Service Switch configuration file in order to make host lookups consult the /etc/hosts file?",
+      "answers": [
+        "files",
+        "dns",
+        "nis",
+        "ldap",
+        "db"
+      ],
+      "explanation": "The 'files' keyword tells NSS to consult local files like /etc/hosts",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which mdadm command creates a RAID 5 array?",
+      "answers": [
+        "mdadm --create /dev/md0 --level=5 --raid-devices=4 /dev/sdb /dev/sdc /dev/sdd /dev/sde",
+        "mdadm --assemble /dev/md0 --level=5 /dev/sdb /dev/sdc /dev/sdd /dev/sde",
+        "mdadm --build /dev/md0 --level=5 /dev/sdb /dev/sdc /dev/sdd /dev/sde",
+        "mdadm --create /dev/md0 --level=1 --raid-devices=4 /dev/sdb /dev/sdc /dev/sdd /dev/sde",
+        "mdadm --create /dev/md0 --level=0 --raid-devices=4 /dev/sdb /dev/sdc /dev/sdd /dev/sde"
+      ],
+      "explanation": "This is the correct syntax for creating a RAID 5 array",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following are commonly used Mail Transfer Agent (MTA) applications?",
+      "answers": [
+        "Postfix",
+        "Procmail",
+        "Sendmail",
+        "Exim",
+        "SMTPd"
+      ],
+      "explanation": "Postfix, Sendmail, and Exim are popular open-source mail transfer agents",
+      "correct_response": [
+        "a",
+        "c",
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following are init systems used within Linux systems?",
+      "answers": [
+        "startd",
+        "systemd",
+        "Upstart",
+        "SysInit",
+        "SysV init"
+      ],
+      "explanation": "They are actual Linux init systems",
+      "correct_response": [
+        "b",
+        "c",
+        "e"
+      ]
+    },
+    {
+      "question": "Which of the following commands brings a system running SysV init into a state in which it is safe to perform maintenance tasks?",
+      "answers": [
+        "shutdown -R 1 now",
+        "shutdown -single now",
+        "init 1",
+        "telinit 1",
+        "runlevel 1"
+      ],
+      "explanation": "init/telinit 1 enter single-user maintenance",
+      "correct_response": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to create a USB storage media from a disk image?",
+      "answers": [
+        "gdisk",
+        "dd",
+        "cc",
+        "fdisk",
+        "mount"
+      ],
+      "explanation": "dd copies raw disk images to USB media",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the current disk usage of a filesystem?",
+      "answers": [
+        "df",
+        "du",
+        "fdisk",
+        "lsblk",
+        "parted"
+      ],
+      "explanation": "df shows disk free space and usage for mounted filesystems",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the current kernel version?",
+      "answers": [
+        "uname",
+        "top",
+        "vmstat",
+        "htop",
+        "ps"
+      ],
+      "explanation": "uname -r shows kernel version, uname -a shows all system information",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the current memory usage of the system?",
+      "answers": [
+        "free",
+        "top",
+        "vmstat",
+        "htop",
+        "ps"
+      ],
+      "explanation": "free, top, vmstat, and htop all show memory usage information",
+      "correct_response": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the last lines of a text file?",
+      "answers": [
+        "head",
+        "top",
+        "tail",
+        "less",
+        "more"
+      ],
+      "explanation": "tail shows the last N lines of a file (default 10)",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to limit the amount of memory a user may use?",
+      "answers": [
+        "umask",
+        "usermod",
+        "ulimit",
+        "passwd",
+        "chage"
+      ],
+      "explanation": "ulimit configures resource limits such as max memory for a shell/session",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to lock a user's account so that they cannot log into a Linux server without removing any files, folders, or data?",
+      "answers": [
+        "lock",
+        "usermod",
+        "userdel",
+        "chmod",
+        "usermod --expiredate"
+      ],
+      "explanation": "usermod -L locks a user account without removing data",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following commands changes the number of days before the ext3 filesystem on /dev/sda1 has to run through a full filesystem check while booting?",
+      "answers": [
+        "tune2fs -d 200 /dev/sda1",
+        "tune2fs -c 200 /dev/sda1",
+        "tune2fs -i 200 /dev/sda1",
+        "tune2fs -n 200 /dev/sda1",
+        "tune2fs --days 200 /dev/sda1"
+      ],
+      "explanation": "tune2fs -i sets the time interval between full checks (days)",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following commands creates an ext3 filesystem on /dev/sdb1?",
+      "answers": [
+        "/sbin/mke2fs -j /dev/sdb1",
+        "/sbin/mkfs -t ext3 /dev/sdb1",
+        "/sbin/mkfs -c ext3 /dev/sdb1",
+        "/sbin/mke3fs -j /dev/sdb1"
+      ],
+      "explanation": "Both mke2fs -j and mkfs -t ext3 create an ext3 filesystem",
+      "correct_response": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following commands is used to update the list of available packages when using dpkg based package management?",
+      "answers": [
+        "apt-get update",
+        "apt-get upgrade",
+        "apt-cache update",
+        "apt-get refresh",
+        "apt-cache upgrade"
+      ],
+      "explanation": "apt-get update refreshes the package list",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands kills the process with the PID 123 but allows the process to clean up before exiting?",
+      "answers": [
+        "kill -PIPE 123",
+        "kill -KILL 123",
+        "kill -STOP 123",
+        "kill -TERM 123"
+      ],
+      "explanation": "SIGTERM requests graceful termination allowing cleanup",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following commands reboots the system when using SysV init?",
+      "answers": [
+        "shutdown -r now",
+        "shutdown -r rebooting",
+        "telinit 6",
+        "telinit 0",
+        "shutdown -k now rebooting"
+      ],
+      "explanation": "Both invoke SysV reboot (shutdown -r and runlevel 6)",
+      "correct_response": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following commands will change the quota for a specific user?",
+      "answers": [
+        "edquota",
+        "repquota",
+        "quota -e",
+        "quota"
+      ],
+      "explanation": "edquota edits a user's quota settings",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands will write a message to the terminals of all logged in users?",
+      "answers": [
+        "bcast",
+        "mesg",
+        "print",
+        "wall",
+        "yell"
+      ],
+      "explanation": "wall broadcasts to all logged-in terminals",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following environment variables overrides or extends the list of directories holding shared libraries?",
+      "answers": [
+        "LD_LOAD_PATH",
+        "LD_LIB_PATH",
+        "LD_LIBRARY_PATH",
+        "LD_SHARE_PATH",
+        "LD_RUN_PATH"
+      ],
+      "explanation": "LD_LIBRARY_PATH overrides the shared-library search path",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following information is stored within the BIOS?",
+      "answers": [
+        "Boot device order",
+        "Linux kernel version",
+        "Timezone",
+        "Hardware configuration",
+        "The system's hostname"
+      ],
+      "explanation": "Stores boot order and hardware config",
+      "correct_response": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following IPv4 networks are reserved by IANA for private address assignment and private routing?",
+      "answers": [
+        "192.168.0.0/16",
+        "10.0.0.0/8",
+        "172.16.0.0/12",
+        "169.255.0.0/16",
+        "127.0.0.0/8"
+      ],
+      "explanation": "RFC 1918 defines three private IP ranges for internal networks",
+      "correct_response": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following is a solution to providing Internet access to a private network using only a single public IPv4 address?",
+      "answers": [
+        "Routing gateway",
+        "NAT gateway",
+        "Local area network",
+        "Virtual private network",
+        "Proxy server"
+      ],
+      "explanation": "NAT gateway translates private IPs to single public IP",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following Linux filesystems preallocates a fixed number of inodes at the filesystem's make/creation time and does NOT generate them as needed?",
+      "answers": [
+        "ext3",
+        "JFS",
+        "ext2",
+        "XFS",
+        "procfs"
+      ],
+      "explanation": "ext2 and ext3 preallocate inodes at creation time",
+      "correct_response": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "question": "Which option in /etc/fstab allows regular users to mount a filesystem?",
+      "answers": [
+        "user",
+        "users",
+        "owner",
+        "allow",
+        "mountable"
+      ],
+      "explanation": "The users option permits any user to mount and unmount the filesystem",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which option in /etc/fstab prevents a filesystem from being fsck'd at boot?",
+      "answers": [
+        "0 in the 6th field",
+        "nocheck",
+        "nofsck",
+        "pass=0",
+        "skipfsck"
+      ],
+      "explanation": "The 6th field (pass number) set to 0 skips fsck during boot",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which option to the yum command will update the entire system?",
+      "answers": [
+        "update"
+      ],
+      "explanation": "yum update upgrades the entire system",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which protocol is used for secure file transfer?",
+      "answers": [
+        "FTP",
+        "HTTP",
+        "SFTP",
+        "SMTP",
+        "SNMP"
+      ],
+      "explanation": "SFTP provides secure file transfer over SSH",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which runlevel corresponds to multi-user mode without GUI?",
+      "answers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
+      "explanation": "0 → Halt (shutdown), 1 → Single-user mode (maintenance mode, no networking),2 → Multi-user mode without networking (Debian-based),3 → Multi-user mode with networking, no GUI (text-based),5 → Multi-user mode with networking and GUI (graphical login)",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which shell command is used to continue background execution of a suspended command?",
+      "answers": [
+        "&",
+        "bg",
+        "cont",
+        "exec",
+        ":&"
+      ],
+      "explanation": "bg resumes a suspended job in the background",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which SysV init configuration file should be modified to disable the ctrl-alt-delete key combination?",
+      "answers": [
+        "/etc/keys",
+        "/proc/keys",
+        "/etc/inittab",
+        "/proc/inittab",
+        "/etc/reboot"
+      ],
+      "explanation": "Handled by /etc/inittab",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which type of filesystem is created by mkfs when it is executed with the block device name only and without any additional parameters?",
+      "answers": [
+        "ext2",
+        "ext3",
+        "ext4",
+        "XFS",
+        "VFAT"
+      ],
+      "explanation": "Default filesystem type is ext2 when mkfs called without type",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which utility is used to create public and private key pairs for SSH authentication?",
+      "answers": [
+        "adduser",
+        "ssh-keygen",
+        "keygen",
+        "ssh",
+        "puttygen"
+      ],
+      "explanation": "ssh-keygen generates SSH key pairs for authentication",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which utility is used to manage software RAID in Linux?",
+      "answers": [
+        "lvm",
+        "mdadm",
+        "parted",
+        "fdisk",
+        "raidctl"
+      ],
+      "explanation": "mdadm is the standard tool for creating and managing software RAID arrays",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which utility provides an improved, interactive version of the top command?",
+      "answers": [
+        "htop",
+        "itop",
+        "ptop",
+        "mtop",
+        "ctop"
+      ],
+      "explanation": "htop is a more feature-rich and interactive process viewer than top",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which world-writable directory should be placed on a separate partition in order to prevent users from being able to fill up the / filesystem?",
+      "answers": [
+        "/tmp"
+      ],
+      "explanation": "/tmp is world‑writable and should be on its own partition",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A host seems to be running slowly. What command would help diagnose which processes are using system resources?",
+      "answers": [
+        "df",
+        "free",
+        "uptime",
+        "top",
+        "htop"
+      ],
+      "explanation": "`top` provides a dynamic view of processes sorted by CPU/memory usage and is useful for diagnosing a slow system. `htop` is a user-friendly alternative.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "After installing the package 'postfix', what command would you run in order to ensure that Postfix is started on reboot?",
+      "answers": [
+        "/etc/init.d/enable postfix",
+        "enable postfix on",
+        "postfix -onboot yes",
+        "systemctl enable postfix",
+        "chkconfig --add postfix"
+      ],
+      "explanation": "`systemctl enable postfix` creates the necessary links so the Postfix service will start automatically at boot on systemd-based systems.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "An IT associate is researching technology options to use at a company. The company's application requires a Linux server, features a small memory footprint, and runs mostly web services and a few back-end applications. Which of the following would allow for the most efficient use of system resources and fast startup speeds?",
+      "answers": [
+        "Containers",
+        "Hybrid Cloud",
+        "Physical hardware",
+        "Virtualization",
+        "Serverless"
+      ],
+      "explanation": "Containers provide lightweight isolation with faster startup and more efficient resource usage compared to full virtual machines, making them suitable for compact web services.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "During the TCP three-way handshake, which TCP flag is set in the initial packet sent by the client to the server?",
+      "answers": [
+        "SYN",
+        "ACK",
+        "FIN",
+        "RST",
+        "SYN-ACK"
+      ],
+      "explanation": "The client begins the TCP three-way handshake with a packet that has the SYN flag set, the server replies with SYN+ACK.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the difference between systemctl start myservice and systemctl enable myservice?",
+      "answers": [
+        "start launches the service now, enable configures it to start automatically at boot.",
+        "start schedules the service to start at next boot, enable runs it immediately.",
+        "Both do the same thing.",
+        "start installs the service"
+      ],
+      "explanation": "`systemctl start` runs the service immediately. `systemctl enable` configures the unit to start automatically on boot (it does not start the service by itself unless combined with `--now`).",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "When you run a command with sudo (default configuration), what effect does it have?",
+      "answers": [
+        "It runs the command with the root user's effective privileges (UID 0) by default.",
+        "It permanently switches your login shell to root.",
+        "It creates a new user account named sudo.",
+        "It only logs the command but executes as the current user.",
+        "It runs the command as root but preserves the invoking user's environment only when configured"
+      ],
+      "explanation": "By default `sudo <cmd>` executes the command with root privileges (effective UID 0) for that invocation only, it does not change your shell permanently.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Where should an administrator place a custom systemd unit file (or a complete replacement unit) so it persists across package updates?",
+      "answers": [
+        "/etc/systemd/system/",
+        "/lib/systemd/system/",
+        "/usr/lib/systemd/system/",
+        "/var/run/systemd/",
+        "/etc/systemd/user/"
+      ],
+      "explanation": "Custom or overridden system unit files should be placed under `/etc/systemd/system/` so they are not overwritten during package updates which may update `/lib` or `/usr/lib`.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which are system administration best practices? (Select two)",
+      "answers": [
+        "Using root for daily tasks",
+        "Documenting configurations",
+        "Skipping security patches",
+        "Implementing least-privilege access",
+        "Maintaining change logs"
+      ],
+      "explanation": "Documenting configurations and following least-privilege principles (avoiding routine use of root) are core sysadmin best practices.",
+      "correct_response": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "question": "Which command displays the kernel ring buffer (boot and kernel messages) useful for hardware and driver troubleshooting?",
+      "answers": [
+        "dmesg",
+        "journalctl -xe",
+        "syslog",
+        "top",
+        "journalctl"
+      ],
+      "explanation": "`dmesg` prints kernel ring buffer messages,  `journalctl -k` or `journalctl -b` can also show boot/kernel messages from the systemd journal.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command is used to view and change kernel parameters at runtime (mapping to /proc/sys/*)?",
+      "answers": [
+        "sysctl",
+        "ifconfig",
+        "iptables",
+        "ulimit",
+        "echo to /proc/sys"
+      ],
+      "explanation": "`sysctl` reads/writes kernel parameters under /proc/sys, parameters can also be changed by writing to the corresponding files under /proc/sys.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command lists listening TCP and UDP sockets with numeric addresses (without attempting name resolution)?",
+      "answers": [
+        "ss -tuln",
+        "ps aux",
+        "netstat -a",
+        "ip route",
+        "ss -lunt"
+      ],
+      "explanation": "`ss -tuln` lists listening TCP/UDP sockets with numeric addresses (-n) and without resolving names. `netstat -tuln` provides similar output on older systems.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command shows systemd journal logs and supports filtering by unit or boot (useful for service troubleshooting)?",
+      "answers": [
+        "journalctl",
+        "tail",
+        "dmesg",
+        "logger",
+        "rsyslog"
+      ],
+      "explanation": "`journalctl` queries the systemd journal and supports unit/boot/time filtering (e.g., `journalctl -u sshd` or `journalctl -b`).",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which DNS record type maps a domain name to an IPv4 address?",
+      "answers": [
+        "A (Address) record",
+        "MX (Mail exchange) record",
+        "CNAME (Canonical name) record",
+        "TXT (Text) record",
+        "AAAA (IPv6 address) record"
+      ],
+      "explanation": "An A record maps a hostname to an IPv4 address. AAAA records are used for IPv6 addresses.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file contains the list of system user accounts, their UIDs, home directories and default shells (but not password hashes)?",
+      "answers": [
+        "/etc/passwd",
+        "/etc/shadow",
+        "/etc/group",
+        "/etc/login.defs",
+        "/etc/passwd.bak"
+      ],
+      "explanation": "`/etc/passwd` lists accounts, UIDs, home directories and shells. Password hashes are typically stored in `/etc/shadow` for security.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file is the default SSH server configuration file on most Linux distributions?",
+      "answers": [
+        "/etc/ssh/sshd_config",
+        "/etc/ssh/ssh_config",
+        "/etc/ssh/ssh_host_key",
+        "/etc/ssh/authorized_keys",
+        "/etc/ssh/sshd_config.d/50-custom.conf"
+      ],
+      "explanation": "`/etc/ssh/sshd_config` is the main SSH server configuration file. `ssh_config` is the client config. Systemd/distributions may also support drop-in directories like `/etc/ssh/sshd_config.d/`.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which functionality is provided by LVM (Logical Volume Manager)?",
+      "answers": [
+        "Create logical volumes that can be resized and snapshotted without repartitioning the underlying disks.",
+        "Encrypt file contents at the filesystem level by default.",
+        "Replace RAID controllers with software RAID only.",
+        "Manage cloud provider virtual machines.",
+        "Provide thin provisioning and snapshots"
+      ],
+      "explanation": "LVM allows flexible management of storage: creating logical volumes, resizing them, creating snapshots, and thin provisioning on top of physical volumes. It does not encrypt data by default.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which leading octal digit sets the setuid permission bit when applied to a file (e.g., 4755)?",
+      "answers": [
+        "4",
+        "2",
+        "1",
+        "7",
+        "setgid"
+      ],
+      "explanation": "The leading octal digit 4 sets the setuid bit (e.g., 4755 sets the setuid bit and typical file permissions). 2 sets setgid, 1 sets the sticky bit.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which systemd target corresponds to the traditional SysV runlevel 3 (multi-user text mode, no graphical session)?",
+      "answers": [
+        "multi-user.target",
+        "graphical.target",
+        "emergency.target",
+        "rescue.target",
+        "runlevel3.target"
+      ],
+      "explanation": "`multi-user.target` is equivalent to the traditional SysV runlevel 3: multi-user, non-graphical mode. `graphical.target` adds the graphical session.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which tool is commonly used to capture and analyze network packets on a Linux host for troubleshooting network issues?",
+      "answers": [
+        "tcpdump",
+        "iftop",
+        "top",
+        "traceroute",
+        "wireshark"
+      ],
+      "explanation": "`tcpdump` captures packets from the command line for analysis, `wireshark` provides GUI analysis. `iftop` shows bandwidth per connection but not packet captures.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which TCP/IP protocol is used for remote terminal connection service?",
+      "answers": [
+        "FTP",
+        "HTTP",
+        "SMTP",
+        "SSH",
+        "Telnet"
+      ],
+      "explanation": "SSH (Secure Shell) provides encrypted remote terminal access. Telnet provides legacy unencrypted terminal access but is insecure.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "The service used to translate a domain name to an IP address is called:",
+      "answers": [
+        "NIS",
+        "NFS",
+        "DNS",
+        "DHCP",
+        "Name Resolver"
+      ],
+      "explanation": "DNS (Domain Name System) translates domain names into IP addresses.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the name of the main configuration file for GNU GRUB?",
+      "answers": [
+        "menu.lst",
+        "grub.conf",
+        "grub.cfg",
+        "grub.d",
+        "grub.conf"
+      ],
+      "explanation": "menu.lst is the GRUB legacy main config",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the purpose of iptables?",
+      "answers": [
+        "Package management",
+        "User management",
+        "Firewall configuration",
+        "File compression",
+        "Process monitoring"
+      ],
+      "explanation": "iptables manages Linux kernel firewall rules",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the purpose of the /etc/crypttab file?",
+      "answers": [
+        "Defines encrypted swap",
+        "Lists LUKS volumes to unlock at boot",
+        "Configures SSL certificates",
+        "Manages GPG keys",
+        "Sets disk encryption policies"
+      ],
+      "explanation": "/etc/crypttab specifies encrypted block devices to be unlocked during system boot",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What does the setfacl -m u:alovelace:rw sandbox command do?",
+      "answers": [
+        "Removes all ACLs for alovelace",
+        "Gives alovelace read/write access to sandbox",
+        "Changes the owner of sandbox to alovelace",
+        "Sets the group of sandbox to alovelace",
+        "Modifies the immutable flag for alovelace"
+      ],
+      "explanation": "It modifies the ACL to give user alovelace read and write permissions",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "The practice of running multiple isolated virtual systems on a single physical machine is known as:",
+      "answers": [
+        "Containerization",
+        "Virtualization",
+        "Orchestration",
+        "Clustering",
+        "Consolidation"
+      ],
+      "explanation": "Virtualization runs multiple independent virtual machines on one physical host. Containerization is similar but uses OS-level isolation and is not the same as full VM virtualization.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is a virtual machine?",
+      "answers": [
+        "Emulated computer system",
+        "Physical server",
+        "Network device",
+        "Storage system",
+        "Security appliance"
+      ],
+      "explanation": "VMs are software-based computer systems",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the main configuration file for the Apache web server?",
+      "answers": [
+        "/etc/apache2/apache2.conf",
+        "/etc/httpd/httpd.conf",
+        "/etc/apache2/httpd.conf",
+        "/etc/httpd/apache2.conf",
+        "apache2.conf"
+      ],
+      "explanation": "Apache main config is `/etc/apache2/apache2.conf` on Debian-based systems (other distros may use `/etc/httpd/httpd.conf`).",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the main configuration file for the Nginx web server?",
+      "answers": [
+        "/etc/nginx/nginx.conf",
+        "/etc/nginx/conf.d/default.conf",
+        "/etc/nginx/sites-available/default",
+        "/etc/nginx/sites-enabled/default",
+        "nginx.conf"
+      ],
+      "explanation": "Nginx main config is `/etc/nginx/nginx.conf` on most systems.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file format is used for VMware virtual disks?",
+      "answers": [
+        "VMDK",
+        "VDI",
+        "QCOW2",
+        "IMG",
+        "ISO"
+      ],
+      "explanation": "VMDK is VMware's virtual disk format",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which hypervisor type runs directly on hardware?",
+      "answers": [
+        "Type 1 (bare-metal)",
+        "Type 2 (hosted)",
+        "Type 3 (embedded)",
+        "Type 4 (cloud)",
+        "Type 5 (mobile)"
+      ],
+      "explanation": "Type 1 hypervisors run directly on physical hardware",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command manages KVM virtual machines?",
+      "answers": [
+        "virsh",
+        "virt-manager",
+        "kvm",
+        "qemu",
+        "vmctl"
+      ],
+      "explanation": "virsh and virt-manager manage KVM VMs",
+      "correct_response": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "question": "In cloud networking, which component routes traffic between different subnets?",
+      "answers": [
+        "Router",
+        "Switch",
+        "Firewall",
+        "Load Balancer",
+        "Gateway"
+      ],
+      "explanation": "Routers connect and route traffic between different subnets",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which improve disaster recovery?",
+      "answers": [
+        "Daily backups stored onsite",
+        "Offsite backup replication",
+        "No backup testing",
+        "Documented recovery procedures",
+        "Regular recovery testing"
+      ],
+      "explanation": "Offsite replication protects against site failure and documented recovery procedures (plus regular testing) are essential to restore operations quickly.",
+      "correct_response": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "question": "A Linux administrator needs to display all active network interfaces on their system. Which command should they use?",
+      "answers": [
+        "netstat",
+        "ifconfig",
+        "iwconfig",
+        "nslookup"
+      ],
+      "explanation": "ifconfig (interface configuration) is a command used to configure, control, and query TCP/IP network interface parameters. It is commonly used to display all active network interfaces.\\nOption A is incorrect.\\nnetstat is used to display network connections, routing tables, interface statistics, masquerade connections, and multicast memberships, but it does not specifically display active network interfaces.\\nOption C is incorrect.\\niwconfig is used for configuring wireless network interfaces, which is more specific and does not cover all network interfaces.\\nOption D is incorrect.\\nnslookup is a network administration command-line tool used for querying the Domain Name System (DNS) to obtain domain name or IP address mapping, not for displaying network interfaces.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "A Linux administrator needs to kill a non-responsive process with a Process ID (PID) of 6789. Which command should they use?",
+      "answers": [
+        "kill 6789",
+        "ps 6789",
+        "top -p 6789",
+        "ifconfig"
+      ],
+      "explanation": "The kill command in Linux is used to terminate processes manually. kill 6789 will send a signal to the process with PID 6789 to terminate it.\\nOption B is incorrect.\\nps is used to display information about active processes, not to terminate them.\\nOption C is incorrect.\\ntop -p 6789 displays real-time information about the process with PID 6789, but it does not allow for terminating the process.\\nOption D is incorrect.\\nifconfig is used for configuring network interfaces and is unrelated to process management or termination.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux administrator wants to display the Media Access Control (MAC) address associated with the network interfaces on their system. Which command should they use?\\n\\r",
+      "answers": [
+        "ip addr",
+        "ifconfig",
+        "netstat",
+        "route"
+      ],
+      "explanation": "ifconfig (interface configuration) in Linux is used to configure, view, or control network interfaces. It displays various network data, including the MAC address of each interface.\\nOption A is incorrect.\\nip addr shows IP addresses and can be used to view MAC addresses, but ifconfig is more traditionally known and widely used for this purpose.\\nOption C is incorrect.\\nnetstat displays network connections, routing tables, and interface statistics, but it does not typically show MAC addresses.\\nOption D is incorrect.\\nroute shows or manipulates the IP routing table, but it does not display MAC addresses.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "A Linux system administrator needs to back up the /home directory to a mounted external drive located at /mnt/backup. Which command should they use?",
+      "answers": [
+        "cp -r /home /mnt/backup",
+        "mv /home /mnt/backup",
+        "rsync -a /home /mnt/backup",
+        "tar -czvf /mnt/backup/home.tar.gz /home"
+      ],
+      "explanation": "rsync -a /home /mnt/backup is the most suitable command for backing up a directory. The -a option ensures that the command archives the directory, preserving its structure, permissions, and other attributes.\\nOption A is incorrect.\\ncp -r /home /mnt/backup would copy the /home directory, but rsync is more efficient and provides more control over the backup process.\\nOption B is incorrect.\\nmv /home /mnt/backup would move the /home directory, not copy it, which is not a suitable method for creating a backup.\\nOption D is incorrect.\\ntar -czvf /mnt/backup/home.tar.gz /home would create a compressed archive, which is a valid backup method, but rsync is generally preferred for its efficiency and ability to perform incremental backups.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "A Linux system administrator needs to create a new user account named 'devuser' with a home directory and an interactive shell. Which command should they use?",
+      "answers": [
+        "useradd devuser",
+        "adduser devuser",
+        "groupadd devuser",
+        "passwd devuser"
+      ],
+      "explanation": "adduser devuser is the correct command to create a new user account on most Linux systems. This command automatically creates a home directory for the user and assigns a default shell.\\nOption A is incorrect.\\nuseradd devuser can create a new user, but by default, it might not create a home directory or assign a shell unless additional options are specified.\\nOption C is incorrect.\\ngroupadd devuser is used to create a new group, not a user account.\\nOption D is incorrect.\\npasswd devuser is used to set or change a user's password and does not create a new user account.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "A Linux system administrator needs to display detailed IP configuration information for all network interfaces on the system. Which command should they use?",
+      "answers": [
+        "ip addr show",
+        "ifconfig -a",
+        "netstat -i",
+        "iwconfig"
+      ],
+      "explanation": "ip addr show is used to display detailed IP configuration information for all network interfaces on a Linux system. It shows each interface along with its IP addresses, state (up/down), and other network details.\\nOption B is incorrect.\\nWhile ifconfig -a can also display network interface configurations, ip addr show is more modern and provides more detailed information, especially on systems where ifconfig is deprecated.\\nOption C is incorrect.\\nnetstat -i provides basic statistics for network interfaces, but it does not show detailed IP configuration like ip addr show.\\nOption D is incorrect.\\niwconfig is used for configuring wireless network interfaces and does not provide detailed information about all types of network interfaces.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux system administrator needs to display the IP address configuration of all network interfaces on the system. Which command should they use?",
+      "answers": [
+        "ifconfig -a",
+        "netstat -r",
+        "traceroute",
+        "iwconfig"
+      ],
+      "explanation": "ifconfig -a displays the configuration of all network interfaces, including those that are down, along with their IP addresses.\\nOption B is incorrect.\\nnetstat -r shows the routing table. It is useful for understanding network routing but does not display IP address configurations of network interfaces.\\nOption C is incorrect.\\ntraceroute is used to trace the path that an IP packet takes to reach a destination. It does not display network interface configurations.\\nOption D is incorrect.\\niwconfig is used for configuring wireless network interfaces. It does not display all network interface configurations, especially those of wired interfaces.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux system administrator needs to display the routing table on a server. Which command should they use?",
+      "answers": [
+        "netstat -r",
+        "ifconfig",
+        "ip addr",
+        "iwconfig"
+      ],
+      "explanation": "netstat -r is used to display the kernel routing table. It shows network interfaces, the IP address of the gateway if one exists, and various other network routing information, making it the correct tool for viewing the routing table.\\nOption B is incorrect.\\nifconfig is used for displaying and configuring network interfaces, but it does not show the routing table.\\nOption C is incorrect.\\nip addr displays information about network interfaces, including their IP addresses, but it does not show the routing table.\\nOption D is incorrect.\\niwconfig is used for configuring wireless network interfaces and does not display the routing table.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux system administrator needs to schedule a backup script named backup.sh located in /usr/local/bin to run daily at 2 AM. Which of the following crontab entries is correct for this task?",
+      "answers": [
+        "0 2 * * * /usr/local/bin/backup.sh",
+        "2 * * * * /usr/local/bin/backup.sh",
+        "* 2 * * * /usr/local/bin/backup.sh",
+        "@daily /usr/local/bin/backup.sh"
+      ],
+      "explanation": "The crontab format is minute hour day month day-of-week command. 0 2 * * * specifies that the command should run at 2 AM every day. Therefore, 0 2 * * * /usr/local/bin/backup.sh is the correct syntax to run the script daily at 2 AM.\\nOption B is incorrect.\\n2 * * * * would run the script every hour when the minute is 2, not at 2 AM every day.\\nOption C is incorrect.\\n* 2 * * * would run the script every minute of the 2nd hour of every day, not just once at 2 AM.\\nOption D is incorrect.\\n@daily runs once a day but does not specifically allow for scheduling at 2 AM, it typically defaults to midnight.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux system administrator notices that a server is running slowly. To investigate which processes are consuming the most CPU resources, which command should they use?",
+      "answers": [
+        "ps aux",
+        "top",
+        "df -h",
+        "ifconfig"
+      ],
+      "explanation": "The top command provides a dynamic, real-time view of the running system. It shows a list of processes and their resource usage, including CPU and memory, making it ideal for identifying processes that are consuming the most resources.\\nOption A is incorrect.\\nps aux shows information about current running processes, but it provides a static view and is less efficient for real-time monitoring compared to top.\\nOption C is incorrect.\\ndf -h displays the disk space usage of file systems, which is unrelated to CPU resource consumption.\\nOption D is incorrect.\\nifconfig is used for configuring network interfaces and does not provide information about CPU usage.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "A Linux system administrator suspects a file system issue on a server. To check and repair filesystem errors on the /dev/sda1 partition, which command should they use?",
+      "answers": [
+        "fsck /dev/sda1",
+        "chkdsk /dev/sda1",
+        "mount /dev/sda1",
+        "fdisk /dev/sda1"
+      ],
+      "explanation": "fsck (file system check) is used in Linux to check and repair filesystem errors. Running fsck /dev/sda1 will check the filesystem on the /dev/sda1 partition and repair any errors found.\\nOption B is incorrect.\\nchkdsk is a command used in Windows operating systems, not in Linux, for checking disk errors.\\nOption C is incorrect.\\nmount is used to mount filesystems, not for checking or repairing filesystem errors.\\nOption D is incorrect.\\nfdisk is a disk partitioning utility and does not check or repair filesystem errors.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux system administrator wants to display the status of all network interfaces, including those that are down. Which command should they use?\\n\\r",
+      "answers": [
+        "ifconfig -a",
+        "netstat -i",
+        "ip link show",
+        "iwconfig"
+      ],
+      "explanation": "ifconfig -a displays information about all network interfaces, regardless of their status (up or down). It is a comprehensive command for viewing network interface information.\\nOption B is incorrect.\\nnetstat -i shows network interfaces and statistics but does not display detailed information about interfaces that are down.\\nOption C is incorrect.\\nip link show is another way to display network interface information, but ifconfig -a is the more traditional command specifically known for showing all interfaces including those that are down.\\nOption D is incorrect.\\niwconfig is used for displaying and manipulating wireless network interfaces and does not provide comprehensive information about all network interfaces.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux user needs to view the details of all active network interfaces on their system. Which command should they use?",
+      "answers": [
+        "ifconfig",
+        "ip addr",
+        "netstat -i",
+        "iwconfig"
+      ],
+      "explanation": "ifconfig (interface configuration) is a command used to display and configure network interfaces on Unix and Unix-like systems. It shows details of all active network interfaces, including their IP addresses.\\nOption B is incorrect.\\nip addr is another command to display network interfaces, but ifconfig is the traditional and widely used command for this purpose.\\nOption C is incorrect.\\nnetstat -i displays network interfaces and statistics but does not provide detailed configuration information like ifconfig.\\nOption D is incorrect.\\niwconfig is used for configuring wireless network interfaces, which is more specific and does not cover all network interfaces.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux user wants to test the network connectivity between their machine and a remote server with the IP address 192.168.1.10. Which command should they use?",
+      "answers": [
+        "ping 192.168.1.10",
+        "nslookup 192.168.1.10",
+        "traceroute 192.168.1.10",
+        "ssh 192.168.1.10"
+      ],
+      "explanation": "The ping command is used to test network connectivity between the local machine and a specified remote host. In this case, ping 192.168.1.10 checks the connectivity to the server with that IP address.\\nOption B is incorrect.\\nnslookup is a tool for querying DNS servers to find out the IP address associated with a domain name or vice versa, but it does not test network connectivity.\\nOption C is incorrect.\\ntraceroute maps the journey that a packet of information undertakes from its source to the destination. While it can be used for diagnostic purposes, ping is more straightforward for simply testing connectivity.\\nOption D is incorrect.\\nssh (Secure Shell) is a protocol for securely accessing remote machines, not specifically for testing network connectivity.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator is investigating why a Linux server is running out of memory. Which command should they use to display the memory usage of currently running processes?",
+      "answers": [
+        "free -m",
+        "df -h",
+        "top",
+        "du -h"
+      ],
+      "explanation": "The top command provides a dynamic, real-time view of the system's running processes, including their memory usage. It is a vital tool for diagnosing memory usage issues, as it shows which processes are consuming the most memory.\\nOption A is incorrect.\\nfree -m shows the total memory usage, including free and used memory, but does not provide details about which processes are consuming memory.\\nOption B is incorrect.\\ndf -h displays disk space usage of mounted file systems, not memory usage.\\nOption D is incorrect.\\ndu -h shows the disk usage of files and directories, but it does not provide information about memory usage of running processes.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "A system administrator is troubleshooting network connectivity issues on a Linux server. To verify if the server can reach an external network, which command should they use?",
+      "answers": [
+        "ping 8.8.8.8",
+        "traceroute 8.8.8.8",
+        "netstat -r",
+        "ip addr"
+      ],
+      "explanation": "ping 8.8.8.8 (where 8.8.8.8 is a Google DNS server IP) is a simple and effective way to test if the server has external network connectivity. This command checks the reachability of the address and measures the round-trip time.\\nOption B is incorrect.\\ntraceroute 8.8.8.8 maps the journey that a packet takes to the destination but is more complex and not necessarily the first choice for simply verifying connectivity.\\nOption C is incorrect.\\nnetstat -r shows the routing table, which helps understand network routing but doesn't test network connectivity to external networks.\\nOption D is incorrect.\\nip addr shows the IP addresses assigned to network interfaces, useful for checking local network configuration but not for testing external connectivity.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator is troubleshooting network connectivity issues on a Linux server. To verify if the server can reach an external network, which command should they use?",
+      "answers": [
+        "ping 8.8.8.8",
+        "traceroute 8.8.8.8",
+        "netstat -r",
+        "ip addr"
+      ],
+      "explanation": "ping 8.8.8.8 (where 8.8.8.8 is a Google DNS server IP) is a simple and effective way to test if the server has external network connectivity. This command checks the reachability of the address and measures the round-trip time.\\nOption B is incorrect.\\ntraceroute 8.8.8.8 maps the journey that a packet takes to the destination but is more complex and not necessarily the first choice for simply verifying connectivity.\\nOption C is incorrect.\\nnetstat -r shows the routing table, which helps understand network routing but doesn't test network connectivity to external networks.\\nOption D is incorrect.\\nip addr shows the IP addresses assigned to network interfaces, useful for checking local network configuration but not for testing external connectivity.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator needs to change the ownership of a file named data.txt to a user named alice and a group named developers. Which command should they use?",
+      "answers": [
+        "chmod alice:developers data.txt",
+        "chown alice:developers data.txt",
+        "usermod -G developers alice",
+        "groupadd developers data.txt"
+      ],
+      "explanation": "The chown (change owner) command is used to change both the user and group ownership of a file. In this case, chown alice:developers data.txt will set the user ownership to alice and the group ownership to developers.\\nOption A is incorrect.\\nchmod changes the file permissions, not the file ownership.\\nOption C is incorrect.\\nusermod -G developers alice adds alice to the developers group but does not change the ownership of data.txt.\\nOption D is incorrect.\\ngroupadd developers data.txt would be an incorrect command syntax, groupadd is used to create a new group, not to change file ownership.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "A system administrator needs to create a new user named 'devuser' and assign a home directory. Which command should they use?",
+      "answers": [
+        "useradd -m devuser",
+        "adduser devuser",
+        "groupadd devuser",
+        "usermod -a -G devuser"
+      ],
+      "explanation": "useradd -m devuser is the correct command to create a new user named 'devuser' with a home directory. The -m option tells useradd to create the user's home directory.\\nOption B is incorrect.\\nWhile adduser devuser would also create a user with a home directory, it is more interactive and less commonly used in scripts or automated setups compared to useradd.\\nOption C is incorrect.\\ngroupadd devuser is used to create a new group, not a user account.\\nOption D is incorrect.\\nusermod -a -G devuser is used to add a user to a group, not to create a new user account.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator needs to diagnose a server's network issue by capturing and analyzing network packets. Which command should they use?",
+      "answers": [
+        "tcpdump",
+        "ifconfig",
+        "netstat",
+        "ping"
+      ],
+      "explanation": "tcpdump is a network packet analyzer that allows a user to display TCP/IP and other packets being transmitted or received over a network. It is a fundamental tool for diagnosing network issues through packet analysis.\\nOption B is incorrect.\\nifconfig is used for displaying and configuring network interfaces, but it does not capture network packets for analysis.\\nOption C is incorrect.\\nnetstat displays network connections, routing tables, and interface statistics but is not designed for capturing network packets.\\nOption D is incorrect.\\nping is used to test the reachability of a host on an IP network and measure the round-trip time for messages sent from the originating host to a destination computer, but it does not capture and analyze network packets.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator needs to monitor the real-time network traffic on an interface named eth0. Which command should they use?",
+      "answers": [
+        "tcpdump -i eth0",
+        "ifconfig eth0",
+        "netstat -i eth0",
+        "ip -s link show eth0"
+      ],
+      "explanation": "tcpdump -i eth0 is a command used to capture and display the network packets passing through the eth0 interface. It is a powerful tool for real-time network traffic analysis on a specific interface.\\nOption B is incorrect.\\nifconfig eth0 displays the current configuration for eth0 but does not capture or display real-time traffic.\\nOption C is incorrect.\\nnetstat -i eth0 provides basic statistics for the eth0 network interface, but it does not offer real-time monitoring of network traffic.\\nOption D is incorrect.\\nip -s link show eth0 displays statistics for the eth0 interface, but for real-time traffic analysis and packet capture, tcpdump -i eth0 is more appropriate.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator needs to monitor the real-time network traffic on interface eth0. Which command should they use?",
+      "answers": [
+        "tcpdump -i eth0",
+        "ifconfig eth0",
+        "netstat -i eth0",
+        "ip addr show eth0"
+      ],
+      "explanation": "tcpdump -i eth0 is used for capturing and displaying the network traffic passing through the eth0 interface. It is a powerful command for real-time network traffic analysis on specific interfaces.\\nOption B is incorrect.\\nifconfig eth0 displays the current configuration for eth0 but does not monitor real-time traffic.\\nOption C is incorrect.\\nnetstat -i eth0 provides basic statistics for network interfaces, but it does not offer real-time monitoring of network traffic.\\nOption D is incorrect.\\nip addr show eth0 displays the current IP configuration of eth0 but does not monitor live network traffic.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator needs to regularly check the health and disk space usage of the system's file systems. Which command should they use to display the amount of disk space used and available on all mounted file systems in a human-readable format?",
+      "answers": [
+        "df -h",
+        "du -h",
+        "ls -l",
+        "mount"
+      ],
+      "explanation": "The df -h (disk free) command is used to report the amount of disk space used and available on all mounted file systems in a human-readable format. The -h option ensures the output is easy to read (e.g., in KB, MB, GB).\\nOption B is incorrect.\\ndu -h (disk usage) estimates file space usage, typically for a specific directory or file, not for all mounted file systems.\\nOption C is incorrect.\\nls -l lists details of files and directories in the current directory, not disk space usage information.\\nOption D is incorrect.\\nmount displays mounted file systems but does not provide information about their disk space usage.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator needs to remotely access a Linux server from their Windows workstation. Which tool should they use for secure access?",
+      "answers": [
+        "SSH client (such as PuTTY)",
+        "FTP client",
+        "RDP client",
+        "SCP client"
+      ],
+      "explanation": "An SSH client, like PuTTY, is used for secure remote access to a Linux server from a Windows workstation. SSH (Secure Shell) provides a secure channel over an unsecured network, allowing administrators to manage servers remotely.\\nOption B is incorrect.\\nAn FTP client is used for file transfer and does not provide a terminal interface for server management.\\nOption C is incorrect.\\nRDP (Remote Desktop Protocol) clients are primarily used for accessing Windows systems, not Linux servers.\\nOption D is incorrect.\\nWhile SCP (Secure Copy Protocol) clients are used for secure file transfer, they do not provide interactive access to the server for administration tasks.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator needs to troubleshoot network connectivity issues on a Linux server. Which command should they use to test connectivity to an external server with the IP address 8.8.8.8?",
+      "answers": [
+        "traceroute 8.8.8.8",
+        "ping 8.8.8.8",
+        "netstat -r",
+        "ifconfig"
+      ],
+      "explanation": "The ping command is used to test the reachability of a host on an IP network. ping 8.8.8.8 checks whether the Linux server can reach the external server (in this case, Google's DNS server) and measures the round-trip time for messages sent from the originating host to a destination computer.\\nOption A is incorrect.\\ntraceroute 8.8.8.8 is used to trace the path packets take to a network host, which can be useful, but for basic connectivity testing, ping is more direct and appropriate.\\nOption C is incorrect.\\nnetstat -r shows the kernel routing table, which can help understand network routing but doesn't test network connectivity to external servers.\\nOption D is incorrect.\\nifconfig is used to configure and display network interface parameters and does not test network connectivity.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "A system administrator needs to update all currently installed packages to their latest available versions on a system running Ubuntu. Which command should they use?",
+      "answers": [
+        "apt-get upgrade",
+        "yum update",
+        "rpm -Uvh",
+        "dpkg -i"
+      ],
+      "explanation": "apt-get upgrade is used on Debian-based systems like Ubuntu to upgrade all installed packages to their latest versions available in the repositories. It is the standard command for system-wide package updates in these distributions.\\nOption B is incorrect.\\nyum update is used in Red Hat-based distributions (like CentOS or Fedora) for updating packages, not in Debian-based systems like Ubuntu.\\nOption C is incorrect.\\nrpm -Uvh is the command for upgrading an RPM package, but it does not automatically handle dependencies and is specific to RPM-based systems, not Debian-based systems like Ubuntu.\\nOption D is incorrect.\\ndpkg -i is used to install or update individual Debian package files (.deb) but is not used for updating all installed packages from the repositories.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator wants to display the MAC address of all network interfaces on a Linux server. Which command should they use?",
+      "answers": [
+        "ip link show",
+        "ifconfig -a",
+        "netstat -i",
+        "arp -a"
+      ],
+      "explanation": "ifconfig -a displays information about all network interfaces, including those that are down, and shows their MAC addresses, IP addresses, and other network information.\\nOption A is incorrect.\\nWhile ip link show can also display the MAC addresses, ifconfig -a is more traditionally known for this purpose, especially in environments where the ip utility might not be available.\\nOption C is incorrect.\\nnetstat -i shows network interfaces and statistics but does not display MAC addresses.\\nOption D is incorrect.\\narp -a shows the ARP cache, which maps IP addresses to MAC addresses, but it does not show the MAC addresses of the server's own network interfaces.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "A system administrator wants to monitor the amount of incoming and outgoing network traffic on all interfaces of a Linux server. Which command should they use?",
+      "answers": [
+        "netstat -i",
+        "ifconfig",
+        "tcpdump",
+        "ip -s link"
+      ],
+      "explanation": "The command ip -s link shows statistics (-s) for all network interfaces (link), making it suitable for monitoring the amount of incoming and outgoing traffic on all interfaces.\\nOption A is incorrect.\\nnetstat -i displays basic network interface statistics, such as the number of packets and errors, but it does not provide a comprehensive view of all traffic.\\nOption B is incorrect.\\nifconfig displays the current configuration for network interfaces but does not show detailed traffic statistics.\\nOption C is incorrect.\\ntcpdump captures and displays packet headers and content based on user-defined filters, but it is not the most straightforward tool for general traffic monitoring.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "A system administrator wants to test the network connectivity to an external server at IP address 192.168.1.1. Which command should they use?",
+      "answers": [
+        "ping 192.168.1.1",
+        "traceroute 192.168.1.1",
+        "netstat 192.168.1.1",
+        "ifconfig 192.168.1.1"
+      ],
+      "explanation": "ping 192.168.1.1 is used to test the network connectivity to a server. It sends ICMP echo requests to the specified address and listens for echo replies, helping determine if the target IP address is reachable.\\nOption B is incorrect.\\ntraceroute 192.168.1.1 traces the path that packets take to reach the host, which is useful for diagnosing the route taken to the destination but is more than needed for a basic connectivity test.\\nOption C is incorrect.\\nnetstat 192.168.1.1 is not a valid usage of netstat, as this command is used for displaying network connections, routing tables, and other network interface statistics.\\nOption D is incorrect.\\nifconfig 192.168.1.1 would be an incorrect usage of ifconfig, which is used to configure network interfaces, not to test network connectivity.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system fails to boot and drops into emergency mode. What should be your first troubleshooting step?",
+      "answers": [
+        "Check for disk errors using fsck",
+        "Modify /etc/hosts",
+        "Reinstall the GRUB bootloader",
+        "Run systemctl reboot"
+      ],
+      "explanation": "Emergency mode often indicates file system corruption or mount failure. Running fsck helps check and repair disks. Editing /etc/hosts or rebooting won't help directly. Reinstalling GRUB is only needed if the bootloader is corrupted, which isn't the immediate assumption.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A user reports that they cannot connect to a remote host via SSH. What is the first step you should take to begin troubleshooting?",
+      "answers": [
+        "Restart the sshd service",
+        "Reboot the remote host",
+        "Check the local network connectivity using ping",
+        "Check firewall rules on the server"
+      ],
+      "explanation": "Starting with basic connectivity is essential. ping helps confirm whether the remote host is reachable at all. Restarting services or rebooting might not be necessary and could disrupt other users. Firewall inspection is valuable but comes after confirming basic reachability.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "An administrator wants to change the owner of a file named project.txt to a user named jane. Which command should they use?",
+      "answers": [
+        "chown jane project.txt",
+        "chmod jane project.txt",
+        "chgrp jane project.txt",
+        "usermod jane project.txt"
+      ],
+      "explanation": "The chown (change owner) command is used to change the ownership of a file or directory. In this scenario, chown jane project.txt will change the ownership of the file project.txt to the user jane.\\nOption B is incorrect.\\nchmod is used to change file access permissions, not the ownership of a file.\\nOption C is incorrect.\\nchgrp changes the group ownership of a file, not the user ownership.\\nOption D is incorrect.\\nusermod is used to modify a user account, not to change file ownership.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "If a user cannot execute a script due to 'Permission denied', which command will likely solve the issue without modifying ownership?",
+      "answers": [
+        "chmod +x script.sh",
+        "chown user script.sh",
+        "chmod 777 script.sh",
+        "setfacl -m u:user:rwx script.sh"
+      ],
+      "explanation": "chmod +x script.sh gives execute permission. Changing ownership (chown) may not be appropriate. chmod 777 is insecure and overly permissive. setfacl can work but is more complex and not needed for simple cases.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To add a default gateway with the IP address 192.168.1.1 to a Linux system's network configuration, which command should a system administrator use?\\n\\r",
+      "answers": [
+        "route add default gw 192.168.1.1",
+        "ifconfig gw 192.168.1.1",
+        "netstat -r add 192.168.1.1",
+        "ip route add default via 192.168.1.1"
+      ],
+      "explanation": "The command route add default gw 192.168.1.1 is used to add a default gateway to the system's network configuration. This command specifies that 192.168.1.1 is the gateway for all traffic that doesn't match any other route.\\nOption B is incorrect.\\nifconfig is used to configure network interfaces and cannot be used to add a default gateway.\\nOption C is incorrect.\\nnetstat -r is used to display the kernel routing table and doesn't have the capability to add routes.\\nOption D is incorrect.\\nWhile ip route add default via 192.168.1.1 is a correct command in the ip utility suite, it is more modern and not as universally applicable as the route command.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To add a new cron job that executes a script every Monday at 8 AM, which line should the system administrator add to the crontab?",
+      "answers": [
+        "0 8 * * 1 /path/to/script",
+        "8 0 * * 1 /path/to/script",
+        "8 1 * * /path/to/script",
+        "1 * * * 8 /path/to/script"
+      ],
+      "explanation": "In crontab format, 0 8 * * 1 specifies that the job should run at 8:00 AM (minute 0 of hour 8) on every Monday (day 1 of the week). Thus, 0 8 * * 1 /path/to/script is the correct entry for this requirement.\\nOption B is incorrect.\\n8 0 * * 1 would set the cron job to run at 12:08 AM every Monday, not at 8:00 AM.\\nOption C is incorrect.\\n* 8 1 * * is an incorrect format and would attempt to run the job every minute during the 8th hour of the first day of each month.\\nOption D is incorrect.\\n1 * * * 8 is not a valid cron format as there is no 8th day of the week.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To assign a static IP address of 192.168.1.10 to a network interface named eth0, which file should a Linux system administrator edit on a system running a distribution like Ubuntu?",
+      "answers": [
+        "/etc/sysconfig/network-scripts/ifcfg-eth0",
+        "/etc/network/interfaces",
+        "/etc/resolv.conf",
+        "/etc/netplan/01-netcfg.yaml"
+      ],
+      "explanation": "On recent Ubuntu versions (starting from 17.10), network configuration is managed by Netplan. The administrator should edit /etc/netplan/01-netcfg.yaml (or a similar file in the /etc/netplan directory) to set a static IP address.\\nOption A is incorrect.\\n/etc/sysconfig/network-scripts/ifcfg-eth0 is typically found in Red Hat-based distributions, not in Ubuntu.\\nOption B is incorrect.\\n/etc/network/interfaces was used in older versions of Ubuntu (before 17.10) and other Debian-based distributions but has since been superseded by Netplan in newer Ubuntu versions.\\nOption C is incorrect.\\n/etc/resolv.conf is used for DNS configuration, not for assigning IP addresses to network interfaces.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "To change the hostname of a Linux system without requiring a reboot, which command should a system administrator use?",
+      "answers": [
+        "hostnamectl set-hostname new_hostname",
+        "echo new_hostname > /etc/hostname",
+        "ifconfig hostname new_hostname",
+        "nmcli general hostname new_hostname"
+      ],
+      "explanation": "hostnamectl set-hostname new_hostname is used to change the system's hostname. This command works on most modern Linux distributions and applies the change without requiring a reboot.\\nOption B is incorrect.\\nWhile writing directly to /etc/hostname can change the hostname, it is not the preferred method and may require other steps or a reboot for the change to take full effect.\\nOption C is incorrect.\\nifconfig is used for configuring network interfaces, not for changing the system hostname.\\nOption D is incorrect.\\nnmcli is a command-line tool for NetworkManager, but nmcli general hostname new_hostname is not the standard way to change the system's hostname.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To change the network interface eth0 to have a static IP address of 192.168.1.100, which command should a system administrator use on a system running Ubuntu 20.04?",
+      "answers": [
+        "Edit /etc/sysconfig/network-scripts/ifcfg-eth0",
+        "Edit /etc/network/interfaces",
+        "Edit a file in the /etc/netplan directory",
+        "Use ifconfig eth0 192.168.1.100"
+      ],
+      "explanation": "In Ubuntu 20.04, network configuration is managed by Netplan. The administrator should edit a YAML file in the /etc/netplan directory to set a static IP address for eth0.\\nOption A is incorrect.\\n/etc/sysconfig/network-scripts/ifcfg-eth0 is typically found in Red Hat-based distributions, not in Ubuntu.\\nOption B is incorrect.\\n/etc/network/interfaces was used in older versions of Ubuntu and other Debian-based distributions, but it has been replaced by Netplan in Ubuntu 20.04.\\nOption D is incorrect.\\nifconfig eth0 192.168.1.100 temporarily changes the IP address, but it will not persist after a reboot. The change should be made in Netplan configuration for persistence.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "To change the ownership of a file named document.txt to a user named john, which command should a Linux administrator use?",
+      "answers": [
+        "chown john document.txt",
+        "chmod john document.txt",
+        "usermod john document.txt",
+        "groupadd john document.txt"
+      ],
+      "explanation": "The chown (change owner) command is used to change the user and/or group ownership of a given file or directory. In this case, chown john document.txt will change the ownership of document.txt to the user john.\\nOption B is incorrect.\\nchmod is used to change file access permissions, not the ownership of a file.\\nOption C is incorrect.\\nusermod is used to modify a user account, not to change file ownership.\\nOption D is incorrect.\\ngroupadd is used to create a new group, not to change the ownership of a file.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To change the priority of a running process with a Process ID (PID) of 1234 to a lower priority, which command should a Linux administrator use?",
+      "answers": [
+        "kill -9 1234",
+        "nice -n 10 -p 1234",
+        "renice 10 1234",
+        "top -p 1234"
+      ],
+      "explanation": "The renice command is used to alter the priority of running processes. renice 10 1234 sets a new nice value of 10 for the process with PID 1234, thereby decreasing its priority.\\nOption A is incorrect.\\nkill -9 1234 forcibly terminates the process with PID 1234, but does not change its priority.\\nOption B is incorrect.\\nnice is used to start a process with a modified scheduling priority, but it cannot change the priority of an already running process.\\nOption D is incorrect.\\ntop -p 1234 displays real-time information about the process with PID 1234, but it does not allow changing its priority.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "To check and repair filesystem errors on the /dev/sda2 partition before mounting, which command should a system administrator use?",
+      "answers": [
+        "fsck /dev/sda2",
+        "mount /dev/sda2",
+        "chkdsk /dev/sda2",
+        "fdisk /dev/sda2"
+      ],
+      "explanation": "fsck (file system check) is used in Linux to check and repair filesystem errors on a specified partition. Running fsck /dev/sda2 checks and repairs filesystem errors on the /dev/sda2 partition.\\nOption B is incorrect.\\nmount /dev/sda2 is used to mount the filesystem and does not check or repair filesystem errors.\\nOption C is incorrect.\\nchkdsk is a command used in Windows operating systems, not in Linux, for checking disk errors.\\nOption D is incorrect.\\nfdisk /dev/sda2 is a partition manipulation program and does not check or repair filesystem errors.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To configure a new static IP address on a network interface eth0 in a system using Netplan, which file should a system administrator typically edit?",
+      "answers": [
+        "/etc/sysconfig/network-scripts/ifcfg-eth0",
+        "/etc/network/interfaces",
+        "A file in the /etc/netplan directory",
+        "/etc/resolv.conf"
+      ],
+      "explanation": "In systems using Netplan (common in newer Ubuntu versions), network configurations are managed in YAML files located in the /etc/netplan directory. Editing a file in this directory allows administrators to configure static IP addresses for network interfaces like eth0.\\nOption A is incorrect.\\n/etc/sysconfig/network-scripts/ifcfg-eth0 is used in Red Hat-based distributions, not in distributions that use Netplan.\\nOption B is incorrect.\\n/etc/network/interfaces was used in older Debian-based distributions before Netplan was introduced.\\nOption D is incorrect.\\n/etc/resolv.conf is used for DNS resolution configuration, not for setting static IP addresses.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "To determine the path that packets take to reach a specific remote host, which command should a Linux user execute?\\n\\r",
+      "answers": [
+        "ping",
+        "ifconfig",
+        "traceroute",
+        "netstat"
+      ],
+      "explanation": "traceroute is a network diagnostic tool used in Linux to display the route (path) and measure transit delays of packets across an IP network. It is specifically designed to show the path that packets take to a specified network host.\\nOption A is incorrect.\\nping is used to test the reachability of a host on an Internet Protocol (IP) network and measure the round-trip time for messages sent from the originating host to a destination computer, but it does not show the path of the packets.\\nOption B is incorrect.\\nifconfig is used to configure, control, and display network interface parameters, but it does not provide information about the path of network packets.\\nOption D is incorrect.\\nnetstat displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships, but it does not specifically show the path of packets to a remote host.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "To diagnose network connectivity and latency to an external server, which command should a system administrator use?",
+      "answers": [
+        "ping 8.8.8.8",
+        "ifconfig 8.8.8.8",
+        "netstat -r",
+        "traceroute 8.8.8.8"
+      ],
+      "explanation": "ping 8.8.8.8 is a command used to test network connectivity to an external server (in this case, Google's DNS server). It helps in diagnosing connectivity issues and measuring latency by sending ICMP echo requests and receiving echo replies.\\nOption B is incorrect.\\nifconfig is used to configure network interfaces, not to test network connectivity or latency.\\nOption C is incorrect.\\nnetstat -r displays the routing table, which is helpful for understanding network routes but does not diagnose connectivity or latency.\\nOption D is incorrect.\\nWhile traceroute 8.8.8.8 is used to trace the path packets take to a network host and can be helpful for diagnosing network issues, it is more complex than ping for simply testing connectivity and latency.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To diagnose network connectivity issues between their Linux machine and a remote server, a system administrator wants to trace the path that packets take to the remote server. Which command should they use?",
+      "answers": [
+        "traceroute [remote-server-address]",
+        "ping [remote-server-address]",
+        "netstat -s",
+        "ifconfig"
+      ],
+      "explanation": "traceroute [remote-server-address] is the appropriate command to diagnose network connectivity issues by tracing the path that packets take to a remote server. It provides a list of all the routers it passes through until it reaches the destination.\\nOption B is incorrect.\\nping is used to check the reachability of a host but does not provide information about the packet's path.\\nOption C is incorrect.\\nnetstat -s displays network statistics, but it does not trace the packet's route to a remote server.\\nOption D is incorrect.\\nifconfig is used to configure and display network interface parameters and is not a tool for tracing the network path to a remote server.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To diagnose network connectivity issues by sending echo request messages to a target host, which command should be used in Linux?",
+      "answers": [
+        "ping",
+        "nslookup",
+        "netstat",
+        "ifconfig"
+      ],
+      "explanation": "ping is used to send ICMP echo request messages to network hosts. This command helps diagnose the reachability of a host on an IP network.\\nOption B is incorrect.\\nnslookup is a tool for querying DNS to obtain the domain name or IP address mapping of a specific domain. It is not used for testing connectivity via ICMP messages.\\nOption C is incorrect.\\nnetstat displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships. It's more about network statistics than connectivity testing.\\nOption D is incorrect.\\nifconfig is used to configure, control, and query TCP/IP network interface parameters. While it can display network interface configurations, it does not send echo requests to diagnose network connectivity.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To display detailed information about all network interfaces, including inactive ones, on a Linux system, which command should a system administrator use?",
+      "answers": [
+        "ip addrg",
+        "ifconfig -ag",
+        "netstat -ig",
+        "iwconfig"
+      ],
+      "explanation": "ifconfig -a displays detailed information about all network interfaces, including those that are inactive or down. This command provides a comprehensive overview of network interfaces on the system.\\nOption A is incorrect.\\nip addr shows information about active network interfaces, but ifconfig -a is more traditionally known for showing both active and inactive interfaces.\\nOption C is incorrect.\\nnetstat -i shows basic statistics for network interfaces, but it doesn't provide as comprehensive a view as ifconfig -a.\\nOption D is incorrect.\\niwconfig is used for displaying and manipulating wireless network interfaces and does not provide information about all network interfaces, especially wired ones.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "To display the IP addresses and port numbers of all active (listening and non-listening) network connections, which command should a Linux administrator use?",
+      "answers": [
+        "netstat -a",
+        "ifconfig",
+        "ip addr",
+        "iwconfig"
+      ],
+      "explanation": "netstat -a displays all active listening and non-listening sockets. It shows the IP addresses and port numbers of all active network connections, making it a useful tool for monitoring network activity.\\nOption B is incorrect.\\nifconfig is primarily used for configuring and displaying network interface parameters and does not provide detailed information about active network connections.\\nOption C is incorrect.\\nip addr shows information about network interfaces, including their IP addresses, but it does not display active network connections and their port numbers.\\nOption D is incorrect.\\niwconfig is used for configuring wireless network interfaces and does not display information about all network connections.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To display the routing table in a Linux system, which command should a network administrator use?",
+      "answers": [
+        "ifconfig",
+        "netstat-r",
+        "arp",
+        "iwconfig"
+      ],
+      "explanation": "The netstat -r command in Linux is used to display the kernel routing table. It shows network interfaces, the IP address of the gateway if one exists, and various other network routing information.\\nOption A is incorrect.\\nifconfig is primarily used for displaying and configuring network interfaces, but it does not show the routing table.\\nOption C is incorrect.\\narp (Address Resolution Protocol) displays or manipulates the system's ARP cache, which is used for translating IP addresses into physical addresses. It does not display the routing table.\\nOption D is incorrect.\\niwconfig is used for configuring wireless network interfaces and does not display the routing table.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "To ensure a service named httpd starts automatically at system boot, which command should a Linux system administrator use?\\n\\r",
+      "answers": [
+        "systemctl enable httpd",
+        "systemctl start httpd",
+        "chkconfig httpd on",
+        "service httpd start"
+      ],
+      "explanation": "systemctl enable httpd is used to enable a service so that it starts automatically at system boot. This command configures the system to automatically start the httpd service during the boot process.\\nOption B is incorrect.\\nsystemctl start httpd starts the httpd service immediately but does not configure it to start automatically at boot.\\nOption C is incorrect.\\nchkconfig httpd on is used in older systems that use the SysV init system, while systemctl is used in systems with systemd.\\nOption D is incorrect.\\nservice httpd start only starts the service immediately and does not enable it to start automatically at boot.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To ensure all log files in /var/log are rotated weekly and kept for four weeks, which file should a system administrator edit?",
+      "answers": [
+        "/etc/logrotate.conf",
+        "/etc/crontab",
+        "/var/log/syslog",
+        "/etc/rsyslog.conf"
+      ],
+      "explanation": "/etc/logrotate.conf is the primary configuration file for the logrotate utility, which is used to manage log file rotation and archiving. Editing this file allows the administrator to set log rotation intervals and retention policies.\\nOption B is incorrect.\\n/etc/crontab is used for scheduling recurring tasks but does not directly manage log rotation policies.\\nOption C is incorrect.\\n/var/log/syslog is a log file itself and not a configuration file for log rotation.\\nOption D is incorrect.\\n/etc/rsyslog.conf is used to configure the rsyslog daemon's logging behavior but does not handle the rotation and retention of log files.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To monitor all incoming and outgoing network traffic in real-time on a specific network interface named eth0, which command should a Linux administrator use?\\n\\r",
+      "answers": [
+        "tcpdump -i eth0",
+        "ifconfig eth0",
+        "netstat -i eth0",
+        "ip addr show eth0"
+      ],
+      "explanation": "tcpdump -i eth0 is used for capturing and displaying the network traffic passing through the eth0 interface. It is a powerful tool for real-time network traffic analysis on specific interfaces.\\nOption B is incorrect.\\nifconfig eth0 displays the current configuration for eth0 but does not monitor real-time traffic.\\nOption C is incorrect.\\nnetstat -i eth0 provides basic statistics for network interfaces, but it does not offer real-time monitoring of network traffic.\\nOption D is incorrect.\\nip addr show eth0 displays the current IP configuration of eth0 but does not monitor live network traffic.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To permanently change the hostname on a Linux system without requiring a reboot, which command should a system administrator use?",
+      "answers": [
+        "hostnamectl set-hostname new_hostname",
+        "echo new_hostname > /etc/hostname",
+        "ifconfig hostname new_hostname",
+        "nmcli general hostname new_hostname"
+      ],
+      "explanation": "hostnamectl set-hostname new_hostname is used to change the system's hostname permanently. This command works on most modern Linux distributions and applies the change without requiring a reboot.\\nOption B is incorrect.\\nWhile writing directly to /etc/hostname can change the hostname, it is not the preferred method and may require other steps or a reboot for the change to take full effect.\\nOption C is incorrect.\\nifconfig is used for configuring network interfaces, not for changing the system hostname.\\nOption D is incorrect.\\nnmcli is a command-line tool for NetworkManager, but nmcli general hostname new_hostname is not the standard way to change the system's hostname.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To query the DNS and find out the IP address associated with a specific domain name, which command should a Linux user employ?",
+      "answers": [
+        "ping",
+        "ifconfig",
+        "nslookup",
+        "traceroute"
+      ],
+      "explanation": "nslookup (name server lookup) is a network administration command-line tool used for querying the Domain Name System (DNS) to obtain the IP address mapping or domain name of a specific host.\\nOption A is incorrect.\\nping is used to test the reachability of a host and measure the round-trip time, but it does not resolve domain names to IP addresses.\\nOption B is incorrect.\\nifconfig is used for displaying and configuring network interfaces, not for querying DNS information.\\nOption D is incorrect.\\ntraceroute traces the path that an IP packet follows to a destination but does not perform DNS lookups to find IP addresses of domain names.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "To schedule a task to be executed regularly at a specific time, which command should a Linux administrator use?",
+      "answers": [
+        "at",
+        "cron",
+        "nohup",
+        "nice"
+      ],
+      "explanation": "cron is used for scheduling tasks to be executed at regular intervals in Linux. It uses a crontab (cron table) file to manage the schedule of tasks.\\nOption A is incorrect.\\nat is used to schedule a task for a single occurrence at a specific time, not regularly.\\nOption C is incorrect.\\nnohup is used to run a command immune to hangups, but it does not schedule tasks.\\nOption D is incorrect.\\nnice is used to start a process with a modified scheduling priority, not for scheduling regular tasks.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "To set up a cron job that runs a script located at /home/devuser/backup.sh every day at 3 AM, which line should be added to the crontab file?",
+      "answers": [
+        "0 3 * * * /home/devuser/backup.sh",
+        "3 * * * * /home/devuser/backup.sh",
+        "@daily /home/devuser/backup.sh",
+        "* * 3 * * /home/devuser/backup.sh"
+      ],
+      "explanation": "The crontab format is minute hour day month day-of-week command. The entry 0 3 * * * specifies that the command should run at 3 AM every day. Therefore, 0 3 * * * /home/devuser/backup.sh is the correct syntax to run the script daily at 3 AM.\\nOption B is incorrect.\\n3 * * * * would run the script every hour when the minute is 3, not at 3 AM every day.\\nOption C is incorrect.\\n@daily is a valid shorthand for once a day, but it typically runs at a default time (often midnight), not specifically at 3 AM.\\nOption D is incorrect.\\n* * 3 * * would run the script every minute of the 3rd hour of every day, which is not the intended schedule.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To temporarily increase the verbosity of kernel messages on a running system for debugging purposes, which command should a system administrator use?",
+      "answers": [
+        "dmesg -n 7",
+        "sysctl -w kernel.printk=7 7 7 7",
+        "modprobe verbose",
+        "echo 7 > /proc/sys/kernel/printk"
+      ],
+      "explanation": "echo 7 > /proc/sys/kernel/printk is used to temporarily increase the verbosity level of kernel messages. The command writes the value 7 (which corresponds to the debug level) to the kernel parameter controlling the log level.\\nOption A is incorrect.\\ndmesg -n 7 sets the level of messages output to the console but does not increase the verbosity of kernel messages for logging purposes.\\nOption B is incorrect.\\nsysctl -w kernel.printk=7 7 7 7 is a valid method for changing kernel logging levels, but it is more complex and not as direct as writing to /proc/sys/kernel/printk.\\nOption C is incorrect.\\nmodprobe verbose is not a standard command for adjusting kernel message verbosity. modprobe is used for handling loadable kernel modules.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "To test network connectivity and measure the round-trip time to reach a specific destination, which command should a Linux user employ?",
+      "answers": [
+        "ping",
+        "traceroute",
+        "dig",
+        "ssh"
+      ],
+      "explanation": "ping is used to test the reachability of a host on an Internet Protocol (IP) network and measures the round-trip time for messages sent from the originating host to a destination computer.\\nOption B is incorrect.\\ntraceroute is used to display the route and measure transit delays of packets across an IP network. While it does test network connectivity, it doesn't primarily focus on measuring round-trip time like ping.\\nOption C is incorrect.\\ndig (Domain Information Groper) is a network administration command-line tool for querying the DNS, not for testing network connectivity or measuring round-trip time.\\nOption D is incorrect.\\nssh (Secure Shell) is a protocol for securely getting access to a remote computer, and is not used for testing network connectivity or measuring round-trip time.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To update the package database and upgrade all packages to their latest versions on a Debian-based system, which command sequence should a system administrator use?\\n\\r",
+      "answers": [
+        "apt-get update, apt-get upgrade",
+        "yum update",
+        "rpm -u",
+        "dpkg --upgrade-all"
+      ],
+      "explanation": "On Debian-based systems (such as Ubuntu), the command apt-get update updates the package database, and apt-get upgrade upgrades all installed packages to their latest versions. The semicolon allows both commands to be executed sequentially in one line.\\nOption B is incorrect.\\nyum update is used on Red Hat-based systems (like CentOS or Fedora), not on Debian-based systems.\\nOption C is incorrect.\\nrpm -u upgrades an individual RPM package, but it does not handle dependency resolution and is not a command used for general system updates.\\nOption D is incorrect.\\ndpkg --upgrade-all is not a valid command. dpkg is used in Debian-based systems but typically for handling individual .deb packages.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To view the current routing table in a Linux system, which command should a system administrator use?",
+      "answers": [
+        "route -n",
+        "ifconfig -a",
+        "ip route show",
+        "netstat -r"
+      ],
+      "explanation": "ip route show is used to display the routing table in a Linux system. It provides detailed information about network routes, including the destination network, gateway, and the interface used for the routes.\\nOption A is incorrect.\\nroute -n can also display the routing table, but ip route show is becoming the more modern and preferred command as the route command is deprecated in many Linux distributions.\\nOption B is incorrect.\\nifconfig -a displays all network interfaces and their configurations, but it does not show the routing table.\\nOption D is incorrect.\\nnetstat -r displays the kernel routing table, but ip route show is more direct and provides a clearer view of the routing table.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "To view the list of recently logged in users on a Linux system, which command should an administrator use?",
+      "answers": [
+        "last",
+        "who",
+        "w",
+        "users"
+      ],
+      "explanation": "The last command displays a list of all users who recently logged in (and out) of the system, showing the login time, logout time, and duration of each session. It reads from the /var/log/wtmp file.\\nOption B is incorrect.\\nwho shows who is currently logged in to the system, but it does not provide historical login information.\\nOption C is incorrect.\\nw displays who is logged on and what they are doing, focusing more on current activity, not historical logins.\\nOption D is incorrect.\\nusers shows the users currently logged into the system but does not provide information about their login sessions or history.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the /etc/fstab file primarily control?",
+      "answers": [
+        "System boot order",
+        "Mounted filesystems",
+        "Running services",
+        "Network interfaces"
+      ],
+      "explanation": "/etc/fstab defines static mount points for filesystems to be mounted at boot. It does not control boot order (GRUB does), services (systemd), or network interfaces (/etc/network, NetworkManager).",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is stored in the /var/log directory?",
+      "answers": [
+        "System and application logs",
+        "User documents",
+        "Installed software",
+        "Temporary files"
+      ],
+      "explanation": "/var/log contains logs from the system and services. User docs go in /home, software in /usr, and temporary files in /tmp.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the function of the mount command?",
+      "answers": [
+        "Attaches a filesystem to a directory",
+        "Lists current processes",
+        "Installs a software package",
+        "Displays disk usage"
+      ],
+      "explanation": "mount connects a device or filesystem to a directory in the Linux filesystem hierarchy. It doesn't manage processes (ps does), install software (apt, dnf), or display usage (df, du).",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the primary purpose of implementing regular system backups in system security?",
+      "answers": [
+        "To enhance the processing speed of the system",
+        "To increase the system's storage capacity",
+        "To ensure data recovery in case of system failures or data loss",
+        "To improve the accuracy of data analysis"
+      ],
+      "explanation": "The primary purpose of implementing regular system backups is to ensure data recovery in the event of system failures, data corruption, or loss. Regular backups provide a means to restore data to its last known good state, which is crucial for maintaining data integrity and continuity.\\nOption A is incorrect.\\nEnhancing the processing speed of the system is not the objective of system backups, their focus is on data recovery.\\nOption B is incorrect.\\nIncreasing the system's storage capacity is not the goal of regular backups. Backups are meant for data safety, not for expanding storage.\\nOption D is incorrect.\\nImproving the accuracy of data analysis is not a direct purpose of system backups. Their primary role is in safeguarding data against loss or corruption.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the purpose of the systemctl is-active command?",
+      "answers": [
+        "Starts a service",
+        "Checks if a service is running",
+        "Restarts a service",
+        "Lists all enabled services"
+      ],
+      "explanation": "systemctl is-active returns active if a service is running. It doesn't start or restart services. To list all enabled services, you'd use systemctl list-unit-files --type=service --state=enabled.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command displays current IP address information on a modern Linux system?",
+      "answers": [
+        "ping",
+        "ifconfig",
+        "ip a",
+        "traceroute"
+      ],
+      "explanation": "ip a is the modern and recommended command for showing IP info. ifconfig is deprecated, ping checks connectivity, and traceroute tracks the route to a destination but doesn't show local IP info.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which command is used to test the network connectivity between two systems?",
+      "answers": [
+        "ip",
+        "ifconfig",
+        "ping",
+        "ss"
+      ],
+      "explanation": "ping sends ICMP echo requests to test connectivity and response time. ip manages network configs, ifconfig is legacy, and ss is for socket statistics.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which command is used to view system log messages in real-time on a system using systemd?",
+      "answers": [
+        "journalctl -xe",
+        "dmesg --follow",
+        "tail -f /var/log/messages",
+        "journalctl -f"
+      ],
+      "explanation": "journalctl -f follows the systemd journal in real-time, equivalent to tail -f. journalctl -xe shows the most recent logs with errors. dmesg --follow is kernel-only and tail -f /var/log/messages may not work if systemd is in use and the journal is not forwarded there.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which command would you use to restart the networking service on a system using systemd?",
+      "answers": [
+        "service network restart",
+        "/etc/init.d/network restart",
+        "systemctl restart network.service",
+        "restart networking"
+      ],
+      "explanation": "systemctl restart network.service is the correct systemd syntax for restarting the network service. The other options are either SysV-style (/etc/init.d/) or incorrect command syntaxes.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which file stores a persistent hostname configuration on most modern Linux systems?",
+      "answers": [
+        "/etc/hostname",
+        "/etc/hosts",
+        "/etc/network/interfaces",
+        "/etc/resolv.conf"
+      ],
+      "explanation": "/etc/hostname stores the system's persistent hostname. /etc/hosts maps hostnames to IPs. /etc/network/interfaces is used on Debian-based systems for network interfaces. /etc/resolv.conf is for DNS configuration, not the hostname.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands helps identify the process using a specific network port?",
+      "answers": [
+        "netstat -tuln",
+        "ss -plnt",
+        "ip a",
+        "lsof -i :port"
+      ],
+      "explanation": "ss -plnt shows listening ports and processes. lsof -i :port shows the process using a specific port. netstat -tuln shows ports but not processes unless used with -p. ip a shows interface info, not ports.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which tool can be used to configure IP addresses and routes on a Linux system using modern command syntax?",
+      "answers": [
+        "ifconfig",
+        "ip",
+        "nmcli",
+        "netstat"
+      ],
+      "explanation": "ip and nmcli are modern tools. ip configures interfaces, addresses, and routes directly. nmcli works with NetworkManager. ifconfig and netstat are deprecated and replaced by ip and ss.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "You suspect a DNS issue is preventing hostname resolution. What command helps diagnose DNS resolution problems?",
+      "answers": [
+        "ping 127.0.0.1",
+        "traceroute google.com",
+        "dig google.com",
+        "ip addr show"
+      ],
+      "explanation": "dig queries DNS servers directly and provides detailed resolution info. ping 127.0.0.1 only tests local IP stack. traceroute follows the route but doesn't show DNS details. ip addr show shows interface addresses, unrelated to DNS.",
+      "correct_response": [
+        "c"
+      ]
+    }
+  ]
+}

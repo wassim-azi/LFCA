@@ -1,0 +1,734 @@
+{
+  "questions": [
+    {
+      "question": "What does the acronym ADR stand for in software architecture documentation?",
+      "answers": [
+        "Application Deployment Record",
+        "Architecture Decision Record",
+        "Agile Delivery Report",
+        "Acceptance Definition Reference",
+        "Architecture Decision Log"
+      ],
+      "explanation": "ADR stands for Architecture Decision Record, a lightweight document that captures a significant architectural decision with context and consequences, the other options are unrelated.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which open-source license obligates derivative works to be distributed under the same license (strong copyleft)?",
+      "answers": [
+        "MIT License",
+        "Apache License 2.0",
+        "GPLv3",
+        "BSD 3-Clause",
+        "Mozilla Public License 2.0"
+      ],
+      "explanation": "GPLv3 is strong copyleft requiring derivatives to remain GPL, MIT Apache and BSD are permissive, MPL is weak copyleft.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In Scrum, who is directly responsible for maximizing product value and ordering the product backlog?",
+      "answers": [
+        "Scrum Master",
+        "Product Owner",
+        "Development Team Lead",
+        "Project Sponsor",
+        "Stakeholders"
+      ],
+      "explanation": "The Product Owner maximizes value and orders the backlog, Scrum Master facilitates, others do not own backlog ordering.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which UML diagram primarily shows object interactions arranged in chronological order (time axis)?",
+      "answers": [
+        "Class diagram",
+        "Sequence diagram",
+        "Activity diagram",
+        "Component diagram",
+        "State machine diagram"
+      ],
+      "explanation": "Sequence diagrams show time-ordered messages among objects, the others model structure, states, or activities.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following are examples of non-functional requirements?",
+      "answers": [
+        "API must respond within 200 ms under normal load",
+        "System must support 1,000 concurrent users",
+        "User shall be able to reset their password",
+        "System shall be implemented with React",
+        "Service availability of 99.9% (SLA)"
+      ],
+      "explanation": "Non-functional requirements describe quality attributes like performance, scalability, and availability, password reset is functional, picking React is a design constraint not a quality attribute.",
+      "correct_response": [
+        "a",
+        "b",
+        "e"
+      ]
+    },
+    {
+      "question": "Which estimation technique uses a deck of relative numeric cards and team consensus to assign story points?",
+      "answers": [
+        "COCOMO",
+        "Planning poker",
+        "PERT analysis",
+        "Waterfall estimation",
+        "Function point analysis"
+      ],
+      "explanation": "Planning Poker uses cards and consensus to estimate story points, the others are different estimation techniques.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which items would be appropriate to include in a pre-deployment functional acceptance checklist?",
+      "answers": [
+        "All user acceptance test (UAT) scenarios marked as passed",
+        "No critical or high severity defects remain open",
+        "Security vulnerability scan completed and failing items unresolved",
+        "Deployment rollback procedure documented and tested",
+        "Acceptance criteria documented and signed off"
+      ],
+      "explanation": "A good acceptance checklist includes passed UAT, no critical defects, a tested rollback, and signed-off acceptance criteria, unresolved security findings should be addressed before go-live.",
+      "correct_response": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ]
+    },
+    {
+      "question": "Which methodology uses sprints?",
+      "answers": [
+        "Waterfall",
+        "Agile",
+        "Six Sigma",
+        "PRINCE2",
+        "ITIL"
+      ],
+      "explanation": "Sprints are a core practice in Agile frameworks like Scrum, the others do not use sprints.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Functional analysis focuses on:",
+      "answers": [
+        "Budget allocation",
+        "System requirements and user needs",
+        "Server procurement",
+        "Network topology",
+        "Coding style guidelines"
+      ],
+      "explanation": "Functional analysis captures what users need and what the system must do, not procurement or topology details.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Open-source licenses like GPL require:",
+      "answers": [
+        "Payment per user",
+        "Sharing modifications under the same license",
+        "Commercial use prohibition",
+        "Vendor support contracts",
+        "Code must be closed source"
+      ],
+      "explanation": "Copyleft requires sharing modifications under the same license, it does not mandate payment, prohibit commercial use, or require vendor contracts.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Architectural design in software projects determines:",
+      "answers": [
+        "Team salaries",
+        "System structure and technology choices",
+        "Marketing strategy",
+        "Customer support hours",
+        "Visual design and branding"
+      ],
+      "explanation": "Architecture defines the system structure and key technology decisions, not business operations or branding.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "The most critical factor when adopting open-source software is:",
+      "answers": [
+        "Logo popularity",
+        "License compatibility with business goals",
+        "Number of GitHub stars",
+        "Developer nationality",
+        "Programming language popularity"
+      ],
+      "explanation": "Ensuring the license aligns with intended use, modification, and distribution is paramount, popularity signals are secondary.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "An IT team is implementing a custom software platform. Which of the following is considered a functional requirement?",
+      "answers": [
+        "Identifying the purpose of the proposed system.",
+        "Identifying the users of the proposed system.",
+        "Identifying the development methodology.",
+        "Identifying the technology stack.",
+        "The system shall allow users to submit support tickets."
+      ],
+      "explanation": "Functional requirements state observable system behavior such as allowing users to submit tickets, the other options are planning or design activities.",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "OSS stands for:",
+      "answers": [
+        "Open System Software",
+        "Open Source Software",
+        "Operating System Service",
+        "Online Secure Service",
+        "Open Services Strategy"
+      ],
+      "explanation": "OSS means Open Source Software.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is a key advantage of using Open Source Software?",
+      "answers": [
+        "Its source code is proprietary and protected.",
+        "Its source code is available for viewing, modification, and distribution.",
+        "It is always more secure than closed-source software.",
+        "It requires no maintenance.",
+        "It always includes commercial support."
+      ],
+      "explanation": "Open source provides access to source for use and modification, it is not guaranteed more secure, maintenance-free, or commercially supported.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is NOT a major benefit of designing a safe system of work culture?",
+      "answers": [
+        "Complexity of your systems will be managed.",
+        "The DevOps team no longer needs to be careful to ensure quality.",
+        "Problems are quickly resolved while they are small.",
+        "Leaders develop other leaders who improve safe systems.",
+        "Teams learn from incidents and improve."
+      ],
+      "explanation": "A safety culture does not remove the need for care and quality, the other statements are actual benefits.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following is a primary factor in a typical conflict between development and operations teams in traditional IT organizations?",
+      "answers": [
+        "They come from different educational backgrounds.",
+        "They have conflicting business goals and priorities.",
+        "The development team knows more about software products.",
+        "The operations team knows more about test environments.",
+        "Different programming languages are used."
+      ],
+      "explanation": "Dev wants rapid change and features while Ops values stability and reliability, which creates goal conflict.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "According to PMBOK, which phase involves defining the project scope and objectives?",
+      "answers": [
+        "Initiating",
+        "Planning",
+        "Executing",
+        "Monitoring and Controlling",
+        "Closing"
+      ],
+      "explanation": "In Initiating the charter defines objectives and high-level scope, detailed scope is elaborated in Planning.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which project management methodology uses iterative sprints and daily stand-ups?",
+      "answers": [
+        "Scrum",
+        "Waterfall",
+        "Kanban",
+        "PRINCE2",
+        "Extreme Programming (XP)"
+      ],
+      "explanation": "Scrum defines timeboxed sprints and daily scrums, Waterfall and PRINCE2 do not, Kanban has flow without timeboxed sprints by default.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "In functional analysis, which document outlines the user's needs and system requirements?",
+      "answers": [
+        "Software Requirements Specification (SRS)",
+        "Project charter",
+        "Architecture diagram",
+        "Test plan",
+        "User manual"
+      ],
+      "explanation": "An SRS captures functional and non-functional requirements, charters set vision and authorization, others are not requirements specs.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which software architecture breaks an application into independent, loosely coupled services?",
+      "answers": [
+        "Microservices",
+        "Monolithic",
+        "Client-server",
+        "Layered",
+        "Service Oriented Architecture (SOA)"
+      ],
+      "explanation": "Microservices decompose applications into independent services that can be deployed and scaled separately.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which open source license requires derivative works to be distributed under the same license terms?",
+      "answers": [
+        "GPL",
+        "MIT",
+        "Apache 2.0",
+        "BSD 3-Clause",
+        "MPL 2.0"
+      ],
+      "explanation": "GPL is strong copyleft, MIT Apache and BSD are permissive, MPL is weak copyleft.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "In IT project management, which process identifies potential threats and their impacts?",
+      "answers": [
+        "Risk identification",
+        "Procurement planning",
+        "Stakeholder analysis",
+        "Quality assurance",
+        "Schedule compression"
+      ],
+      "explanation": "Risk identification determines possible risks and their impacts to feed risk analysis and response.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which tool is commonly used for agile project tracking with boards and cards?",
+      "answers": [
+        "Jira",
+        "Trello",
+        "Microsoft Project",
+        "Git",
+        "Jenkins"
+      ],
+      "explanation": "Jira is widely used for Scrum and Kanban boards, Trello is lightweight but Jira is the common enterprise tool, others serve different purposes.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "An IT team is currently implementing a custom software platform to address some key needs of the company. Which of the following is considered a functional requirement?",
+      "answers": [
+        "Identifying the purpose of the proposed system",
+        "Identifying the users of the proposed system",
+        "Identifying the development methodology",
+        "Identifying the technology stack of the proposed system",
+        "Identifying system constraints and functional goals"
+      ],
+      "explanation": "Functional requirements define what the system should do",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What software application architecture allows teams to iterate quickly and to develop software applications to scale rapidly?",
+      "answers": [
+        "Serverless architecture",
+        "Container architecture",
+        "SOA architecture",
+        "Micro-service architecture",
+        "Monolithic architecture"
+      ],
+      "explanation": "Microservice architecture enables rapid iteration and scalable development",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which Agile artifact is a prioritized, ordered list of desired product features/user stories maintained by the Product Owner?",
+      "answers": [
+        "Product backlog",
+        "Sprint backlog",
+        "Release notes",
+        "Requirements traceability matrix",
+        "Burndown chart"
+      ],
+      "explanation": "The Product Backlog is the ordered list owned by the Product Owner, Sprint Backlog is the plan for a sprint, the others are not backlogs.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which Agile framework commonly uses timeboxed iterations called sprints (usually 1–4 weeks) and defined roles such as Product Owner and Scrum Master?",
+      "answers": [
+        "Scrum",
+        "Waterfall",
+        "Kanban (no sprints by default)",
+        "Spiral",
+        "Lean"
+      ],
+      "explanation": "Scrum uses timeboxed sprints and roles like Product Owner and Scrum Master, Kanban has continuous flow by default.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which are project constraints? (Select two)",
+      "answers": [
+        "Scope",
+        "Team morale",
+        "Time",
+        "Office location",
+        "Quality"
+      ],
+      "explanation": "Classic constraints include scope and time (and cost), team morale and office location are not core constraints, quality is managed but not typically listed as a primary constraint in the triple constraint.",
+      "correct_response": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "question": "Which artifact is typically written as 'As a <role>, I want <feature>, so that <benefit>' in Agile and captures a discrete functional requirement?",
+      "answers": [
+        "User story",
+        "Use case diagram",
+        "Gantt chart",
+        "Test plan",
+        "Definition of Done"
+      ],
+      "explanation": "That sentence structure is the common user story template, the others are different artifacts.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which type of open-source license requires derivative works be distributed under the same license terms when redistributed (strong copyleft)?",
+      "answers": [
+        "GPL (GNU General Public License / copyleft)",
+        "MIT (permissive)",
+        "BSD (permissive)",
+        "Public domain",
+        "Creative Commons BY"
+      ],
+      "explanation": "GPL is strong copyleft, MIT BSD and Public Domain are permissive or unlicensed, CC BY is not a software license.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which UML diagram type best represents interactions among objects over time showing message order?",
+      "answers": [
+        "Sequence diagram",
+        "Class diagram",
+        "Use case diagram",
+        "Activity diagram",
+        "Deployment diagram"
+      ],
+      "explanation": "Sequence diagrams show messages over time, the others show static structure, high-level use cases, workflows, or deployment nodes.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which are open-source licenses? (Select two)",
+      "answers": [
+        "MIT",
+        "SaaS",
+        "Apache 2.0",
+        "AWS",
+        "Proprietary EULA"
+      ],
+      "explanation": "MIT and Apache 2.0 are OSI-approved open-source licenses, SaaS and AWS are service models, a proprietary EULA is not open source.",
+      "correct_response": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "question": "Which statement correctly defines Recovery Time Objective (RTO) and Recovery Point Objective (RPO) used in disaster recovery planning?",
+      "answers": [
+        "RTO = maximum acceptable downtime before services are restored, RPO = maximum acceptable data loss measured in time.",
+        "RTO = maximum acceptable data loss, RPO = maximum acceptable downtime.",
+        "RTO = backup frequency, RPO = backup retention period.",
+        "RTO and RPO are interchangeable terms.",
+        "They are set by the backup vendor."
+      ],
+      "explanation": "RTO is how long you can be down, RPO is how much data you can afford to lose measured in time, the other statements mix or misuse the terms.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "How does functional decomposition benefit the software development process?",
+      "answers": [
+        "By prioritizing the visual design elements of the user interface",
+        "By breaking down complex systems into simpler, more manageable components",
+        "By outlining the financial budget and resource allocation for the project",
+        "By specifying the programming languages to be used for each module"
+      ],
+      "explanation": "Functional decomposition benefits the software development process by breaking down complex systems into simpler, more manageable components. This approach helps in understanding, developing, and maintaining the system by focusing on smaller, functional parts, making it easier to assign, manage, and track progress.\\nOption A is incorrect.\\nFunctional decomposition is more about breaking down system functionality, not prioritizing visual design elements.\\nOption C is incorrect.\\nOutlining the financial budget and resource allocation is part of project management, not directly related to functional decomposition.\\nOption D is incorrect.\\nSpecifying programming languages for each module is more related to technical planning rather than the process of functional decomposition.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In functional analysis, what is the purpose of creating user stories?",
+      "answers": [
+        "To document the technical specifications for system hardware",
+        "To provide detailed descriptions of code implementation strategies",
+        "To capture the software's requirements from the end-user's perspective in a narrative format",
+        "To create a detailed marketing plan for the software product"
+      ],
+      "explanation": "The purpose of creating user stories in functional analysis is to capture the software's requirements from the end-user's perspective in a narrative format. User stories describe the type of user, what they want, and why they want it, providing a simple, clear, and concise description of a feature.\\nOption A is incorrect.\\nUser stories are not meant to document technical specifications for system hardware but to describe functionality from the user's point of view.\\nOption B is incorrect.\\nUser stories focus on the needs and goals of the user, rather than on detailed descriptions of code implementation.\\nOption D is incorrect.\\nCreating a marketing plan is not the purpose of user stories, they are used to define software requirements.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In open-source software, what is the primary restriction of permissive licenses like the MIT License?",
+      "answers": [
+        "The software must be distributed for free, without any monetization",
+        "Modifications to the software must be documented and publicly disclosed",
+        "The original authors must be credited when the software or its derivatives are distributed",
+        "Any derivative works must also be open-source and free to use"
+      ],
+      "explanation": "The primary restriction of permissive licenses like the MIT License is that they require the original authors to be credited when the software or its derivatives are distributed. Permissive licenses are generally very flexible, allowing for private use, modification, and redistribution, but they stipulate that the original authors' copyright notices and permissions must be included in all copies or substantial portions of the Software.\\nOption A is incorrect.\\nPermissive licenses do not require that the software be distributed for free or without monetization.\\nOption B is incorrect.\\nThere is no requirement under permissive licenses like the MIT License to document and publicly disclose modifications.\\nOption D is incorrect.\\nPermissive licenses typically do not require derivative works to be open-source or free, unlike copyleft licenses like the GPL.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In software application architecture, what is a key advantage of using a monolithic architecture?",
+      "answers": [
+        "It inherently eliminates all single points of failure",
+        "It is inherently more scalable than microservices architecture",
+        "Simplicity in development and deployment for smaller applications",
+        "It requires less coordination between different application components"
+      ],
+      "explanation": "A key advantage of using a monolithic architecture in software application architecture is its simplicity in development and deployment, particularly for smaller applications. Monolithic architecture can be easier to develop, test, and deploy as it involves a single, unified code base, making it a good choice for less complex applications.\\nOption A is incorrect.\\nMonolithic architectures can have single points of failure, as the entire application is interconnected.\\nOption B is incorrect.\\nMonolithic architectures are not inherently more scalable than microservices, in fact, microservices often offer better scalability.\\nOption D is incorrect.\\nMonolithic architectures require significant coordination between components as they are part of a single codebase.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In software application architecture, what is the primary advantage of the client-server model?",
+      "answers": [
+        "It requires all processing to be done on the client side",
+        "It allows for centralized data management and resource sharing",
+        "It mandates the use of a specific programming language for development",
+        "It eliminates the need for network-based communication between components"
+      ],
+      "explanation": "The primary advantage of the client-server model in software application architecture is that it allows for centralized data management and resource sharing. In this model, a server hosts resources and services that are consumed by client applications. This centralization facilitates efficient data management, better resource utilization, and easier maintenance.\\nOption A is incorrect.\\nThe client-server model typically involves processing both on the client side and the server side, not exclusively on the client.\\nOption C is incorrect.\\nThe client-server model does not mandate the use of a specific programming language, it's a structural approach to designing software systems.\\nOption D is incorrect.\\nNetwork-based communication is a fundamental aspect of the client-server model, not something it eliminates.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In software project management, what is the main purpose of the Agile methodology?",
+      "answers": [
+        "To follow a strict, sequential approach to software development",
+        "To allow for more flexibility and adaptability in response to changing requirements",
+        "To prioritize comprehensive documentation over working software",
+        "To eliminate the need for regular communication with stakeholders"
+      ],
+      "explanation": "The main purpose of the Agile methodology in software project management is to allow for more flexibility and adaptability in response to changing requirements. Agile focuses on iterative development, customer collaboration, and responsiveness to change, rather than adhering to a rigidly planned approach.\\nOption A is incorrect.\\nAgile methodology does not follow a strict, sequential approach, this is more characteristic of traditional methodologies like Waterfall.\\nOption C is incorrect.\\nAgile methodology values working software over comprehensive documentation, contrary to what this option suggests.\\nOption D is incorrect.\\nRegular communication with stakeholders is a key component of Agile methodology, not something it seeks to eliminate.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In the context of functional analysis for software development, what is the primary purpose of a use case?",
+      "answers": [
+        "To define the technical specifications for system hardware",
+        "To detail the sequence of actions a system performs to achieve a specific goal from an end-user perspective",
+        "To serve as a legal contract between the development team and the client",
+        "To outline the marketing strategies for the software product"
+      ],
+      "explanation": "The primary purpose of a use case in functional analysis for software development is to detail the sequence of actions that the system performs, along with the end-user interactions, to achieve a specific goal. This helps in understanding how the system should behave and the requirements it must fulfill from the user's perspective.\\nOption A is incorrect.\\nDefining technical specifications for system hardware is not the focus of a use case, which is more concerned with software functionality from the user's standpoint.\\nOption C is incorrect.\\nA use case is a tool for understanding user requirements and system behavior, not a legal contract.\\nOption D is incorrect.\\nOutlining marketing strategies is not the objective of a use case in functional analysis.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In the context of software application architecture, what is a significant advantage of using a layered architecture model?",
+      "answers": [
+        "It ensures that all layers are completely independent and isolated",
+        "It allows for a high degree of coupling between various components",
+        "It provides a clear separation of concerns, making maintenance and updates more manageable",
+        "It requires no planning for data persistence and security"
+      ],
+      "explanation": "The significant advantage of using a layered architecture model in software application development is the clear separation of concerns it provides. Each layer (like presentation, business logic, data access) has a specific role and responsibility, making the system more organized, which in turn simplifies maintenance and updates.\\nOption A is incorrect.\\nWhile layers are separate, they are not completely independent, they interact and depend on each other.\\nOption B is incorrect.\\nA high degree of coupling is generally discouraged in good software design. Layered architecture aims to reduce coupling by separating concerns.\\nOption D is incorrect.\\nPlanning for data persistence and security is necessary in any architecture model, including layered architecture.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In the context of software project management, what is the primary advantage of the Kanban methodology?",
+      "answers": [
+        "To enforce strict timelines for each phase of development",
+        "To improve workflow efficiency and visualize work in progress",
+        "To eliminate the need for regular team meetings and status updates",
+        "To focus solely on automated testing of software"
+      ],
+      "explanation": "The primary advantage of the Kanban methodology in software project management is to improve workflow efficiency and visualize work in progress. Kanban helps teams monitor the flow of work, identify bottlenecks, and achieve a more balanced and continuous workflow, typically using a Kanban board.\\nOption A is incorrect.\\nEnforcing strict timelines for each phase is not the focus of Kanban, it is more about continuous workflow and efficiency.\\nOption C is incorrect.\\nKanban does not eliminate the need for team meetings or status updates, these are still important for communication and coordination.\\nOption D is incorrect.\\nFocusing solely on automated testing is not the goal of Kanban, which is a method for managing and visualizing the flow of work.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In the context of software project management, what is the primary focus of risk management?",
+      "answers": [
+        "To eliminate all potential risks in a project",
+        "To ensure the project uses the latest technology available",
+        "To identify, analyze, and prioritize risks for mitigation or contingency planning",
+        "To focus solely on financial risks associated with the project"
+      ],
+      "explanation": "The primary focus of risk management in software project management is to identify, analyze, and prioritize risks. This involves assessing potential risks that might impact the project, determining their likelihood and potential impact, and planning how to mitigate or prepare for these risks to minimize their impact on the project's success.\\nOption A is incorrect.\\nWhile risk management aims to minimize risks, it is not always possible to eliminate all potential risks in a project.\\nOption B is incorrect.\\nThe use of the latest technology is not the primary focus of risk management, which is more concerned with assessing and handling potential project risks.\\nOption D is incorrect.\\nWhile financial risks are a consideration, risk management in software project management encompasses a broader range of risks, not just financial.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What distinguishes a Service-Oriented Architecture (SOA) in software application development?",
+      "answers": [
+        "The use of a single monolithic service for all functionalities",
+        "Integration of various services, each providing a specific functionality, into a cohesive application",
+        "Complete avoidance of any network-based communication between components",
+        "Focus on standalone applications without integration capabilities"
+      ],
+      "explanation": "Service-Oriented Architecture (SOA) in software application development is distinguished by the integration of various services, where each service is designed to provide a specific piece of functionality. These services are combined to form a cohesive application, with SOA focusing on ease of integration and reuse of these modular services.\\nOption A is incorrect.\\nSOA involves multiple services rather than a single monolithic service.\\nOption C is incorrect.\\nSOA typically involves network-based communication between its components, not the avoidance of it.\\nOption D is incorrect.\\nSOA is centered around integration and interaction of services, not on standalone applications.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is a key benefit of using the Scrum framework in software project management?",
+      "answers": [
+        "To ensure the project follows a strict, waterfall model of development",
+        "To provide flexibility and adapt to changes quickly through iterative development",
+        "To avoid regular communication and updates between team members and stakeholders",
+        "To focus exclusively on long-term planning without the need for short-term adjustments"
+      ],
+      "explanation": "A key benefit of using the Scrum framework in software project management is its ability to provide flexibility and adapt to changes quickly. Scrum emphasizes iterative development, allowing teams to respond to changes and feedback rapidly. This agility ensures that the project can pivot as required to meet evolving needs and deliver value consistently.\\nOption A is incorrect.\\nScrum does not follow a strict, waterfall model, it is an agile methodology that emphasizes flexibility and iterative development.\\nOption C is incorrect.\\nRegular communication and updates are a fundamental part of the Scrum framework, enhancing collaboration and transparency.\\nOption D is incorrect.\\nScrum focuses on both short-term and long-term planning, with the flexibility to make adjustments as the project progresses.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is a key characteristic of software released under the GNU General Public License (GPL)?",
+      "answers": [
+        "The software can be modified and redistributed, but the source code must remain private",
+        "The software and any derivatives must be distributed under the same license terms",
+        "Redistribution of the software is prohibited under any circumstances",
+        "The software can be integrated into proprietary software without restrictions"
+      ],
+      "explanation": "A key characteristic of software released under the GNU General Public License (GPL) is that it allows for modification and redistribution, but both the original software and any derivative works must be distributed under the same GPL terms. This ensures that the freedoms to use, modify, and distribute the software are preserved.\\nOption A is incorrect.\\nGPL requires that the source code be made available when the software or its derivatives are distributed, not kept private.\\nOption C is incorrect.\\nGPL does not prohibit redistribution, it actually encourages it under the same licensing terms.\\nOption D is incorrect.\\nIntegrating GPL-licensed software into proprietary software usually requires the proprietary software to be released under GPL as well, which often is a restriction for proprietary developers.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is a key characteristic of the Waterfall model in software project management?",
+      "answers": [
+        "Iterative development with frequent releases",
+        "Emphasis on client involvement throughout the project",
+        "A linear and sequential approach to software development",
+        "Flexibility to go back to previous phases during development"
+      ],
+      "explanation": "The key characteristic of the Waterfall model in software project management is its linear and sequential approach. The project phases (such as requirements gathering, design, implementation, testing, and maintenance) follow one after the other in a strict order, with each phase generally completed before the next one begins.\\nOption A is incorrect.\\nIterative development with frequent releases is a characteristic of Agile methodologies, not the Waterfall model.\\nOption B is incorrect.\\nWhile client involvement can be a part of many methodologies, it is not a defining characteristic of the Waterfall model, which is more known for its structured and sequential phases.\\nOption D is incorrect.\\nFlexibility to go back to previous phases is not typical of the Waterfall model, which usually follows a rigid, one-directional flow.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the main purpose of creating a functional specification in software development?",
+      "answers": [
+        "To detail the exact code to be written for each function",
+        "To describe the software's intended functionality and its requirements",
+        "To focus exclusively on the hardware requirements for the software",
+        "To serve as a legal agreement between the development team and stakeholders"
+      ],
+      "explanation": "The main purpose of creating a functional specification in software development is to describe the software's intended functionality and its requirements. It serves as a guide for development, outlining what the software should do, how it should behave, and the features it needs to satisfy user requirements.\\nOption A is incorrect.\\nFunctional specifications outline the intended functionality, not the exact code to be written.\\nOption C is incorrect.\\nWhile hardware requirements may be a part of the overall specifications, the functional specification primarily focuses on software functionality.\\nOption D is incorrect.\\nA functional specification is a technical document, not typically a legal agreement between the development team and stakeholders.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the primary characteristic of a microservices architecture in software application development?",
+      "answers": [
+        "A single, monolithic codebase for all application components",
+        "Independent deployment of small, modular services",
+        "Centralized data management for all application services",
+        "No need for continuous integration and delivery practices"
+      ],
+      "explanation": "The primary characteristic of a microservices architecture in software application development is the independent deployment of small, modular services. Each service in a microservices architecture is developed, deployed, and managed independently, allowing for greater flexibility and scalability compared to monolithic architectures.\\nOption A is incorrect.\\nA single, monolithic codebase is characteristic of monolithic architecture, not microservices architecture.\\nOption C is incorrect.\\nMicroservices architecture typically involves decentralized data management, with each service managing its own data.\\nOption D is incorrect.\\nContinuous integration and delivery practices are often crucial in managing microservices due to their independent and distributed nature.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the primary goal of using Scrum in software project management?",
+      "answers": [
+        "To ensure that all software projects follow the same standardized process",
+        "To provide a framework for delivering software incrementally and managing complex projects",
+        "To eliminate the need for project reviews and retrospectives",
+        "To focus exclusively on the technical aspects of software development"
+      ],
+      "explanation": "The primary goal of using Scrum in software project management is to provide a framework that helps teams in delivering software incrementally and managing complex projects effectively. Scrum promotes an iterative and collaborative approach, with regular check-ins (Sprints), to ensure continuous progress and adaptability.\\nOption A is incorrect.\\nScrum does not enforce a standardized process for all software projects, it provides a flexible framework adaptable to various project needs.\\nOption C is incorrect.\\nScrum includes regular project reviews and retrospectives as essential elements for continuous improvement, not something it seeks to eliminate.\\nOption D is incorrect.\\nWhile technical aspects are important, Scrum focuses on the overall management of the project, including teamwork, communication, and iterative progress.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the role of functional requirements in the software development process?",
+      "answers": [
+        "To describe how the software system should operate from the user's perspective",
+        "To specify the color schemes and graphics of the user interface",
+        "To document the financial budget for the software project",
+        "To outline the preferred programming languages and development tools"
+      ],
+      "explanation": "The role of functional requirements in the software development process is to describe how the software system should operate from the user's perspective. They specify what the system should do, the actions it must be able to perform, and the functionality it needs to provide to meet the users' needs.\\nOption B is incorrect.\\nSpecifying color schemes and graphics is more related to the design aspects of the user interface, not the functional requirements of the system.\\nOption C is incorrect.\\nDocumenting the financial budget is part of project management, not functional requirements.\\nOption D is incorrect.\\nOutlining preferred programming languages and tools is more related to technical requirements than functional requirements.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Why is the Model-View-Controller (MVC) architecture pattern commonly used in web application development?",
+      "answers": [
+        "To ensure the application uses the same codebase for multiple platforms",
+        "To enhance security by merging business logic with user interface components",
+        "To separate an application into three interconnected components, improving modularity",
+        "To centralize all application functionality into a single module for simplicity"
+      ],
+      "explanation": "The Model-View-Controller (MVC) architecture pattern is commonly used in web application development to separate an application into three interconnected components (Model, View, Controller), which improves modularity. This separation facilitates easier maintainability, scalability, and distribution of development roles and responsibilities.\\nOption A is incorrect.\\nWhile MVC can be adaptable to multiple platforms, its primary purpose is to provide a separation of concerns within the application architecture.\\nOption B is incorrect.\\nMVC enhances an application's organization by separating business logic (Model) from user interface components (View), not by merging them.\\nOption D is incorrect.\\nMVC aims to decentralize functionality into distinct modules, not centralize it into a single module.",
+      "correct_response": [
+        "c"
+      ]
+    }
+  ]
+}

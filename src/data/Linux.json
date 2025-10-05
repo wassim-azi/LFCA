@@ -1,0 +1,3194 @@
+{
+  "questions": [
+    {
+      "question": "Which command displays free disk space for mounted filesystems in human-readable units?",
+      "answers": [
+        "du -sh /",
+        "df -h",
+        "lsblk",
+        "fdisk -l",
+        "du -h --max-depth=1 /"
+      ],
+      "explanation": "df -h reports filesystem-level usage (size/used/avail) in human-readable units, du reports directory sizes.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What octal permission mode corresponds to rwxr-x---?",
+      "answers": [
+        "750",
+        "755",
+        "640",
+        "700",
+        "0770"
+      ],
+      "explanation": "rwx=7 for owner, r-x=5 for group, ---=0 for others → octal 750.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command creates a hard link named file2 that points to an existing file file1?",
+      "answers": [
+        "ln file1 file2",
+        "ln -s file1 file2",
+        "cp file1 file2",
+        "mv file1 file2",
+        "ln -f file1 file2"
+      ],
+      "explanation": "ln file1 file2 creates a hard link (another directory entry to the same inode). -s would create a symlink.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file stores user account information including username and UID but without the password hashes on modern Linux systems?",
+      "answers": [
+        "/etc/shadow",
+        "/etc/passwd",
+        "/etc/group",
+        "/etc/login.defs",
+        "/etc/gshadow"
+      ],
+      "explanation": "/etc/passwd contains username, UID, GID, home and shell, password hashes are stored in /etc/shadow on modern systems.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command shows the systemd journal from the current boot?",
+      "answers": [
+        "dmesg",
+        "journalctl -b",
+        "tail -f /var/log/syslog",
+        "systemctl status --logs",
+        "journalctl -k"
+      ],
+      "explanation": "journalctl -b shows journal entries for the current boot. dmesg shows kernel ring buffer only.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which find expression matches regular files under /var/log modified within the last 7 days?",
+      "answers": [
+        "find /var/log -type f -mtime 7",
+        "find /var/log -type f -mtime -7",
+        "find /var/log -type f -mtime +7",
+        "find /var/log -type f -atime -7",
+        "find /var/log -type f -mtime -7 -print"
+      ],
+      "explanation": "-mtime -7 matches files modified less than 7 days ago.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which shell variable holds the exit status of the last command executed?",
+      "answers": [
+        "$?",
+        "$!",
+        "$$",
+        "$0",
+        "exit_status"
+      ],
+      "explanation": "$? contains the exit status (0 for success, non-zero for error) of the last command.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command changes owner and group to alice recursively for /data?",
+      "answers": [
+        "chown alice /data",
+        "chown -R alice:alice /data",
+        "chgrp -R alice /data",
+        "chmod -R 700 /data",
+        "chown -R alice: /data"
+      ],
+      "explanation": "chown -R alice:alice /data sets both owner and group recursively. chgrp changes only the group.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command always displays the absolute path of the current directory?",
+      "answers": [
+        "ls",
+        "cd",
+        "pwd",
+        "dir",
+        "pwd -P"
+      ],
+      "explanation": "pwd prints the absolute path. pwd -P resolves symlinks to the physical path.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What does chmod 755 script.sh do?",
+      "answers": [
+        "Grants read/write/execute to owner, read/execute to group/others",
+        "Grants read/write to all users",
+        "Grants execute only to owner",
+        "Removes all permissions",
+        "Sets owner rw only"
+      ],
+      "explanation": "755 = owner rwx (7), group r-x (5), others r-x (5), so owner gets full, group/others read+execute.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file stores encrypted user passwords in Linux?",
+      "answers": [
+        "/etc/passwd",
+        "/etc/shadow",
+        "/etc/group",
+        "/etc/gshadow",
+        "/etc/security/passwd"
+      ],
+      "explanation": "/etc/shadow stores hashed passwords and password aging info, /etc/passwd no longer contains password hashes on modern systems.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command recursively lists all files in /var/log with file sizes?",
+      "answers": [
+        "ls -l /var/log",
+        "du -sh /var/log",
+        "find /var/log -type f -exec ls -lh {} \\",
+        "grep -r '' /var/log",
+        "find /var/log -type f -print0 | xargs -0 ls -lh"
+      ],
+      "explanation": "Using find with -exec ls -lh lists each file with human-readable sizes, du -sh gives directory totals, not per-file listing.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "The | operator in command1 | command2 does what?",
+      "answers": [
+        "Runs command2 only if command1 fails",
+        "Combines output of both commands",
+        "Sends command1's output to command2's input",
+        "Executes both commands in parallel",
+        "Pipes stderr to stdin"
+      ],
+      "explanation": "The pipe operator sends stdout of the left-hand command into stdin of the right-hand command.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which files configure network settings? (Select two)",
+      "answers": [
+        "/etc/hosts",
+        "/etc/resolv.conf",
+        "/var/log/syslog",
+        "/etc/passwd",
+        "/etc/network/interfaces"
+      ],
+      "explanation": "/etc/hosts maps hostnames to IPs, /etc/resolv.conf sets DNS resolvers. Both are used for network configuration.",
+      "correct_response": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "question": "Which commands terminate a process? (Select two)",
+      "answers": [
+        "kill",
+        "shutdown",
+        "pkill",
+        "reboot",
+        "killall"
+      ],
+      "explanation": "kill sends signals to a PID, pkill sends signals by process name. shutdown and reboot control the whole system.",
+      "correct_response": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "question": "Which actions prevent data loss? (Select two)",
+      "answers": [
+        "Disabling backups",
+        "Using RAID 1",
+        "Storing backups on the same server",
+        "Regular offsite backups",
+        "Using snapshots"
+      ],
+      "explanation": "RAID 1 protects against single disk failure, regular offsite backups protect against site failure and accidental deletion.",
+      "correct_response": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "question": "Which command can be used to lock a user's account so that they cannot log in without removing their data?",
+      "answers": [
+        "lock",
+        "usermod",
+        "userdel",
+        "chmod",
+        "passwd -l"
+      ],
+      "explanation": "usermod -L username or passwd -l username lock the account by disabling the password without deleting user data.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the core of the Linux operating system?",
+      "answers": [
+        "Shell",
+        "System Library",
+        "Kernel",
+        "Hardware Layer",
+        "Monolithic kernel"
+      ],
+      "explanation": "The kernel is the core component that manages hardware, processes, memory and system calls.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which command is used to check network connectivity to a remote server by sending ICMP Echo Request packets?",
+      "answers": [
+        "lookup",
+        "find",
+        "ping",
+        "netstat",
+        "traceroute"
+      ],
+      "explanation": "ping sends ICMP Echo Requests to test basic IP connectivity and round-trip time.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "The command ls -a is used to:",
+      "answers": [
+        "List all files except hidden ones.",
+        "List all files including hidden ones.",
+        "List files in a detailed format.",
+        "List only directories.",
+        "Show long listing including hidden files"
+      ],
+      "explanation": "ls -a includes entries starting with a dot (hidden files). It does not change format (use -l for long listing).",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command is used to change the ownership of a file or directory?",
+      "answers": [
+        "chmod",
+        "chown",
+        "chgrp",
+        "mv",
+        "setfacl"
+      ],
+      "explanation": "chown changes owner and optionally group. chmod changes permissions.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the default shell for most Linux distributions?",
+      "answers": [
+        "tcsh",
+        "bash",
+        "sh",
+        "zsh",
+        "dash"
+      ],
+      "explanation": "Bash is the default interactive shell on many distributions (though /bin/sh may be dash on some systems).",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command displays the manual or help pages for other commands?",
+      "answers": [
+        "help",
+        "man",
+        "guide",
+        "info",
+        "--help"
+      ],
+      "explanation": "man shows formatted manual pages. help is a shell builtin for shell builtins.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command is used to display the last few lines of a file?",
+      "answers": [
+        "head",
+        "tail",
+        "end",
+        "last",
+        "less"
+      ],
+      "explanation": "tail prints the last lines of a file (default 10), use tail -n N for specific counts.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which component of the Linux operating system acts as the intermediary between hardware and software applications?",
+      "answers": [
+        "Shell",
+        "Kernel",
+        "Device drivers",
+        "Libraries",
+        "Init system"
+      ],
+      "explanation": "The kernel mediates hardware access and provides services to user-space applications.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which package management system is used by Ubuntu for installing software?",
+      "answers": [
+        "rpm",
+        "apt",
+        "dnf",
+        "pacman",
+        "yum"
+      ],
+      "explanation": "Ubuntu (Debian family) uses apt (and apt-get/dpkg) as the package management system.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In the Linux Filesystem Hierarchy Standard (FHS), which directory is primarily used for configuration files?",
+      "answers": [
+        "/var",
+        "/usr",
+        "/etc",
+        "/opt",
+        "/srv"
+      ],
+      "explanation": "/etc contains system-wide configuration files according to the FHS.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which command displays the current working directory in the Linux command line?",
+      "answers": [
+        "cd",
+        "pwd",
+        "ls",
+        "where",
+        "printwd"
+      ],
+      "explanation": "pwd prints the full (absolute) pathname of the current working directory.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which option for the 'ls' command displays detailed information including file permissions and sizes?",
+      "answers": [
+        "-a",
+        "-l",
+        "-h",
+        "-R",
+        "-s"
+      ],
+      "explanation": "ls -l shows a long listing with permissions, owner, size and timestamp. -h is for human-readable sizes when used with -l.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which symbol is used to redirect the standard output of a command to a file in the Linux shell?",
+      "answers": [
+        ">",
+        ">>",
+        "|",
+        "<>"
+      ],
+      "explanation": "The > operator redirects stdout to a file (overwriting). >> appends.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command is used to display the value of an environment variable in the Linux shell?",
+      "answers": [
+        "echo $VAR",
+        "env VAR",
+        "showenv VAR",
+        "print VAR",
+        "set VAR"
+      ],
+      "explanation": "echo $VARIABLE prints the value, printenv VAR or env also list environment variables.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "When navigating the filesystem, which type of path starts from the root directory, such as /home/user/file.txt?",
+      "answers": [
+        "Absolute path",
+        "Relative path",
+        "Home-relative path",
+        "Network path",
+        "Canonical path"
+      ],
+      "explanation": "An absolute path begins with / and is resolved from the filesystem root.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A server on the network is unreachable. What is the best method to verify connectivity between your computer and the remote server?",
+      "answers": [
+        "lookup",
+        "find",
+        "ping",
+        "netstat",
+        "traceroute"
+      ],
+      "explanation": "ping tests network connectivity to remote hosts",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "A user accidentally created the subdirectory \\dir in his home directory. Which of the following commands will remove that directory?",
+      "answers": [
+        "rmdir '~/\\dir'",
+        "rmdir '~/\\dir'",
+        "rmdir ~/'dir'",
+        "rmdir ~/\\dir",
+        "rmdir ~/\\\\dir"
+      ],
+      "explanation": "Escape the backslash to refer to the directory named \\\\dir",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "A user accidentally created the subdirectory \\dir in his home directory. Which of the following commands will remove that directory?",
+      "answers": [
+        "rmdir '~/dir'",
+        "rmdir '~/\\dir'",
+        "rmdir ~/'dir'",
+        "rmdir ~/dir",
+        "rmdir ~/\\dir"
+      ],
+      "explanation": "The backslash needs to be escaped properly in the command",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "After issuing: function myfunction { echo $1 $2 } in Bash, which output does: myfunction A B C produce?",
+      "answers": [
+        "A B",
+        "A B C",
+        "A C",
+        "B C",
+        "C B A"
+      ],
+      "explanation": "Bash functions only use the first two positional parameters $1 and $2",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "After running 'chmod g+w sandbox', what permissions are added to the directory?",
+      "answers": [
+        "Write for group",
+        "Execute for group",
+        "Read for group",
+        "Write for others",
+        "Execute for others"
+      ],
+      "explanation": "g+w adds write permission for the group",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "By default, the contents of which directory will be copied to a new user's home directory when the account is created by passing the -m option to the useradd command?",
+      "answers": [
+        "/etc/skel",
+        "/home/template",
+        "/usr/template",
+        "/var/skel",
+        "/tmp/skel"
+      ],
+      "explanation": "/etc/skel contains the default files copied to new user home directories",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Each entry in a crontab must end with what character?",
+      "answers": [
+        "Tab",
+        "Space",
+        "Backslash",
+        "Newline",
+        "Semicolon"
+      ],
+      "explanation": "Crontab entries must end with a newline character",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "From a Bash shell, which of the following commands directly executes the instruction from the file /usr/local/bin/runme.sh without starting a subshell?",
+      "answers": [
+        "source /usr/local/bin/runme.sh",
+        ". /usr/local/bin/runme.sh",
+        "/bin/bash /usr/local/bin/runme.sh",
+        "/usr/local/bin/runme.sh",
+        "run /usr/local/bin/runme.sh"
+      ],
+      "explanation": "source (or .) runs the file in the current shell (no subshell)",
+      "correct_response": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "question": "Given a file called birthdays containing lines like: YYYY-MM-DD Name 1983-06-02 Tim 1995-12-17 Sue Which command would you use to output the lines belonging to all people listed whose birthday is in May or June?",
+      "answers": [
+        "grep '[56]' birthdays",
+        "grep 0576? birthdays",
+        "grep '[0-9]*-0[56]-' birthdays",
+        "grep 06 birthdays | grep 05",
+        "awk '/05|06/' birthdays"
+      ],
+      "explanation": "The pattern [0-9]*-0[56]- matches May (05) and June (06) in YYYY-MM-DD format",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "How many fields are in a syntactically correct line of /etc/fstab?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "explanation": "Fstab entries have six fields",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Immediately after deleting 3 lines of text in vi and moving the cursor to a different line, which single character command will insert the deleted content below the current line?",
+      "answers": [
+        "i (lowercase)",
+        "P (uppercase)",
+        "p (lowercase)",
+        "U (uppercase)",
+        "u (lowercase)"
+      ],
+      "explanation": "p inserts deleted text below the current line",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In a nested directory structure, which find command line option would be used to restrict the command to searching down a particular number of subdirectories?",
+      "answers": [
+        "-dirmax",
+        "-maxdepth",
+        "-maxlevels",
+        "-n",
+        "-s"
+      ],
+      "explanation": "-maxdepth restricts search depth",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In Bash, inserting 1>&2 after a command redirects",
+      "answers": [
+        "standard error to standard input.",
+        "standard input to standard error.",
+        "standard output to standard error.",
+        "standard error to standard output.",
+        "standard output to standard input."
+      ],
+      "explanation": "Redirects stdout (fd1) to stderr (fd2)",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In compliance with the FHS, in which of the directories are man pages found?",
+      "answers": [
+        "/usr/share/man",
+        "/opt/man",
+        "/usr/doc/",
+        "/var/pkg/man",
+        "/var/man"
+      ],
+      "explanation": "/usr/share/man holds man pages per FHS",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "In the vi editor, how can commands such as moving the cursor or copying lines into the buffer be issued multiple times or applied to multiple rows?",
+      "answers": [
+        "By using the command :repeat followed by the number and the command.",
+        "By specifying the number right in front of a command such as 4l or 2yj.",
+        "By selecting all affected lines using the shift and cursor keys before applying the command.",
+        "By issuing a command such as :set repetition=4 which repeats every subsequent command 4 times."
+      ],
+      "explanation": "Prefix a command with a count (e.g., 4l) to repeat it",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In the vi editor, which of the following commands will copy the current line into the vi buffer?",
+      "answers": [
+        "c",
+        "cc",
+        "1c",
+        "yy",
+        "1y"
+      ],
+      "explanation": "yy yanks (copies) the current line into the buffer",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "In vi, which command saves and exits?",
+      "answers": [
+        ":q",
+        ":w",
+        ":wq",
+        ":q!",
+        ":x"
+      ],
+      "explanation": ":wq writes (saves) and quits vi",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Regarding the command: nice -5 /usr/bin/prog Which of the following statements is correct?",
+      "answers": [
+        "/usr/bin/prog is executed with a nice level of -5.",
+        "/usr/bin/prog is executed with a nice level of 5.",
+        "/usr/bin/prog is executed with a priority of -5.",
+        "/usr/bin/prog is executed with a priority of 5."
+      ],
+      "explanation": "Negative niceness requires root unprivileged users get niceness 5",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "The 'join' command combines two files based on what?",
+      "answers": [
+        "A common field",
+        "The first line",
+        "The last line",
+        "A unique key",
+        "A sorted column"
+      ],
+      "explanation": "join combines lines from two files based on a common field",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To restore a backup from home.tgz, which command is used?",
+      "answers": [
+        "tar -xzvf home.tgz",
+        "tar -czvf home.tgz",
+        "tar -xjvf home.tbz2",
+        "tar -xJvf home.xz",
+        "tar -cvf home.tar"
+      ],
+      "explanation": "The -xzvf options extract a gzip compressed archive",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What command changes user password expiration?",
+      "answers": [
+        "chage",
+        "passwd",
+        "usermod",
+        "pwchange",
+        "expire"
+      ],
+      "explanation": "chage manages password aging information",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What command is used to update the locate database manually?",
+      "answers": [
+        "updatedb",
+        "locate --update",
+        "rebuild-locate",
+        "makelocatedb",
+        "locate -u"
+      ],
+      "explanation": "updatedb rebuilds the database used by the locate command",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What command will generate a list of user names from /etc/passwd along with their login shell?",
+      "answers": [
+        "column -s : 1,7 /etc/passwd",
+        "chop -c 1,7 /etc/passwd",
+        "colrm 1,7 /etc/passwd",
+        "cut -d: -f1,7 /etc/passwd"
+      ],
+      "explanation": "cut -d: -f1,7 extracts username and shell",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "What does 'tr [:upper:] [:lower:]' do?",
+      "answers": [
+        "Translates uppercase to lowercase",
+        "Translates lowercase to uppercase",
+        "Deletes uppercase letters",
+        "Squeezes repeated uppercase letters",
+        "Converts tabs to spaces"
+      ],
+      "explanation": "It translates all uppercase characters to lowercase",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the command 'kill -9 5224' do?",
+      "answers": [
+        "Sends a TERM signal to process 5224",
+        "Sends a KILL signal to process 5224",
+        "Sends a STOP signal to process 5224",
+        "Restarts process 5224",
+        "Changes the priority of process 5224"
+      ],
+      "explanation": "The -9 option sends the KILL signal which forcefully terminates the process",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What does the command 'chmod 2755 dirname' do?",
+      "answers": [
+        "Sets setuid bit",
+        "Sets setgid bit",
+        "Sets sticky bit",
+        "Removes all special bits",
+        "Sets read/write for owner only"
+      ],
+      "explanation": "The leading 2 in chmod sets the setgid bit on the directory",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What does the mount command do?",
+      "answers": [
+        "Mounts file systems",
+        "Creates directories",
+        "Formats disks",
+        "Partitions drives",
+        "Backs up files"
+      ],
+      "explanation": "mount attaches file systems to directory tree",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the nohup command do?",
+      "answers": [
+        "Runs commands immune to hangups",
+        "Stops background processes",
+        "Lists running processes",
+        "Kills processes",
+        "Changes process priority"
+      ],
+      "explanation": "nohup runs commands that continue after logout",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the sticky bit do when set on a directory?",
+      "answers": [
+        "Prevents deletion of files by non-owners",
+        "Makes the directory read-only",
+        "Automatically backs up files",
+        "Sets execute permission for all users",
+        "Encrypts directory contents"
+      ],
+      "explanation": "Sticky bit prevents file deletion except by owner or root",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the sticky bit on a directory ensure?",
+      "answers": [
+        "Only root can delete files in it",
+        "Files created inherit the group of the directory",
+        "Only the file owner can delete their own files",
+        "All files are encrypted",
+        "All new files are executable"
+      ],
+      "explanation": "The sticky bit restricts file deletion to the file owner regardless of write permissions",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What does the sudo command do?",
+      "answers": [
+        "Switches users permanently",
+        "Executes commands as another user",
+        "Creates new users",
+        "Deletes users",
+        "Modifies user passwords"
+      ],
+      "explanation": "sudo executes commands with another user's privileges",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What file contains kernel boot parameters?",
+      "answers": [
+        "/proc/cmdline",
+        "/boot/grub/grub.cfg",
+        "/etc/default/grub",
+        "/boot/config",
+        "/var/boot"
+      ],
+      "explanation": "/proc/cmdline shows current kernel boot parameters",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What file contains user account information?",
+      "answers": [
+        "/etc/passwd",
+        "/etc/shadow",
+        "/etc/group",
+        "/etc/users",
+        "/etc/accounts"
+      ],
+      "explanation": "/etc/passwd contains basic user account information",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What happens after issuing the command vi without any additional parameters?",
+      "answers": [
+        "vi starts and loads the last file used and moves the cursor to the position where vi was when it last exited.",
+        "vi starts and requires the user to explicitly either create a new or load an existing file.",
+        "vi exits with an error message as it cannot be invoked without a file name to operate on.",
+        "vi starts in command mode and opens a new empty file.",
+        "vi starts and opens a new file which is filled with the content of the vi buffer if the buffer contains text."
+      ],
+      "explanation": "Opens a new empty file in command mode",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "What is a daemon process?",
+      "answers": [
+        "A process that runs in the background",
+        "A process that requires user input",
+        "A process that runs only once",
+        "A process that uses GUI",
+        "A corrupted process"
+      ],
+      "explanation": "Daemon processes run in background without user interaction",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the correct way to back up the /home directory using xz compression?",
+      "answers": [
+        "tar -czf home.tar.xz /home",
+        "tar -cJf home.tar.xz /home",
+        "tar -cjf home.tar.xz /home",
+        "tar -cf home.tar.xz --xz /home",
+        "tar -cxf home.tar.xz /home"
+      ],
+      "explanation": "The -J flag tells tar to use xz compression",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the correct way to set a user's password to expire immediately, forcing a change at next login?",
+      "answers": [
+        "passwd -e username",
+        "chage -d 0 username",
+        "usermod -e 0 username",
+        "passwd -f username",
+        "chage -E 0 username"
+      ],
+      "explanation": "Using chage -d 0 sets last password change date to 0, forcing immediate change",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the default action of the split command on an input file?",
+      "answers": [
+        "It will break the file into new files of 1,024 byte pieces each.",
+        "It will break the file into new files of 1,000 line pieces each.",
+        "It will break the file into new files of 1,024 kilobyte pieces each.",
+        "It will break the file into new files that are no more than 5% of the size of the original file."
+      ],
+      "explanation": "split creates files of 1000 lines by default",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the default nice level when a process is started using the nice command?",
+      "answers": [
+        "-10",
+        "10",
+        "20",
+        "0"
+      ],
+      "explanation": "nice without value applies a niceness increment of 10",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the default runlevel for Debian and Ubuntu systems?",
+      "answers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "explanation": "Runlevel 2 is the default for graphical multi-user with networking",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the default shell for most Linux users?",
+      "answers": [
+        "sh",
+        "csh",
+        "bash",
+        "zsh",
+        "fish"
+      ],
+      "explanation": "bash is the default shell on most Linux distributions",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the default umask value for a regular user?",
+      "answers": [
+        "022",
+        "002",
+        "077",
+        "755",
+        "644"
+      ],
+      "explanation": "umask 022 creates files with 644 and directories with 755 permissions",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the difference between systemctl start and systemctl enable?",
+      "answers": [
+        "start runs service now, enable starts at boot",
+        "enable runs service now, start starts at boot",
+        "Both do the same thing",
+        "start is temporary, enable is permanent",
+        "enable is temporary, start is permanent"
+      ],
+      "explanation": "start runs immediately, enable configures boot startup",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the difference between the commands test -e path and test -f path?",
+      "answers": [
+        "They are equivalent options with the same behaviour.",
+        "The -f option tests for a regular file. The -e option tests for an empty file.",
+        "Both options check the existence of the path. The -f option also confirms that it is a regular file.",
+        "The -f option tests for a regular file. The -e option tests for an executable file.",
+        "The -e option tests for directory existence"
+      ],
+      "explanation": "-e tests for existence, -f tests for regular file specifically",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the difference between the i and a commands of the vi editor?",
+      "answers": [
+        "i (interactive) requires the user to explicitly switch between vi modes whereas a (automatic) switches modes automatically.",
+        "i (insert) inserts text before the current cursor position whereas a (append) inserts text after the cursor.",
+        "i (independent rows) starts every new line at the first character whereas a (aligned rows) keeps the indentation of the previous line.",
+        "i (interrupt) temporarily suspends editing of a file to the background whereas a (abort) terminates editing."
+      ],
+      "explanation": "i inserts before cursor while a appends after it",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the effect of the egrep command when the -v option is used?",
+      "answers": [
+        "It enables color to highlight matching parts.",
+        "It only outputs non-matching lines.",
+        "It shows the command's version information.",
+        "It changes the output order showing the last matching line first."
+      ],
+      "explanation": "-v prints lines that do not match",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the first process started by the kernel?",
+      "answers": [
+        "init",
+        "kernel",
+        "boot",
+        "system",
+        "root"
+      ],
+      "explanation": "init (PID 1) is the first process started by kernel",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the maximum niceness value that a regular user can assign to a process with the nice command when executing a new process?",
+      "answers": [
+        "9",
+        "19",
+        "49",
+        "99"
+      ],
+      "explanation": "Regular users can set niceness up to 19",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the output of the following command? echo 'Hello World' | tr -d aieou",
+      "answers": [
+        "Hello World",
+        "eoo",
+        "Hll Wrld",
+        "eoo Hll Wrld"
+      ],
+      "explanation": "Removes lowercase vowels, yielding 'Hll Wrld'",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the output of the following command? echo 'Hello World' | tr -d aieou",
+      "answers": [
+        "Hello World",
+        "Hil Wrid",
+        "Hll Wrld",
+        "Hil Wrid eoo Hil Wrid",
+        "Hell Wrld"
+      ],
+      "explanation": "tr -d deletes specified characters (vowels a,i,e,o,u) from the input",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the purpose of the Bash built-in export command?",
+      "answers": [
+        "It allows disks to be mounted remotely.",
+        "It runs a command as a process in a subshell.",
+        "It makes the command history available to subshells.",
+        "It sets up environment variables for applications.",
+        "It shares NFS partitions for use by other systems on the network."
+      ],
+      "explanation": "export makes variables available to subprocesses",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "What is the purpose of the Filesystem Hierarchy Standard?",
+      "answers": [
+        "It is a security model used to ensure files are organized according to their permissions and accessibility.",
+        "It provides unified tools to create, maintain and manage multiple filesystems in a common way.",
+        "It defines a common internal structure of inodes for all compliant filesystems.",
+        "It is a distribution neutral description of locations of files and directories."
+      ],
+      "explanation": "Defines a distribution-neutral directory/file layout",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "What is the UID of the root user?",
+      "answers": [
+        "1",
+        "0",
+        "-1",
+        "1000",
+        "500"
+      ],
+      "explanation": "Root user always has UID 0",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What output will the command seq 10 produce?",
+      "answers": [
+        "A continuous stream of numbers increasing in increments of 10 until stopped.",
+        "The numbers 1 through 10 with one number per line.",
+        "The numbers 0 through 9 with one number per line.",
+        "The number 10 to standard output.",
+        "An empty output"
+      ],
+      "explanation": "seq generates a sequence of numbers from 1 to the specified number",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What permission is required to execute a directory?",
+      "answers": [
+        "read",
+        "write",
+        "execute",
+        "read and write",
+        "read and execute"
+      ],
+      "explanation": "Execute permission on directories allows traversal",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What signal does kill send by default?",
+      "answers": [
+        "SIGKILL (9)",
+        "SIGTERM (15)",
+        "SIGHUP (1)",
+        "SIGINT (2)",
+        "SIGSTOP (19)"
+      ],
+      "explanation": "kill sends SIGTERM (15) by default",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "When given the following command line. echo 'foo bar' | tee bar | cat Which of the following output is created?",
+      "answers": [
+        "cat",
+        "foo bar",
+        "tee bar",
+        "bar",
+        "foo"
+      ],
+      "explanation": "tee writes to file and passes 'foo bar' through to cat",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "When running the command sed -e 's/a/b/' /tmp/file >/tmp/file While /tmp/file contains data, why is /tmp/file empty afterwards?",
+      "answers": [
+        "The file order is incorrect. The destination file must be mentioned before the command to ensure redirection.",
+        "The command sed did not match anything in that file therefore the output is empty.",
+        "When the shell establishes the redirection it overwrites the target file before the redirected command starts and opens it for reading.",
+        "Redirection for shell commands do not work using the > character. It only works using the | character instead."
+      ],
+      "explanation": "Redirection truncates the target file before sed reads it",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "When starting a program with the nice command without any additional parameters, which nice level is set for the resulting process?",
+      "answers": [
+        "-10",
+        "0",
+        "10",
+        "20"
+      ],
+      "explanation": "Default niceness increment when using nice is 10",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "When the command echo $? outputs 1, which of the following statements is true?",
+      "answers": [
+        "It is the process ID of the echo command.",
+        "It is the process ID of the current shell.",
+        "It is the exit value of the command executed immediately before echo.",
+        "It is the exit value of the echo command.",
+        "It represents the signal number of the last command if it terminated due to a signal"
+      ],
+      "explanation": "$? contains the exit status of the last executed command",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "When using rpm --verify to check files created during the installation of RPM packages, which of the following information is taken into consideration?",
+      "answers": [
+        "Timestamps",
+        "MD5 checksums",
+        "Inodes",
+        "File sizes",
+        "GnuPG signatures"
+      ],
+      "explanation": "Verifies timestamps, checksums and file sizes",
+      "correct_response": [
+        "a",
+        "b",
+        "d"
+      ]
+    },
+    {
+      "question": "Which Bash environment variable defines in which file the user history is stored when exiting a Bash process?",
+      "answers": [
+        "HISTFILE",
+        "HISTFILE"
+      ],
+      "explanation": "HISTFILE specifies where Bash saves history",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which character, added to the end of a command, runs that command in the background as a child process of the current shell?",
+      "answers": [
+        "!",
+        "+",
+        "&",
+        "%",
+        "#"
+      ],
+      "explanation": "Appending & runs the command in the background",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which chattr attribute makes a file immutable?",
+      "answers": [
+        "+a",
+        "+i",
+        "+s",
+        "+A",
+        "+e"
+      ],
+      "explanation": "The +i attribute makes a file immutable, preventing deletion or modification",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command adds a user to the system?",
+      "answers": [
+        "useradd",
+        "adduser",
+        "usermod",
+        "usercreate",
+        "newuser"
+      ],
+      "explanation": "useradd is the standard command to add users",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command creates a file system?",
+      "answers": [
+        "mkfs",
+        "createfs",
+        "newfs",
+        "format",
+        "makefs"
+      ],
+      "explanation": "mkfs creates file systems on partitions",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command displays current logged-in users?",
+      "answers": [
+        "who",
+        "w",
+        "users",
+        "last",
+        "loggedin"
+      ],
+      "explanation": "Multiple commands show logged-in users, but 'last' also shows logged-in users historically.",
+      "correct_response": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "question": "Which command displays partition information?",
+      "answers": [
+        "fdisk -l",
+        "parted -l",
+        "lsblk",
+        "partitions",
+        "diskinfo"
+      ],
+      "explanation": "Multiple commands show partition information",
+      "correct_response": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "question": "Which command edits user's crontab?",
+      "answers": [
+        "crontab -e",
+        "cron -e",
+        "edit-cron",
+        "vi /etc/crontab",
+        "nano cron"
+      ],
+      "explanation": "crontab -e edits user's personal crontab",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command is used in a Linux environment to create a new directory? (Specify ONLY the command without any path or parameters.)",
+      "answers": [
+        "mkdir"
+      ],
+      "explanation": "mkdir creates a new directory",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command is used to create a compressed backup of the /home directory using gzip?",
+      "answers": [
+        "tar -xzvf /home.tgz /home",
+        "tar -czvf /home.tgz /home",
+        "tar -cjvf /home.tbz2 /home",
+        "tar -cJvf /home.xz /home",
+        "tar -xvf /home.tar /home"
+      ],
+      "explanation": "The -czvf options create a gzip compressed archive",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command is used to view extended file attributes on an ext4 filesystem?",
+      "answers": [
+        "lsattr",
+        "chattr",
+        "getfattr",
+        "fileattr",
+        "stat"
+      ],
+      "explanation": "lsattr displays extended attributes like immutable or append-only flags",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command locks a user account?",
+      "answers": [
+        "usermod -L",
+        "passwd -l",
+        "chage -E",
+        "userdel",
+        "groupdel"
+      ],
+      "explanation": "Both usermod -L and passwd -l can lock accounts",
+      "correct_response": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "question": "Which command makes a partition into a swap area?",
+      "answers": [
+        "mkswap",
+        "swapon",
+        "swapoff",
+        "mkfs",
+        "fdisk"
+      ],
+      "explanation": "mkswap sets up a Linux swap area on a device or in a file",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command makes the shell variable named VARIABLE visible to subshells?",
+      "answers": [
+        "export $VARIABLE",
+        "export VARIABLE",
+        "set $VARIABLE",
+        "set VARIABLE",
+        "env VARIABLE"
+      ],
+      "explanation": "export marks VARIABLE to be inherited by subshells",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command numbers the lines of a file?",
+      "answers": [
+        "nl",
+        "num",
+        "ln",
+        "cat -n",
+        "pr -t"
+      ],
+      "explanation": "nl numbers the lines of a file",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command renames all files with .txt extension to .md in the current directory?",
+      "answers": [
+        "rename 's/.txt$/.md/' *.txt",
+        "mv *.txt *.md",
+        "for f in *.txt do mv 'f' {f%.txt}.md",
+        "Both A and C",
+        "Only C"
+      ],
+      "explanation": "Both the rename command (Perl version) and the for loop correctly perform the renaming",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which command shows kernel modules?",
+      "answers": [
+        "lsmod",
+        "modinfo",
+        "modules",
+        "kmod",
+        "kernmod"
+      ],
+      "explanation": "lsmod lists currently loaded kernel modules",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command shows real-time system processes?",
+      "answers": [
+        "ps",
+        "top",
+        "htop",
+        "kill",
+        "nice"
+      ],
+      "explanation": "top displays real-time dynamic view of the running system",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command shows running processes?",
+      "answers": [
+        "ps",
+        "top",
+        "htop",
+        "proc",
+        "process"
+      ],
+      "explanation": "Multiple commands display process information",
+      "correct_response": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "question": "Which command shows system resource usage?",
+      "answers": [
+        "top",
+        "ps",
+        "ls",
+        "df",
+        "who"
+      ],
+      "explanation": "top displays real-time system resource usage",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command sorts lines in a file in reverse order?",
+      "answers": [
+        "sort -b",
+        "sort -f",
+        "sort -r",
+        "sort -R",
+        "sort -n"
+      ],
+      "explanation": "The -r option reverses the result of comparisons",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which command switches to another user account?",
+      "answers": [
+        "su",
+        "sudo",
+        "switch",
+        "user",
+        "login"
+      ],
+      "explanation": "su switches users, sudo executes as another user",
+      "correct_response": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "question": "Which command unmounts a file system?",
+      "answers": [
+        "umount",
+        "unmount",
+        "dismount",
+        "mount -u",
+        "detach"
+      ],
+      "explanation": "umount detaches mounted file systems",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command will display the last line of the file foo.txt?",
+      "answers": [
+        "head -n 1 foo.txt",
+        "last -n 1 foo.txt",
+        "tail foo.txt",
+        "tail -n 1 foo.txt",
+        "sed -n '$p' foo.txt"
+      ],
+      "explanation": "tail -n 1 prints only the last line of a file",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which grep option shows only the filenames that contain matches?",
+      "answers": [
+        "-c",
+        "-H",
+        "-l",
+        "-n",
+        "-v"
+      ],
+      "explanation": "The -l option lists only the names of files containing matches",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following are valid stream redirection operators within Bash?",
+      "answers": [
+        "<",
+        "<<<",
+        ">",
+        ">>>",
+        "%>"
+      ],
+      "explanation": "<, <<< and > are valid redirection operators",
+      "correct_response": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following characters can be combined with a separator string in order to read from the current input source until the separator string, which is on a separate line and without any trailing spaces, is reached?",
+      "answers": [
+        "<<",
+        "<|",
+        "!<",
+        "&<"
+      ],
+      "explanation": "<< introduces a here-document until the separator line",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following command sets the Bash variable named TEST with the content FOO?",
+      "answers": [
+        "set TEST='FOO'",
+        "TEST = 'FOO'",
+        "var TEST='FOO'",
+        "TEST='FOO'"
+      ],
+      "explanation": "Assigns TEST to FOO (no spaces around =)",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to determine how long the system has been running?",
+      "answers": [
+        "uptime",
+        "up",
+        "top",
+        "uname -u",
+        "time -up"
+      ],
+      "explanation": "uptime is the primary command, and top is secondary that can also show uptime.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to determine how long the system has been running?",
+      "answers": [
+        "uptime",
+        "up",
+        "top",
+        "uname -u",
+        "time up"
+      ],
+      "explanation": "uptime and top both display system run time",
+      "correct_response": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the content of a text file one screen at a time?",
+      "answers": [
+        "head",
+        "top",
+        "tail",
+        "less",
+        "more"
+      ],
+      "explanation": "Both 'less' and 'more' are pagers that display text one screen at a time",
+      "correct_response": [
+        "d",
+        "e"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the current hostname of the system?",
+      "answers": [
+        "hostname",
+        "top",
+        "vmstat",
+        "htop",
+        "ps"
+      ],
+      "explanation": "hostname command displays or sets the system hostname",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the current system uptime?",
+      "answers": [
+        "uptime",
+        "top",
+        "vmstat",
+        "htop",
+        "ps"
+      ],
+      "explanation": "uptime shows system uptime, top and htop also display uptime information",
+      "correct_response": [
+        "a",
+        "b",
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the first lines of a text file?",
+      "answers": [
+        "head",
+        "top",
+        "tail",
+        "less",
+        "more"
+      ],
+      "explanation": "head shows the first N lines of a file (default 10)",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to download the RPM package kernel without installing it?",
+      "answers": [
+        "yum download --no-install kernel",
+        "yumdownloader kernel",
+        "rpm --download --package kernel",
+        "rpmdownload kernel"
+      ],
+      "explanation": "yumdownloader downloads RPM packages without installing",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to extract content from a tar file?",
+      "answers": [
+        "tar -xvf",
+        "tar -vf",
+        "tar -e",
+        "tar -c",
+        "tar --v"
+      ],
+      "explanation": "tar -xvf extracts files from a tar archive (-x extract, -v verbose, -f file)",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to locate programs and their corresponding man pages and configuration files?",
+      "answers": [
+        "dirname",
+        "which",
+        "basename",
+        "query",
+        "whereis"
+      ],
+      "explanation": "whereis locates binaries, man pages and related files",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to search for the executable file foo when it has been placed in a directory not included in $PATH?",
+      "answers": [
+        "apropos",
+        "which",
+        "find",
+        "query",
+        "whereis"
+      ],
+      "explanation": "find can search arbitrary directories for executables",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following commands changes the ownership of file.txt to the user dan and the group staff?",
+      "answers": [
+        "chown dan/staff file.txt",
+        "chown dan:staff file.txt",
+        "chown -u dan -g staff file.txt",
+        "chown dan -g staff file.txt"
+      ],
+      "explanation": "chown user:group sets owner and group",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following commands determines the type of a file by using a definition database file which contains information about all common file types?",
+      "answers": [
+        "magic",
+        "type",
+        "file",
+        "pmagic",
+        "hash"
+      ],
+      "explanation": "file identifies file types using a magic database",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following commands displays the contents of a gzip compressed tar archive?",
+      "answers": [
+        "gzip archive.tgz | tar xvf -",
+        "tar ztf archive.tgz",
+        "gzip -d archive.tgz | tar tvf -",
+        "tar cf archive.tgz"
+      ],
+      "explanation": "tar ztf lists files inside a gzip-compressed tar archive",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following commands is used to change options and positional parameters for a running Bash?",
+      "answers": [
+        "history",
+        "set",
+        "bashconf",
+        "setsh",
+        "envsetup"
+      ],
+      "explanation": "set changes shell options and positional parameters",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following commands makes /bin/foo executable by everyone but writable only by its owner?",
+      "answers": [
+        "chmod u=rwx,go=rx /bin/foo",
+        "chmod o+rwx,a+rx /bin/foo",
+        "chmod 577 /bin/foo",
+        "chmod 775 /bin/foo"
+      ],
+      "explanation": "Sets owner rwx and group/others rx (writable only by owner)",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands moves and resumes in the background the last stopped shell job?",
+      "answers": [
+        "run",
+        "bg",
+        "fg",
+        "back"
+      ],
+      "explanation": "bg resumes the last stopped job in the background",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following commands overwrites the bootloader located on /dev/sda without overwriting the partition table or any data following it?",
+      "answers": [
+        "dd if=/dev/zero of=/dev/sda bs=512",
+        "dd if=/dev/zero of=/dev/sda bs=512 count=1",
+        "dd if=/dev/zero of=/dev/sda bs=440 count=1",
+        "dd if=/dev/zero of=/dev/sda bs=440"
+      ],
+      "explanation": "Zeroing first 440 bytes erases boot code but preserves partition table",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following commands prints a list of usernames (first column) and their primary group (fourth column) from the /etc/passwd file?",
+      "answers": [
+        "fmt -f 1,4 /etc/passwd",
+        "split -c 1,4 /etc/passwd",
+        "cut -d : -f 1,4 /etc/passwd",
+        "paste -f 1,4 /etc/passwd"
+      ],
+      "explanation": "cut -d: -f1,4 extracts username and primary group",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following commands prints all files and directories within the /tmp directory or its subdirectories which are also owned by the user root?",
+      "answers": [
+        "find /tmp -uid root -print",
+        "find -path /tmp -uid root",
+        "find /tmp -user root -print",
+        "find /tmp -user root",
+        "find -path /tmp -user root print"
+      ],
+      "explanation": "find /tmp -user root finds files owned by root",
+      "correct_response": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following commands puts the output of the command date into the shell variable mydate?",
+      "answers": [
+        "mydate='$(date)'",
+        "mydate='exec date'",
+        "mydate='$((date))'",
+        "mydate='date'",
+        "mydate='${date}'"
+      ],
+      "explanation": "Command substitution $(date) stores the command's output into the variable",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands replaces each occurrence of 'bob' in the file letter with 'Bob' and writes the result to the file newletter?",
+      "answers": [
+        "sed '/bob/Bob' letter > newletter",
+        "sed s/bob/Bob/ letter < newletter",
+        "sed 's/bob/Bob' letter > newletter",
+        "sed 's/bob/Bob/g' letter > newletter",
+        "sed 's/bob, Bob/' letter > newletter"
+      ],
+      "explanation": "Uses sed substitution with the global flag and redirects to a new file",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following commands will NOT update the modify timestamp on the file /tmp/myfile.txt?",
+      "answers": [
+        "file /tmp/myfile.txt",
+        "echo 'Hello' >/tmp/myfile.txt",
+        "sed -ie 's/1/2/' /tmp/myfile.txt",
+        "echo -n 'Hello' >>/tmp/myfile.txt",
+        "touch /tmp/myfile.txt"
+      ],
+      "explanation": "file inspects the file type and doesn't update mtime",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following commands will print the last 10 lines of a text file to the standard output?",
+      "answers": [
+        "cat -n 10 filename",
+        "dump -n 10 filename",
+        "head -n 10 filename",
+        "tail -n 10 filename"
+      ],
+      "explanation": "tail -n 10 prints the last 10 lines of a file",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following commands will reduce all consecutive spaces down to a single space?",
+      "answers": [
+        "tr '\\s' ' ' < a.txt > b.txt",
+        "tr -c ' ' < a.txt > b.txt",
+        "tr -d ' ' < a.txt > b.txt",
+        "tr -r ' ' '\\n' < a.txt > b.txt",
+        "tr -s ' ' < a.txt > b.txt"
+      ],
+      "explanation": "tr -s squeezes repeated spaces into a single space",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "Which of the following commands will send output from the program myapp to both standard output (stdout) and the file file1.log?",
+      "answers": [
+        "cat < myapp | cat > file1.log",
+        "myapp 0>&1 | cat > file1.log",
+        "myapp | cat > file1.log",
+        "myapp | tee file1.log",
+        "tee myapp file1.log"
+      ],
+      "explanation": "tee writes output to both stdout and a file",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following file permissions belong to a symbolic link?",
+      "answers": [
+        "-rwxrwxrwx",
+        "+rwxrwxrwx",
+        "lrwxrwxrwx",
+        "srwxrwxrwx"
+      ],
+      "explanation": "Symbolic links are shown as lrwxrwxrwx",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following files, located in the user home directory, is used to store the Bash history?",
+      "answers": [
+        ".bash_history",
+        ".bash_histfile",
+        ".history",
+        ".bashrc_history",
+        ".history_bash"
+      ],
+      "explanation": "Bash history is stored in ~/.bash_history",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following files, when existing, affect the behavior of the Bash shell?",
+      "answers": [
+        "~/.bashconf",
+        "~/.bashrc",
+        "~/.bashdefaults",
+        "~/.bash_etc",
+        "~/.bash_profile"
+      ],
+      "explanation": "~/.bashrc and ~/.bash_profile are read by interactive/login shells respectively",
+      "correct_response": [
+        "b",
+        "e"
+      ]
+    },
+    {
+      "question": "Which of the following is correct when talking about mount points?",
+      "answers": [
+        "Every existing directory can be used as a mount point.",
+        "Only empty directories can be used as a mount point.",
+        "Directories need to have the SetUID flag set to be used as a mount point.",
+        "Files within a directory are deleted when the directory is used as a mount point."
+      ],
+      "explanation": "Any existing directory may be used as a mount point",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following is the device file name for the second partition on the only SCSI drive?",
+      "answers": [
+        "/dev/hda1",
+        "/dev/sda2",
+        "/dev/sd0a2",
+        "/dev/sd1p2"
+      ],
+      "explanation": "Second partition on first SCSI/SATA drive is /dev/sda2",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following kernel parameters instructs the kernel to suppress most boot messages?",
+      "answers": [
+        "silent",
+        "verbose=0",
+        "nomesg",
+        "quiet"
+      ],
+      "explanation": "quiet suppresses most boot messages",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following options for the kernel's command line changes the systemd boot target to rescue.target instead of the default target?",
+      "answers": [
+        "systemd.target=rescue.target",
+        "systemd.runlevel=rescue.target",
+        "systemd.service=rescue.target",
+        "systemd.default=rescue.target",
+        "systemd.unit=rescue.target"
+      ],
+      "explanation": "systemd.unit sets the boot target to rescue",
+      "correct_response": [
+        "e"
+      ]
+    },
+    {
+      "question": "Which of the following pieces of information of an existing file is changed when a hard link pointing to that file is created?",
+      "answers": [
+        "File size",
+        "Modify timestamp",
+        "Link count",
+        "Inode number",
+        "Permissions"
+      ],
+      "explanation": "Creating a hard link increases the link count in the inode",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following sequences in the vi editor saves the opened document and exits the editor?",
+      "answers": [
+        "esc ZZ",
+        "ctrl :w!",
+        "esc zz",
+        "esc :wq!",
+        "ctrl XX"
+      ],
+      "explanation": "ZZ or :wq! write changes and exit",
+      "correct_response": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following settings for umask ensures that new files have the default permissions -rw-r----- ?",
+      "answers": [
+        "0017",
+        "0640",
+        "0038",
+        "0027"
+      ],
+      "explanation": "Umask 0027 yields default file permissions 0640 (-rw-r-----)",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following shell redirections will write standard output and standard error output to a file named filename?",
+      "answers": [
+        "2>&1 >filename",
+        ">filename 2>&1",
+        "1>&2>filename",
+        ">>filename",
+        "1&2>filename"
+      ],
+      "explanation": ">filename 2>&1 redirects stdout then redirects stderr to the same file",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following signals is sent to a process when the key combination CTRL+C is pressed on the keyboard?",
+      "answers": [
+        "SIGTERM",
+        "SIGINT",
+        "SIGSTOP",
+        "SIGKILL"
+      ],
+      "explanation": "CTRL+C sends SIGINT",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following statements is correct regarding the command foo 1> bar?",
+      "answers": [
+        "The stdout from the command foo is appended to the file bar.",
+        "The stdout from the command foo overwrites the file bar.",
+        "The command foo receives its stdin from the file bar.",
+        "The command foo receives its stdin from the stdout of the command bar.",
+        "The stderr from the command foo is saved to the file bar."
+      ],
+      "explanation": "1> redirects stdout, overwriting the file",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following statements is true regarding hard links?",
+      "answers": [
+        "A hard link can span different filesystems.",
+        "A hard link can be created for a directory.",
+        "A hard link points to the same inode as the original file.",
+        "A hard link can be created for a symbolic link.",
+        "A hard link increases file size"
+      ],
+      "explanation": "Hard links point to the same inode, sharing the same data blocks",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which RPM command will output the name of the package which supplied the file /etc/exports?",
+      "answers": [
+        "rpm -F /etc/exports",
+        "rpm -qf /etc/exports",
+        "rpm -Kl /etc/exports",
+        "rpm -qp /etc/exports",
+        "rpm -qi /etc/exports"
+      ],
+      "explanation": "rpm -qf reports the package owning a file",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which sed command replaces all occurrences of 'insane' with 'to drink' in printer.txt?",
+      "answers": [
+        "sed 's/insane/to drink/' printer.txt",
+        "sed 's/insane/to drink/g' printer.txt",
+        "sed 's/to drink/insane/' printer.txt",
+        "sed '/insane/d' printer.txt",
+        "sed 's/insane/to drink/p' printer.txt"
+      ],
+      "explanation": "The 'g' flag makes the replacement global (all occurrences on each line)",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which signal is missing from the following command that is commonly used to instruct a daemon to reinitialize itself, including reading configuration files?",
+      "answers": [
+        "HUP"
+      ],
+      "explanation": "SIGHUP causes daemons to reinitialize/read config",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which tar option creates an archive using xz compression?",
+      "answers": [
+        "-z",
+        "-j",
+        "-J",
+        "-x",
+        "-c"
+      ],
+      "explanation": "The -J option uses xz compression",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which utility would be used to change how often a filesystem check is performed on an ext2 filesystem without losing any data stored on that filesystem?",
+      "answers": [
+        "mod2fs",
+        "fsck",
+        "tune2fs",
+        "mke2fs",
+        "fixe2fs"
+      ],
+      "explanation": "tune2fs configures check frequency safely",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which variable defines the directories in which a Bash shell searches for executable commands?",
+      "answers": [
+        "BASHEXEC",
+        "BASHRC",
+        "PATH",
+        "EXECPATH",
+        "PATHRC"
+      ],
+      "explanation": "PATH specifies directories searched for commands",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "A company's IT associate has been asked to switch to single-user mode on a running Linux server in order to perform some troubleshooting. Of the options below, which is the best way of doing this?",
+      "answers": [
+        "su single",
+        "init singleuser",
+        "Isu 1",
+        "linit 1",
+        "systemctl isolate rescue.target"
+      ],
+      "explanation": "Use init 1 on SysV-style systems to reach runlevel 1, on systemd systems prefer systemctl isolate rescue.target to switch to single‑user/rescue mode.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "The command chmod u+wx file.txt will:",
+      "answers": [
+        "Add write and execute permissions for the user (owner) of the file.",
+        "Remove read permissions for the user.",
+        "Add write and execute permissions for all users.",
+        "Change the ownership of the file."
+      ],
+      "explanation": "Adds write and execute permissions for the file owner only (u+wx modifies user/owner bits).",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "The command df is primarily used to:",
+      "answers": [
+        "Display file permissions.",
+        "Display system processes.",
+        "Display disk space usage.",
+        "Display current users."
+      ],
+      "explanation": "df reports filesystem disk space usage (total, used, available) for mounted filesystems.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "The octal permission mode 0755 corresponds to which set of permissions?",
+      "answers": [
+        "Owner: rwx, Group: r-x, Others: r-x",
+        "Owner: rw-, Group: r--, Others: r--",
+        "Owner: r-x, Group: r-x, Others: r-x",
+        "Owner: rwx, Group: rwx, Others: rwx"
+      ],
+      "explanation": "0755 = owner rwx (7), group r-x (5), others r-x (5) → rwxr-xr-x.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command changes the owner (user and/or group) of a file?",
+      "answers": [
+        "chown",
+        "chmod",
+        "chgrp",
+        "usermod"
+      ],
+      "explanation": "Use chown user:group file to change owner and group. chgrp changes only group, chmod adjusts permissions.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command is used to create a new directory?",
+      "answers": [
+        "newdir",
+        "mkdir",
+        "createdir",
+        "dircreate"
+      ],
+      "explanation": "mkdir is the standard command to create directories.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command is used to display the current working directory's full path?",
+      "answers": [
+        "cd",
+        "pwd",
+        "ls",
+        "where"
+      ],
+      "explanation": "pwd prints the absolute pathname of the current directory.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command is used to find a specific text string within a file?",
+      "answers": [
+        "find",
+        "grep",
+        "search",
+        "locate"
+      ],
+      "explanation": "grep 'pattern' file searches file contents, find searches filenames/attributes.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command is used to remove files permanently in Linux?",
+      "answers": [
+        "delete",
+        "rm",
+        "rmdir",
+        "erase"
+      ],
+      "explanation": "rm deletes files (permanently). rmdir removes empty directories.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command is used to update the package index on Debian-based Linux systems like Ubuntu?",
+      "answers": [
+        "apt-get update",
+        "yum update",
+        "pkg update",
+        "updatepkg"
+      ],
+      "explanation": "apt-get update (or apt update) refreshes the package index on Debian/Ubuntu systems.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command is used to view the Linux kernel version running on your system?",
+      "answers": [
+        "version",
+        "uname -r",
+        "kernel",
+        "sysinfo"
+      ],
+      "explanation": "uname -r prints the currently running kernel release string.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command prints the absolute pathname of the current working directory?",
+      "answers": [
+        "pwd",
+        "ls",
+        "whoami",
+        "basename ."
+      ],
+      "explanation": "pwd outputs the absolute pathname of the current directory.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command schedules a one-time job to run at a specific time in the future?",
+      "answers": [
+        "at 23:30",
+        "cron add",
+        "systemctl timer",
+        "sleep 3600 &"
+      ],
+      "explanation": "The at command schedules a one-time job,  cron is for recurring jobs.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command searches the filesystem hierarchy starting at the specified directory for files matching a name pattern?",
+      "answers": [
+        "find / -name 'pattern'",
+        "grep -r 'pattern' /",
+        "which pattern",
+        "locate pattern"
+      ],
+      "explanation": "find / -name 'pattern' searches the directory tree for filenames matching the pattern.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command shows the last 50 lines of /var/log/syslog and continues printing new lines as the file grows?",
+      "answers": [
+        "tail -n 50 -f /var/log/syslog",
+        "head -n 50 /var/log/syslog",
+        "less /var/log/syslog",
+        "cat /var/log/syslog | more"
+      ],
+      "explanation": "tail -n 50 -f shows the last 50 lines and follows appended output in real time.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which commands display disk usage? (Select two)",
+      "answers": [
+        "ls -l",
+        "df -h",
+        "free -m",
+        "du -sh"
+      ],
+      "explanation": "df -h reports filesystem usage,  du -sh reports disk usage for directories/files.",
+      "correct_response": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "question": "Which package manager is the default for Debian and Ubuntu families for installing and removing packages?",
+      "answers": [
+        "apt",
+        "yum",
+        "dnf",
+        "pacman"
+      ],
+      "explanation": "Debian/Ubuntu use apt (front-end to dpkg) for package management.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which statement correctly distinguishes a hard link from a symbolic link (symlink)?",
+      "answers": [
+        "A hard link points to the same inode, a symlink is a special file containing a pathname.",
+        "A hard link stores the target pathname, a symlink points directly to the inode.",
+        "Hard links only work for directories, symlinks only work for files."
+      ],
+      "explanation": "Hard links can cross filesystems, symlinks cannot. A hard link is another directory entry referencing the same inode, a symlink is a separate file that holds a pathname to the target.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What are the three basic types of file permissions in Linux?",
+      "answers": [
+        "Read, Write, Execute",
+        "Own, Edit, Delete",
+        "User, Group, Other",
+        "Open, Close, Save"
+      ],
+      "explanation": "Linux file permissions are read (r), write (w) and execute (x), these apply to user, group and others.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What is the purpose of the setgid bit on a directory?",
+      "answers": [
+        "Makes all files executable",
+        "Forces files to inherit the directory's group ownership",
+        "Encrypts all new files",
+        "Prevents file deletion",
+        "Sets file timestamps to current time"
+      ],
+      "explanation": "setgid ensures new files and subdirectories inherit the group of the parent directory",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the current running processes on the system?",
+      "answers": [
+        "free",
+        "top",
+        "vmstat",
+        "htop",
+        "ps"
+      ],
+      "explanation": "top, htop, and ps display running processes with different formats and features",
+      "correct_response": [
+        "b",
+        "d",
+        "e"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the current system date and time?",
+      "answers": [
+        "date",
+        "time",
+        "cal",
+        "timedatectl",
+        "clock"
+      ],
+      "explanation": "date shows date/time, timedatectl manages system time settings",
+      "correct_response": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the disk space usage of file systems?",
+      "answers": [
+        "df",
+        "du",
+        "lsblk",
+        "fdisk",
+        "parted"
+      ],
+      "explanation": "df shows filesystem disk space usage, du shows directory/file space usage",
+      "correct_response": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following commands can be used to display the last lines of a text file?",
+      "answers": [
+        "tail",
+        "head",
+        "less",
+        "more",
+        "cat"
+      ],
+      "explanation": "tail shows last lines, less and more are pagers that can navigate through files",
+      "correct_response": [
+        "a",
+        "c",
+        "d"
+      ]
+    },
+    {
+      "question": "A Linux administrator needs to identify the kernel version of the Linux operating system they are currently using. Which command should they execute?",
+      "answers": [
+        "uname -r",
+        "lsb_release -a",
+        "cat /etc/os-release",
+        "ifconfig"
+      ],
+      "explanation": "The command uname -r is used in Linux to display the kernel version of the operating system. It specifically shows the release number of the kernel.\\nOption B is incorrect.\\nlsb_release -a displays the Linux Standard Base (LSB) and distribution-specific information, but not the kernel version.\\nOption C is incorrect.\\ncat /etc/os-release shows information about the Linux distribution but does not display the kernel version.\\nOption D is incorrect.\\nifconfig is a command used for displaying and configuring network interfaces, and it is unrelated to displaying the kernel version.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux administrator wants to monitor real-time system processes and their resource usage. Which command should they use?",
+      "answers": [
+        "ps",
+        "df",
+        "top",
+        "chmod"
+      ],
+      "explanation": "The top command is used in Linux for real-time monitoring of system processes and their resource usage, including CPU and memory. It provides a dynamic, real-time view of a running system.\\nOption A is incorrect.\\nps displays information about a selection of active processes, but it does not provide real-time, continuously updated information like top.\\nOption B is incorrect.\\ndf (disk free) is used to report the amount of disk space used and available on file systems, not for monitoring system processes.\\nOption D is incorrect.\\nchmod changes the file access permissions but is not related to monitoring system processes or resource usage.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "A Linux system administrator needs to display a tree-like structure of all running processes. Which command should they use?",
+      "answers": [
+        "ps aux",
+        "top",
+        "pstree",
+        "ifconfig"
+      ],
+      "explanation": "The pstree command displays running processes as a tree, which is particularly useful for showing the hierarchy and parent-child relationships between processes.\\nOption A is incorrect.\\nps aux lists all running processes with detailed information, but it does not display them in a tree-like structure.\\nOption B is incorrect.\\ntop provides a dynamic real-time view of running processes, focusing on resource usage, but not in a tree structure.\\nOption D is incorrect.\\nifconfig is used for configuring network interfaces and has no relation to process management.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "A Linux system administrator wants to display the amount of time since the system was last booted. Which command should they use?",
+      "answers": [
+        "uptime",
+        "last",
+        "top",
+        "date"
+      ],
+      "explanation": "The uptime command shows how long the system has been running since the last boot, along with the current time, the number of users currently logged in, and the system load averages.\\nOption B is incorrect.\\nlast is used to show a listing of last logged in users, not the system uptime since the last boot.\\nOption C is incorrect.\\nWhile top provides real-time information about system processes and resource usage, it does not specifically display the system uptime since the last boot.\\nOption D is incorrect.\\ndate displays the current system date and time, but it does not provide information on the system uptime.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux user needs to copy a directory named data and all its contents to a new location. Which command should they use?",
+      "answers": [
+        "cp -r data /new/location",
+        "mv data /new/location",
+        "ls -R data > /new/location",
+        "mkdir /new/location/data"
+      ],
+      "explanation": "The cp -r command is used to copy a directory and all of its contents, including subdirectories and files, to a new location. In this scenario, cp -r data /new/location will copy the data directory to /new/location.\\nOption B is incorrect.\\nmv is used to move files or directories from one location to another, not for copying.\\nOption C is incorrect.\\nls -R data > /new/location will list all files and directories recursively but will not copy them to the new location.\\nOption D is incorrect.\\nmkdir /new/location/data simply creates a new directory and does not copy the contents of the existing data directory.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux user needs to create an empty file named log.txt in their current directory. Which command should they use?",
+      "answers": [
+        "touch log.txt",
+        "mkdir log.txt",
+        "cp log.txt",
+        "rm log.txt"
+      ],
+      "explanation": "The touch command is used in Linux to create a new empty file. Using touch log.txt will create an empty file named log.txt in the current directory.\\nOption B is incorrect.\\nmkdir is used to create a new directory, not an empty file.\\nOption C is incorrect.\\ncp is used to copy files and directories, and it requires both a source and a destination, it cannot be used to create a new file.\\nOption D is incorrect.\\nrm is used to remove files and directories, not to create them.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux user wants to display the amount of time since the system was last booted. Which command should they use?",
+      "answers": [
+        "uptime",
+        "last",
+        "top",
+        "date"
+      ],
+      "explanation": "The uptime command shows how long the system has been running since the last boot, along with the current time, the number of users currently logged in, and the system load averages.\\nOption B is incorrect.\\nlast is used to show a listing of last logged in users, not the system uptime since the last boot.\\nOption C is incorrect.\\nWhile top provides real-time information about system processes and resource usage, it does not specifically display the system uptime since the last boot.\\nOption D is incorrect.\\ndate displays the current system date and time, but it does not provide information on the system uptime.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A Linux user wants to view detailed system information, including hardware, kernel version, and environment variables. Which command should they use?",
+      "answers": [
+        "uname -a",
+        "top",
+        "env",
+        "lscpu"
+      ],
+      "explanation": "The uname -a command in Linux displays all system information, including the kernel version, hostname, kernel release date, processor type, and more. It is a comprehensive command for system information.\\nOption B is incorrect.\\ntop is used for real-time system monitoring, including process activity and system resource usage, but it does not display detailed hardware and environment information.\\nOption C is incorrect.\\nenv displays environment variables. While it provides information about the user environment, it does not show detailed system information like hardware or kernel version.\\nOption D is incorrect.\\nlscpu displays CPU architecture information, but it does not provide comprehensive system information including kernel version or environment variables.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator is tasked with monitoring the disk space usage of a Linux server. Which command should they use to view the disk space used and available on all mounted filesystems?",
+      "answers": [
+        "df -h",
+        "du -sh",
+        "fdisk -l",
+        "mount"
+      ],
+      "explanation": "df -h (disk free) displays the amount of disk space used and available on all mounted filesystems in a human-readable format. It is the appropriate command for monitoring overall disk space usage on a system.\\nOption B is incorrect.\\ndu -sh (disk usage) shows the amount of disk space used by specific files and directories, not the overall disk space usage of all mounted filesystems.\\nOption C is incorrect.\\nfdisk -l lists the partitions on a disk, but it does not show the disk space usage of mounted filesystems.\\nOption D is incorrect.\\nmount is used to mount filesystems and view mounted filesystems, but it does not display disk space usage.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator needs to find all occurrences of the word 'error' in a file named system.log. Which command should they use?",
+      "answers": [
+        "grep 'error' system.log",
+        "find system.log -name 'error'",
+        "cat system.log | grep 'error'",
+        "echo 'error' > system.log"
+      ],
+      "explanation": "grep 'error' system.log is the correct command to search for all occurrences of the word error in the file system.log. grep is used for pattern matching and searching within files.\\nOption B is incorrect.\\nfind system.log -name 'error' is incorrect, find is used for locating files in a directory hierarchy, not for searching within files.\\nOption C is incorrect.\\nWhile cat system.log | grep 'error' would work, it is unnecessary to use cat when grep can directly read the file.\\nOption D is incorrect.\\necho 'error' > system.log would overwrite system.log with the word error instead of searching within it.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator wants to continuously monitor the real-time system load and active processes of their Linux server. Which command will provide a dynamic, interactive view of this information?",
+      "answers": [
+        "top",
+        "ps aux",
+        "vmstat",
+        "htop"
+      ],
+      "explanation": "top provides a dynamic, real-time view of the system's running processes, including CPU and memory usage, process IDs, and other vital system statistics. It is an interactive tool commonly used for monitoring system performance.\\nOption B is incorrect.\\nps aux shows current running processes with detailed information, but it provides a static snapshot rather than a dynamic, real-time view.\\nOption C is incorrect.\\nvmstat reports information about processes, memory, paging, block IO, traps, and CPU activity, but it is not as interactive or comprehensive for process monitoring as top.\\nOption D is incorrect.\\nWhile htop is an alternative to top and provides a similar real-time view, it may not be installed by default on all Linux systems, making top the more universally applicable choice.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A system administrator wants to view the current system's uptime and load averages. Which command should they use in a Linux environment?",
+      "answers": [
+        "df",
+        "free",
+        "uptime",
+        "ps"
+      ],
+      "explanation": "The uptime command in Linux displays the current time, how long the system has been running, how many users are currently logged on, and the system load averages for the past 1, 5, and 15 minutes.\\nOption A is incorrect.\\nThe df command is used to report file system disk space usage, not to check system uptime and load averages.\\nOption B is incorrect.\\nThe free command shows the amount of free and used memory in the system, but it does not provide information about system uptime or load averages.\\nOption D is incorrect.\\nThe ps command displays information about active processes. It does not provide information on system uptime or load averages.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "A user needs to change the permissions of a file named script.sh to make it executable. Which command should they use?",
+      "answers": [
+        "chmod +x script.sh",
+        "chown +x script.sh",
+        "mkdir script.sh",
+        "cp script.sh"
+      ],
+      "explanation": "The chmod +x script.sh command changes the file permissions of script.sh to make it executable. chmod is used for changing file access permissions, and +x adds execute permissions.\\nOption B is incorrect.\\nchown is used to change file ownership, not to change file permissions.\\nOption C is incorrect.\\nmkdir is used to create directories, not to change file permissions.\\nOption D is incorrect.\\ncp is used to copy files and directories, not to change file permissions.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "A user needs to find the total size of a directory, including all its subdirectories and files. Which command should they use?\\n\\r",
+      "answers": [
+        "du -sh",
+        "df -h",
+        "ls -lh",
+        "chmod 755"
+      ],
+      "explanation": "The command du -sh is used in Linux to display the total disk usage of a directory and its subdirectories in a human-readable format. The -s option provides a summary, and -h makes the output human-readable.\\nOption B is incorrect.\\ndf -h displays disk space usage for file systems, not for a specific directory and its contents.\\nOption C is incorrect.\\nls -lh lists files in the current directory in a human-readable format but does not provide the total size of the directory and its subdirectories.\\nOption D is incorrect.\\nchmod 755 changes file permissions and is not related to finding the size of directories.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "An administrator needs to check the current Linux kernel version running on their system. Which command will provide this information?",
+      "answers": [
+        "uname -r",
+        "lsb_release -a",
+        "cat /proc/version",
+        "ifconfig"
+      ],
+      "explanation": "The uname -r command is specifically used to display the kernel release information of the Linux system. It is the most direct way to find out the kernel version.\\nOption B is incorrect.\\nlsb_release -a provides information about the Linux distribution but does not specifically display the kernel version.\\nOption C is incorrect.\\nWhile cat /proc/version does show kernel information, including the version, uname -r is more commonly used for this specific purpose.\\nOption D is incorrect.\\nifconfig is used for displaying and configuring network interfaces and has no relation to displaying the kernel version.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "In a Linux environment, which command would you use to copy a file named 'data.txt' from your current directory to a directory named 'backup'?",
+      "answers": [
+        "cp data.txt backup/",
+        "mv data.txt backup/",
+        "rm data.txt backup/",
+        "ln data.txt backup/"
+      ],
+      "explanation": "The cp command is used to copy files or directories. Here, cp data.txt backup/ copies data.txt from the current directory to the backup directory.\\nOption B is incorrect.\\nmv moves or renames files or directories. It would move data.txt to the backup directory, not copy it.\\nOption C is incorrect.\\nrm is used to remove files or directories, which is not the intended action in this scenario.\\nOption D is incorrect.\\nln is used to create links to files, not to copy them. ln data.txt backup/ would create a link to data.txt in the backup directory, not copy the file.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "In Linux, which command is used to display the manual page of a command?",
+      "answers": [
+        "ls",
+        "man",
+        "echo",
+        "grep"
+      ],
+      "explanation": "man is used to display the manual pages of a command in Linux. It provides detailed information about command syntax, options, and usage.\\nOption A is incorrect.\\nls is used to list directory contents, not to display the manual page of a command.\\nOption C is incorrect.\\necho is used to display a line of text/string that is passed as an argument, not for displaying manual pages.\\nOption D is incorrect.\\ngrep is used to search for a specified pattern within files, not to display the manual pages of commands.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In order to view all currently running processes in a Linux system, which command should be used?",
+      "answers": [
+        "ps aux",
+        "top",
+        "ifconfig",
+        "uname -a"
+      ],
+      "explanation": "The ps aux command displays detailed information about all currently running processes, including those started by users and system processes.\\nOption B is incorrect.\\ntop shows a real-time view of running processes, but it's more focused on processes consuming the most system resources rather than listing every process.\\nOption C is incorrect.\\nifconfig is used for configuring and displaying network interface parameters, and it does not display information about running processes.\\nOption D is incorrect.\\nuname -a displays system information such as the kernel version and machine hardware name, but it does not list running processes.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To check the disk usage of a specific directory /home/user/documents and display the result in a human-readable format, which command should a system administrator use?",
+      "answers": [
+        "df -h /home/user/documents",
+        "du -sh /home/user/documents",
+        "ls -lh /home/user/documents",
+        "fdisk -l /home/user/documents"
+      ],
+      "explanation": "du -sh /home/user/documents displays the disk usage of the specified directory in a human-readable format (e.g., KB, MB, GB). The -s option provides a summary (rather than listing each file), and -h makes the output human-readable.\\nOption A is incorrect.\\ndf -h displays disk space usage for file systems, not for specific directories.\\nOption C is incorrect.\\nls -lh lists the files in the specified directory with their sizes in a human-readable format, but it does not provide the total size of the directory.\\nOption D is incorrect.\\nfdisk -l lists the partitions on disks and does not provide disk usage information for specific directories.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "To concatenate and display the contents of multiple text files named file1.txt and file2.txt on the terminal, which command should a Linux user execute?",
+      "answers": [
+        "cat file1.txt file2.txt",
+        "less file1.txt file2.txt",
+        "touch file1.txt file2.txt",
+        "mv file1.txt file2.txt"
+      ],
+      "explanation": "The cat (concatenate) command is used to display the contents of files, and it can concatenate multiple files. Here, cat file1.txt file2.txt will display the contents of both files in the order they are listed.\\nOption B is incorrect.\\nless is used for paging through text one screen at a time but does not concatenate files.\\nOption C is incorrect.\\ntouch is used to create new empty files or update the timestamps of existing files, not to display or concatenate file contents.\\nOption D is incorrect.\\nmv is used to move or rename files, not for displaying or concatenating their contents.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To concatenate two text files, report1.txt and report2.txt, into a new file named combined_report.txt, which command should be used in Linux?",
+      "answers": [
+        "cat report1.txt report2.txt > combined_report.txt",
+        "mv report1.txt report2.txt combined_report.txt",
+        "cp report1.txt report2.txt combined_report.txt",
+        "ls report1.txt report2.txt > combined_report.txt"
+      ],
+      "explanation": "The cat command, when used with the > operator, concatenates the contents of report1.txt and report2.txt and redirects the combined output into combined_report.txt.\\nOption B is incorrect.\\nmv is used to move or rename files, not to concatenate them.\\nOption C is incorrect.\\ncp is used to copy files and directories, but it does not concatenate file contents.\\nOption D is incorrect.\\nls lists directory contents and cannot be used for concatenating files. The > operator redirects the output, but ls is not the correct command for this task.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To display detailed information about the Linux distribution currently in use, including the version and codename, which command should be used?",
+      "answers": [
+        "uname -a",
+        "df -h",
+        "lsb_release -a",
+        "top"
+      ],
+      "explanation": "The lsb_release -a command displays detailed information about the Linux distribution, including its version and codename. LSB stands for Linux Standard Base, which provides standardized information about a Linux system.\\nOption A is incorrect.\\nuname -a displays basic information about the system's kernel and architecture but does not provide detailed distribution information.\\nOption B is incorrect.\\ndf -h shows the disk space usage of the file system and has nothing to do with the distribution information.\\nOption D is incorrect.\\ntop provides real-time information about running processes and system resource usage but does not display information about the Linux distribution.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "To display the amount of free and used memory in the Linux system, which command should a system administrator use?",
+      "answers": [
+        "free -m",
+        "df -h",
+        "top",
+        "du -sh"
+      ],
+      "explanation": "The free -m command displays the total amount of free and used physical and swap memory in the system in megabytes. It provides a quick overview of memory usage.\\nOption B is incorrect.\\ndf -h displays the amount of disk space used and available on mounted file systems, not memory usage.\\nOption C is incorrect.\\nWhile top does display memory usage among other system information, free -m is specifically designed for a concise view of memory usage.\\nOption D is incorrect.\\ndu -sh estimates file space usage, it does not provide information about memory usage.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To display the current date and time in the Linux system, which command should a user execute?",
+      "answers": [
+        "date",
+        "cal",
+        "uptime",
+        "timedatectl"
+      ],
+      "explanation": "The date command in Linux is used to display the current system date and time. It is the direct command for checking the current date and time.\\nOption B is incorrect.\\ncal displays a calendar of the current month, not the current date and time.\\nOption C is incorrect.\\nuptime shows how long the system has been running, the number of users, and the system load, but not the current date and time.\\nOption D is incorrect.\\ntimedatectl is used to query and change the system clock and its settings but is more complex than necessary for simply displaying the current date and time.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To display the disk usage of the file system in a human-readable format, which command should a Linux user execute?",
+      "answers": [
+        "df -h",
+        "du -h",
+        "free -m",
+        "ifconfig"
+      ],
+      "explanation": "The df -h command displays the amount of disk space used and available on Linux file systems in a human-readable format (e.g., in KB, MB, GB).\\nOption B is incorrect.\\ndu -h displays the disk usage of files and directories, not the overall file system usage like df -h.\\nOption C is incorrect.\\nfree -m shows the amount of free and used memory in the system, not disk space usage.\\nOption D is incorrect.\\nifconfig is used for configuring network interfaces, and it is unrelated to disk space usage.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To display the total amount of free and used physical and swap memory in the system, as well as the buffers used by the kernel, which command should a Linux user execute?",
+      "answers": [
+        "df -h",
+        "free -m",
+        "top",
+        "du -sh"
+      ],
+      "explanation": "The free -m command is used to show the total amount of free and used physical and swap memory in the system in megabytes, along with the memory used by the kernel for buffers.\\nOption A is incorrect.\\ndf -h shows the amount of disk space used and available on mounted file systems, not memory usage.\\nOption C is incorrect.\\ntop provides a dynamic view of system processes and includes memory usage, but free -m is specifically designed to display memory information in a clear and concise format.\\nOption D is incorrect.\\ndu -sh is used to estimate file space usage, it does not display memory usage information.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "To display the total, used, and free disk space on all mounted filesystems in a human-readable format, which command should a system administrator use?",
+      "answers": [
+        "df -h",
+        "du -sh",
+        "free -m",
+        "ls -lh"
+      ],
+      "explanation": "df -h (disk free) is used to report the amount of disk space used and available on Linux file systems in a human-readable format. The -h option makes the output easy to read.\\nOption B is incorrect.\\ndu -sh estimates file space usage for a specific directory or file, not the total disk space of all mounted filesystems.\\nOption C is incorrect.\\nfree -m shows the amount of free and used memory in the system in megabytes, not disk space usage.\\nOption D is incorrect.\\nls -lh lists files in the current directory in a human-readable format but does not show disk space usage of mounted filesystems.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To find out how long the Linux system has been running, along with the average load, which command should be executed?",
+      "answers": [
+        "uptime",
+        "last",
+        "top",
+        "date"
+      ],
+      "explanation": "The uptime command shows how long the system has been running since the last boot, along with the load average over 1, 5, and 15 minutes.\\nOption B is incorrect.\\nlast is used to display a list of last logged-in users, not system uptime or load average.\\nOption C is incorrect.\\nWhile top does show system uptime in its display, it's primarily used for monitoring real-time process activity, making uptime a more direct choice for this specific requirement.\\nOption D is incorrect.\\ndate displays the current date and time, but it does not show system uptime or load average.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To monitor the real-time performance of system processes and system resource usage, which command should a Linux system administrator use?",
+      "answers": [
+        "ps aux",
+        "ifconfig",
+        "top",
+        "uname -a"
+      ],
+      "explanation": "The top command is used for real-time monitoring of system processes and their resource usage, including CPU and memory. It provides a dynamic, constantly updated view of the running system.\\nOption A is incorrect.\\nps aux displays information about currently running processes, but it does not provide real-time, continuously updated information like top.\\nOption B is incorrect.\\nifconfig is used for displaying and configuring network interfaces, and it is unrelated to monitoring system processes or resource usage.\\nOption D is incorrect.\\nuname -a displays system information such as the kernel version and machine hardware name, but it does not provide real-time monitoring of system processes.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "To recursively list all files and directories in the current directory, including hidden ones, which command should be used in Linux?",
+      "answers": [
+        "ls -l",
+        "ls -a",
+        "ls -la",
+        "ls -r"
+      ],
+      "explanation": "The ls -la command lists all files and directories in the current directory, including hidden ones (those starting with a dot). The -l option provides detailed listings, and -a includes hidden files.\\nOption A is incorrect.\\nls -l lists files and directories with detailed information, but it does not include hidden files.\\nOption B is incorrect.\\nls -a lists all files including hidden ones, but it does not provide detailed listings.\\nOption D is incorrect.\\nls -r lists files and directories in reverse order, it does not list all files or provide detailed listings.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "To redirect the standard output of a command to a file called log.txt, replacing any existing content in the file, which command syntax should a Linux system administrator use?",
+      "answers": [
+        "command > log.txt",
+        "command >> log.txt",
+        "command < log.txt",
+        "command && log.txt"
+      ],
+      "explanation": "Using > in the command command > log.txt redirects the standard output of command to log.txt, replacing any existing content in the file. It's the correct way to overwrite a file with the output of a command.\\nOption B is incorrect.\\ncommand >> log.txt appends the output to log.txt without overwriting existing content.\\nOption C is incorrect.\\ncommand < log.txt uses log.txt as standard input to the command, not as output redirection.\\nOption D is incorrect.\\ncommand && log.txt is incorrect syntax for file redirection. && is a conditional operator used to execute log.txt as a command if command is successful, which is not the intended action.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "To schedule a command or script to run at a specific time and date, which command should a Linux user employ?",
+      "answers": [
+        "cron",
+        "at",
+        "nohup",
+        "nice"
+      ],
+      "explanation": "The at command in Linux is used to schedule commands or scripts to be executed at a specific future time and date. It is the appropriate tool for one-time task scheduling.\\nOption A is incorrect.\\ncron is used for scheduling repetitive tasks at regular intervals, not for a single occurrence in the future.\\nOption C is incorrect.\\nnohup is used to run a command immune to hangups, but it does not schedule tasks for future execution.\\nOption D is incorrect.\\nnice changes the priority of a process, not for scheduling it at a specific time.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "To search for a specific text string within a file named report.txt, which command should a Linux user utilize?",
+      "answers": [
+        "grep 'search_string' report.txt",
+        "find report.txt -name 'search_string'",
+        "cat report.txt | search_string",
+        "touch 'search_string' report.txt"
+      ],
+      "explanation": "The grep command is used to search for specific text within files. In this case, grep 'search_string' report.txt will search for the occurrence of 'search_string' within the file report.txt.\\nOption B is incorrect.\\nfind is used to locate files within a directory hierarchy but does not search for text within files.\\nOption C is incorrect.\\ncat report.txt | search_string is a syntactically incorrect command. The correct usage would involve grep to search within the output.\\nOption D is incorrect.\\ntouch is used to create a new empty file or update an existing file's timestamps, not for searching text within a file.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What command is used in Linux to list the contents of a directory?",
+      "answers": [
+        "ls",
+        "pwd",
+        "cd",
+        "mkdir"
+      ],
+      "explanation": "ls is the standard command in Linux to list directory contents. It displays files, directories, and other items stored in a specific directory.\\nOption B is incorrect.\\npwd (Print Working Directory) is used to display the current directory that the user is in, not to list the contents of a directory.\\nOption C is incorrect.\\ncd (Change Directory) is used to change the current directory to another directory, not to list directory contents.\\nOption D is incorrect.\\nmkdir (Make Directory) is used to create a new directory, not to list the contents of a directory.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the chmod 755 filename command do?",
+      "answers": [
+        "Sets permissions to rwx for owner, rx for group and others",
+        "Removes all permissions",
+        "Changes file owner",
+        "Makes a file hidden"
+      ],
+      "explanation": "chmod 755 sets read, write, and execute for the owner, and read and execute for group and others. It does not hide files (prefix . does that), remove permissions, or change ownership (chown).",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What does the df -h command do?",
+      "answers": [
+        "Displays filesystem disk usage in human-readable format",
+        "Displays memory usage in MB",
+        "Shows currently running processes",
+        "Lists open network connections"
+      ],
+      "explanation": "df -h shows filesystem usage with readable units like GB/MB. free handles memory, top and ps show processes, and ss/netstat show network usage.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command is used to display the disk usage of a directory in a human-readable format?",
+      "answers": [
+        "ls -lh",
+        "du -sh",
+        "df -h",
+        "free -m"
+      ],
+      "explanation": "du -sh shows the total disk usage of a directory in a summarized and human-readable format. ls -lh lists individual file sizes. df -h shows overall filesystem usage, and free -m is for memory stats.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command lists all files, including hidden ones, in a directory?",
+      "answers": [
+        "ls -a",
+        "find . -name '*'",
+        "ls",
+        "tree"
+      ],
+      "explanation": "ls -a lists all files including hidden ones (those starting with .). ls without -a omits hidden files, find can find files but not list them traditionally, and tree shows hierarchy, not a simple file list.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command provides real-time monitoring of CPU and memory usage?",
+      "answers": [
+        "free",
+        "top",
+        "df",
+        "ps"
+      ],
+      "explanation": "top provides a real-time, interactive display of CPU, memory, and processes. free shows memory usage statically, df is for disk, and ps shows process info at a single moment.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command should a Linux user execute to display information about the CPU, including its type, make, model, and performance?",
+      "answers": [
+        "lscpu",
+        "lsblk",
+        "ifconfig",
+        "fdisk"
+      ],
+      "explanation": "lscpu gathers CPU architecture information from sysfs and /proc/cpuinfo. The command displays information about the CPU architecture, including the number of CPUs, threads, cores, sockets, and more.\\nOption B is incorrect.\\nlsblk lists information about all available or specified block devices, which are related to storage devices, not CPU information.\\nOption C is incorrect.\\nifconfig is used for configuring or displaying network interface parameters, not for displaying CPU information.\\nOption D is incorrect.\\nfdisk is a command-line utility to view and manage disk partitions, and it does not provide CPU-related information.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command should a Linux user execute to view the currently logged-in users on the system?",
+      "answers": [
+        "users",
+        "ps aux",
+        "free -m",
+        "ifconfig"
+      ],
+      "explanation": "The users command in Linux displays the usernames of users currently logged in to the current host. It provides a list of names, one per line.\\nOption B is incorrect.\\nps aux displays information about currently running processes, including those started by all users, but it does not specifically list the users who are logged in.\\nOption C is incorrect.\\nfree -m is used to show the amount of free and used memory in the system, and it is unrelated to user login information.\\nOption D is incorrect.\\nifconfig is used for displaying and configuring network interfaces, and it does not provide information about logged-in users.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which command should a user run to check the amount of free and used memory in the Linux system?",
+      "answers": [
+        "df -h",
+        "free -m",
+        "top",
+        "du -sh"
+      ],
+      "explanation": "The free -m command is used to display the amount of free and used memory in the system in megabytes. It provides a quick overview of memory usage including total, used, free, shared, buffer/cache, and available memory.\\nOption A is incorrect.\\ndf -h (disk free) displays the amount of disk space used and available on Linux file systems, not memory usage.\\nOption C is incorrect.\\nWhile top does provide memory usage information among other details, it is primarily used for dynamic real-time monitoring of system processes, and free -m is more specific for checking memory usage.\\nOption D is incorrect.\\ndu -sh (disk usage) shows the amount of disk space used by the specified files and directories, but it does not provide information on memory usage.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "You need to view the contents of a text file named 'report.txt' in a Linux environment without editing it. Which command would you use?",
+      "answers": [
+        "touch report.txt",
+        "cat report.txt",
+        "mv report.txt",
+        "chmod report.txt"
+      ],
+      "explanation": "The cat command is used to display the contents of a file. In this scenario, cat report.txt will display the contents of report.txt without editing it.\\nOption A is incorrect.\\nThe touch command is used to create a new empty file or update the timestamp of an existing file, not for viewing file contents.\\nOption C is incorrect.\\nThe mv command is used for moving or renaming files and directories, not for viewing file contents.\\nOption D is incorrect.\\nThe chmod command changes the file permissions, but it does not display file contents.",
+      "correct_response": [
+        "b"
+      ]
+    }
+  ]
+}

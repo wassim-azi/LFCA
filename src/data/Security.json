@@ -1,0 +1,1283 @@
+{
+  "questions": [
+    {
+      "question": "Which file on a typical Linux system holds the hashed passwords and is readable only by root?",
+      "answers": [
+        "/etc/passwd",
+        "/etc/shadow",
+        "/etc/group",
+        "/etc/sudoers",
+        "/etc/gshadow"
+      ],
+      "explanation": "/etc/shadow stores password hashes and is readable only by root, /etc/passwd is world readable and no longer holds password hashes, /etc/group lists groups, /etc/sudoers configures sudo, /etc/gshadow is for group passwords.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command returns the current SELinux mode as Enforcing, Permissive, or Disabled?",
+      "answers": [
+        "getenforce",
+        "selinuxmode",
+        "sestatus",
+        "setenforce",
+        "selinuxenabled"
+      ],
+      "explanation": "getenforce prints the current SELinux mode, sestatus shows detailed status but getenforce directly returns the mode string, setenforce changes mode, selinuxenabled returns success if enabled.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What TCP port is standard for HTTPS traffic?",
+      "answers": [
+        "80",
+        "21",
+        "443",
+        "25",
+        "110"
+      ],
+      "explanation": "HTTPS uses TCP port 443 by default, 80 is HTTP, 21 is FTP, 25 is SMTP, 110 is POP3.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following are valid examples of multi-factor authentication (MFA)?",
+      "answers": [
+        "Password + SMS one-time code",
+        "Password + fingerprint (biometric)",
+        "Password only",
+        "SSH public key only",
+        "Password + hardware security key (U2F/FIDO2)"
+      ],
+      "explanation": "MFA requires two or more independent factors such as something you know plus something you have or are, password only or a single factor method alone is not MFA.",
+      "correct_response": [
+        "a",
+        "b",
+        "e"
+      ]
+    },
+    {
+      "question": "Which openssl command generates a 2048-bit RSA private key in key.pem?",
+      "answers": [
+        "openssl genrsa -out key.pem 2048",
+        "openssl req -new -key key.pem -out csr.pem",
+        "ssh-keygen -t rsa -b 2048 -f key.pem",
+        "openssl rsa -in key.pem -out newkey.pem",
+        "openssl rand -base64 32"
+      ],
+      "explanation": "openssl genrsa creates a new RSA private key, req generates CSRs, ssh-keygen is not OpenSSL and produces OpenSSH keys, openssl rsa converts or re-encodes keys, openssl rand outputs random bytes.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which algorithm is an example of symmetric encryption?",
+      "answers": [
+        "RSA",
+        "AES",
+        "ECDSA",
+        "Diffie-Hellman",
+        "SHA-256"
+      ],
+      "explanation": "AES is symmetric, RSA and ECDSA are asymmetric crypto, Diffie Hellman is key agreement, SHA 256 is a hash not encryption.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which Linux utility overwrites file contents to make recovery difficult (secure delete)?",
+      "answers": [
+        "rm",
+        "shred",
+        "cp",
+        "truncate",
+        "srm"
+      ],
+      "explanation": "shred overwrites file data before unlinking to hinder recovery, rm unlinks only, cp copies, truncate changes file size, srm is not standard on all systems.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which HTTP response header is used to specify a Content Security Policy (CSP) for browsers?",
+      "answers": [
+        "X-Frame-Options",
+        "Content-Security-Policy",
+        "Strict-Transport-Security",
+        "X-Content-Type-Options",
+        "Referrer-Policy"
+      ],
+      "explanation": "Content Security Policy defines allowed sources for content, the others control different security behaviors.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which protocol securely transmits data over networks?",
+      "answers": [
+        "HTTP",
+        "FTP",
+        "HTTPS",
+        "Telnet",
+        "SSH"
+      ],
+      "explanation": "HTTPS encrypts HTTP traffic to provide confidentiality and integrity for the web, HTTP FTP and Telnet are plaintext protocols, SSH is secure but is used primarily for remote shell and tunneling.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Sensitive data at rest is best protected by:",
+      "answers": [
+        "Network segmentation",
+        "Full-disk encryption",
+        "Firewalls",
+        "Intrusion detection systems",
+        "Access control lists (ACLs)"
+      ],
+      "explanation": "Encryption at rest prevents access to data if storage is stolen or accessed offline, segmentation firewalls and IDS help at network layer but do not protect data at rest by themselves.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which action violates GDPR compliance?",
+      "answers": [
+        "Anonymizing user data",
+        "Storing EU user data in the US without safeguards",
+        "Encrypting databases",
+        "Conducting security audits",
+        "Obtaining explicit consent for processing"
+      ],
+      "explanation": "Transferring personal data without appropriate safeguards violates GDPR, anonymization encryption and audits support compliance, obtaining consent is compliant when required.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "A firewall primarily controls:",
+      "answers": [
+        "CPU usage",
+        "Network traffic flow",
+        "User login attempts",
+        "Disk space allocation",
+        "Process scheduling"
+      ],
+      "explanation": "Firewalls filter and control network traffic based on rules, they do not manage CPU disk space logins or process scheduling.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which practice reduces ransomware impact?",
+      "answers": [
+        "Disabling backups",
+        "Isolating critical backups from networks",
+        "Using the same password for all systems",
+        "Opening all ports for remote access",
+        "Allowing macros by default"
+      ],
+      "explanation": "Isolated offline or immutable backups limit ransomware impact, the other practices increase risk.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which protocols encrypt data in transit? (Select two)",
+      "answers": [
+        "HTTP",
+        "SSH",
+        "FTP",
+        "TLS",
+        "ICMP"
+      ],
+      "explanation": "SSH and TLS provide encryption in transit, HTTP FTP and ICMP are not encrypted by default.",
+      "correct_response": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "question": "Which are compliance frameworks? (Select two)",
+      "answers": [
+        "GDPR",
+        "Docker",
+        "HIPAA",
+        "Kubernetes",
+        "Prometheus"
+      ],
+      "explanation": "GDPR and HIPAA are regulatory frameworks, Docker Kubernetes and Prometheus are technologies and not compliance frameworks.",
+      "correct_response": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "question": "The principle of least privilege in user account management means:",
+      "answers": [
+        "Users should have administrative access by default.",
+        "Users should be granted only the permissions they need to perform their tasks.",
+        "All users in a group should have identical permissions.",
+        "User permissions should be reviewed annually.",
+        "Users should request broad access to avoid delays."
+      ],
+      "explanation": "Least privilege limits permissions to the minimum necessary, the other options do not reflect this principle.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "A security attack that uses deceptive emails to trick users into revealing sensitive information is called:",
+      "answers": [
+        "Spoofing",
+        "Phishing",
+        "Sniffing",
+        "Spamming",
+        "Shoulder surfing"
+      ],
+      "explanation": "Phishing uses deceptive messages to obtain credentials or data, spoofing impersonates sources, sniffing captures traffic, spamming is unsolicited messaging, shoulder surfing observes screens directly.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which command is used to change the security permissions of a file or directory in Linux?",
+      "answers": [
+        "chown",
+        "chmod",
+        "setperm",
+        "attr",
+        "chgrp"
+      ],
+      "explanation": "chmod changes permission bits, chown changes owner, chgrp changes group, setperm and attr are not standard permission commands.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "The AAA security model typically covers which of the following?",
+      "answers": [
+        "Authentication, Authorization, Accounting",
+        "Access, Administration, Auditing",
+        "Assets, Attacks, Analysis",
+        "Availability, Accountability, Agility",
+        "Audit, Assurance, Assessment"
+      ],
+      "explanation": "AAA stands for Authentication Authorization and Accounting.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which principle of the CIA triad ensures that information is accessible when needed?",
+      "answers": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Accountability",
+        "Non-repudiation"
+      ],
+      "explanation": "Availability means systems and data are accessible when required, confidentiality prevents unauthorized disclosure, integrity prevents unauthorized modification.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which Linux security module enforces mandatory access controls, such as SELinux?",
+      "answers": [
+        "PAM (Pluggable Authentication Modules)",
+        "SELinux (Security-Enhanced Linux)",
+        "sudo",
+        "iptables",
+        "auditd"
+      ],
+      "explanation": "SELinux is an LSM that enforces mandatory access control policies, PAM handles authentication, sudo manages privilege elevation, iptables is a firewall, auditd records events.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which technique replaces sensitive data with a non-sensitive equivalent while preserving format?",
+      "answers": [
+        "Hashing",
+        "Tokenization",
+        "Encryption",
+        "Masking",
+        "Compression"
+      ],
+      "explanation": "Tokenization substitutes tokens for sensitive values, hashing is one way, encryption is reversible but does not preserve format necessarily, masking obscures data for display, compression reduces size.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which compliance standard focuses on protecting personal data in the European Union?",
+      "answers": [
+        "HIPAA",
+        "PCI-DSS",
+        "GDPR",
+        "ISO/IEC 27001",
+        "SOX"
+      ],
+      "explanation": "GDPR governs processing of personal data in the EU, HIPAA covers health information in the US, PCI DSS protects payment card data, ISO 27001 is an ISMS standard, SOX focuses on financial reporting controls.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which type of attack involves deceiving users into revealing sensitive information via email?",
+      "answers": [
+        "Phishing",
+        "DDoS",
+        "SQL injection",
+        "Man-in-the-middle",
+        "Brute force"
+      ],
+      "explanation": "Phishing tricks users into revealing credentials or sensitive data via social engineering emails.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which tool is commonly used to perform vulnerability scans on a network?",
+      "answers": [
+        "Nessus",
+        "Wireshark",
+        "tcpdump",
+        "iperf",
+        "netcat"
+      ],
+      "explanation": "Nessus is a vulnerability scanner, Wireshark and tcpdump capture packets, iperf measures throughput, netcat is a networking utility.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which authentication method combines something you know with something you have?",
+      "answers": [
+        "Single Sign-On (SSO)",
+        "Two-factor authentication (2FA)",
+        "Kerberos",
+        "OAuth",
+        "Passwordless WebAuthn"
+      ],
+      "explanation": "2FA combines factors such as a password with a hardware token or mobile code, SSO and protocols like Kerberos or OAuth are not by themselves two factors.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which practices improve security for user accounts? (Select two)",
+      "answers": [
+        "Reusing passwords across systems",
+        "Enforcing password complexity",
+        "Disabling SSH access for root",
+        "Sharing credentials via email",
+        "Using short, simple passwords"
+      ],
+      "explanation": "Enforcing complexity and disabling root SSH reduce compromise risk, password reuse sharing credentials and weak passwords are insecure practices.",
+      "correct_response": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "question": "Which are sensitive data types? (Select two)",
+      "answers": [
+        "Public website content",
+        "Social Security numbers",
+        "Customer email addresses",
+        "Open-source code repositories",
+        "Product marketing brochures"
+      ],
+      "explanation": "SSNs and customer emails are sensitive personal data, public content and marketing materials are not sensitive by default.",
+      "correct_response": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "question": "Which command reports the current SELinux mode (e.g., Enforcing, Permissive, Disabled) at runtime?",
+      "answers": [
+        "getenforce",
+        "setenforce",
+        "selinux-status",
+        "sestatus -m",
+        "selinuxenabled"
+      ],
+      "explanation": "getenforce prints the current mode, sestatus shows status but is more verbose, setenforce changes mode, selinuxenabled only indicates if enabled.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which file permission is considered appropriate for an SSH private host key (e.g., /etc/ssh/ssh_host_rsa_key) to prevent unauthorized reading?",
+      "answers": [
+        "600 (owner read/write only)",
+        "644 (owner read/write, group/others read)",
+        "666 (read/write for everyone)",
+        "777 (read/write/execute for everyone)",
+        "700 (owner rwx only)"
+      ],
+      "explanation": "Private key files should not be readable by group or others, 600 is appropriate, 644 666 and 777 are too permissive, 700 grants execute and is unnecessary for a key file.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following are symmetric encryption algorithms? Select all that apply",
+      "answers": [
+        "AES",
+        "RSA",
+        "3DES (Triple DES)",
+        "ECC (Elliptic Curve Cryptography)",
+        "ChaCha20"
+      ],
+      "explanation": "AES 3DES and ChaCha20 are symmetric ciphers, RSA and ECC are asymmetric cryptography.",
+      "correct_response": [
+        "a",
+        "c",
+        "e"
+      ]
+    },
+    {
+      "question": "Which of the following commands is used to display SELinux status?",
+      "answers": [
+        "svstemctl",
+        "sestatus",
+        "firewall-cmd",
+        "sudo",
+        "lsmod"
+      ],
+      "explanation": "sestatus displays SELinux status including current mode policy and contexts, the other commands serve different purposes.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following frameworks regulate personal data protection or health information (choose all that apply)? Select all that apply",
+      "answers": [
+        "GDPR (General Data Protection Regulation)",
+        "PCI-DSS (Payment Card Industry Data Security Standard)",
+        "HIPAA (Health Insurance Portability and Accountability Act)",
+        "ISO 9001 (Quality management standard)",
+        "CIS Benchmarks"
+      ],
+      "explanation": "GDPR regulates personal data in the EU, HIPAA regulates protected health information in the US, PCI DSS sets requirements for protecting payment card data, ISO 9001 and CIS Benchmarks are not personal or health data regulations.",
+      "correct_response": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "question": "Which protocol provides confidentiality for web traffic by encrypting HTTP messages?",
+      "answers": [
+        "HTTPS (HTTP over TLS)",
+        "FTP",
+        "Telnet",
+        "HTTP (plain)",
+        "DNS"
+      ],
+      "explanation": "HTTPS encapsulates HTTP in TLS to provide encryption integrity and authentication, FTP Telnet and plain HTTP are plaintext, DNS is not a web application protocol and is typically unencrypted unless using DoT or DoH.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which factor is crucial when evaluating open source software for security and community support?",
+      "answers": [
+        "Active maintainers with timely security updates and responsive issue handling",
+        "Attractive marketing website",
+        "Intentionally obfuscated source code",
+        "Only a low count of open issues regardless of age",
+        "No public disclosure process for vulnerabilities"
+      ],
+      "explanation": "Active maintenance prompt fixes and a transparent security process are key indicators, the other options are weak or negative signals.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "What encryption method is recommended for securing data at rest in cloud storage?",
+      "answers": [
+        "Server-side encryption with a cloud KMS and customer-managed keys (SSE-KMS/CMK)",
+        "Leave data unencrypted to reduce costs",
+        "Base64 encoding of files",
+        "Use TLS encryption only",
+        "ROT13 cipher"
+      ],
+      "explanation": "Server-side encryption with cloud KMS provides strong protection for data at rest, Base64 is encoding not encryption, TLS is for data in transit, ROT13 is trivially weak, leaving data unencrypted is insecure.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which measures can be taken to prevent unauthorized access to cloud instances and services?",
+      "answers": [
+        "Use multi-factor authentication, implement firewall rules, and back up data off-site.",
+        "Implement block-chain tokens, use encrypted protocols, and encrypt the data on storage systems.",
+        "Replicate data to another datacenter, use multi-factor authentication, and encrypt data on storage systems.",
+        "Implement firewall rules, authentication, authorization, and encrypted protocols.",
+        "Use only password authentication without additional controls"
+      ],
+      "explanation": "Comprehensive security requires network controls (firewalls), identity management (authentication and authorization), and encryption protocols working together to create defense in depth.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which scanning approach detects known CVEs in container images by inspecting installed packages and layers before runtime?",
+      "answers": [
+        "Runtime behavioral monitoring",
+        "Static image vulnerability scanning",
+        "Network intrusion detection",
+        "Dynamic application security testing",
+        "Penetration testing"
+      ],
+      "explanation": "Static image vulnerability scanning analyzes container images before deployment to identify known vulnerabilities in packages and dependencies, runtime monitoring and NIDS observe behavior or traffic, DAST tests running apps, penetration testing is broader security assessment.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is a widely used reusable asset to reinforce the information security of deliverables from a DevOps team?",
+      "answers": [
+        "Data storage systems",
+        "Handling the logging of sensitive client information",
+        "Data transfer between clients and software",
+        "All of the above",
+        "Security scanning tools only"
+      ],
+      "explanation": "All aspects (secure storage, proper logging of sensitive data, and secure data transfer) benefit from reusable security components like libraries, frameworks, and standardized practices in DevOps pipelines.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "What port does SSH use by default?",
+      "answers": [
+        "21",
+        "22",
+        "23",
+        "25",
+        "80"
+      ],
+      "explanation": "SSH uses port 22 by default",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which port is normally required to be open for secure remote interactive shell access to Linux systems?",
+      "answers": [
+        "25/tcp",
+        "23/tcp",
+        "443/tcp",
+        "22/tcp",
+        "2022/tcp"
+      ],
+      "explanation": "SSH uses port 22 for secure remote shell access",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which encryption method is recommended for securing data at rest in cloud storage?",
+      "answers": [
+        "Server-side encryption with a cloud KMS and customer-managed keys (SSE-KMS/CMK)",
+        "Leave data unencrypted to reduce costs",
+        "Base64 encoding of files",
+        "Use TLS encryption only",
+        "ROT13 cipher"
+      ],
+      "explanation": "Server-side encryption with cloud KMS provides strong protection for data at rest, Base64 is encoding not encryption, TLS is for data in transit, ROT13 is trivially weak, leaving data unencrypted is insecure.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which measures can be taken to prevent unauthorized access to cloud instances and services?",
+      "answers": [
+        "Use multi-factor authentication, implement firewall rules, and back up data off-site.",
+        "Implement block-chain tokens, use encrypted protocols, and encrypt the data on storage systems.",
+        "Replicate data to another datacenter, use multi-factor authentication, and encrypt data on storage systems.",
+        "Implement firewall rules, authentication, authorization, and encrypted protocols.",
+        "Use only password authentication without additional controls"
+      ],
+      "explanation": "Comprehensive security requires network controls (firewalls), identity management (authentication and authorization), and encryption protocols working together to create defense in depth.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "Which scanning approach detects known CVEs in container images by inspecting installed packages and layers before runtime?",
+      "answers": [
+        "Runtime behavioral monitoring",
+        "Static image vulnerability scanning",
+        "Network intrusion detection",
+        "Dynamic application security testing",
+        "Penetration testing"
+      ],
+      "explanation": "Static image vulnerability scanning analyzes container images before deployment to identify known vulnerabilities in packages and dependencies, runtime monitoring and NIDS observe behavior or traffic, DAST tests running apps, penetration testing is broader security assessment.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is a widely used reusable asset to reinforce the information security of deliverables from a DevOps team?",
+      "answers": [
+        "Data storage systems",
+        "Handling the logging of sensitive client information",
+        "Data transfer between clients and software",
+        "All of the above",
+        "Security scanning tools only"
+      ],
+      "explanation": "All aspects (secure storage, proper logging of sensitive data, and secure data transfer) benefit from reusable security components like libraries, frameworks, and standardized practices in DevOps pipelines.",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "What port does SSH use by default?",
+      "answers": [
+        "21",
+        "22",
+        "23",
+        "25",
+        "80"
+      ],
+      "explanation": "SSH uses port 22 by default",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which port is normally required to be open for secure remote interactive shell access to Linux systems?",
+      "answers": [
+        "25/tcp",
+        "23/tcp",
+        "443/tcp",
+        "22/tcp",
+        "2022/tcp"
+      ],
+      "explanation": "SSH uses port 22 for secure remote shell access",
+      "correct_response": [
+        "d"
+      ]
+    },
+    {
+      "question": "How does a Virtual Private Network (VPN) enhance security over the internet?",
+      "answers": [
+        "It speeds up your internet connection",
+        "It hides file contents from your local disk",
+        "It encrypts the communication between your device and the destination network",
+        "It blocks all non-HTTPS traffic"
+      ],
+      "explanation": "A VPN creates an encrypted tunnel between the user's device and a VPN server, making the communication between them privateâ€”even when using untrusted networks like public Wi-Fi. This prevents attackers from eavesdropping on data, including credentials and session cookies. It does not inherently speed up connections, hide local files, or block specific traffic types unless configured with additional rules.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In network security, what is the function of an Intrusion Detection System (IDS)?",
+      "answers": [
+        "To increase the speed and efficiency of the network",
+        "To serve as the primary data storage solution",
+        "To detect and alert on potential security threats and malicious activities",
+        "To physically secure the network hardware from unauthorized access"
+      ],
+      "explanation": "An Intrusion Detection System (IDS) is designed to detect and alert on potential security threats and malicious activities within a network. It monitors network traffic and system activities for malicious actions or policy violations, providing alerts when such activities are detected.\\nOption A is incorrect.\\nThe primary function of an IDS is not to increase network speed and efficiency but to monitor for security threats.\\nOption B is incorrect.\\nAn IDS does not serve as a data storage solution, its purpose is related to security monitoring.\\nOption D is incorrect.\\nPhysically securing network hardware is a part of physical security measures, which is different from the function of an IDS in network security.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In network security, what is the main function of a firewall?",
+      "answers": [
+        "To back up data stored on network servers",
+        "To monitor and control incoming and outgoing network traffic based on predetermined rules",
+        "To provide data encryption for stored files",
+        "To increase network transmission speeds"
+      ],
+      "explanation": "The main function of a firewall in network security is to monitor and control incoming and outgoing network traffic. Firewalls use predetermined security rules to determine whether to allow or block specific network traffic, thereby protecting the network from unauthorized access and various types of cyber threats.\\nOption A is incorrect.\\nBacking up data is not a function of a firewall, it is typically managed by backup software or services.\\nOption C is incorrect.\\nProviding data encryption for stored files is not the primary role of a firewall, which is designed to control network traffic.\\nOption D is incorrect.\\nIncreasing network transmission speeds is not the purpose of a firewall, its focus is on security, not on enhancing network performance.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In network security, what is the primary role of an Intrusion Prevention System (IPS)?",
+      "answers": [
+        "To encrypt data transmissions across the network",
+        "To detect and prevent identified threats in real-time",
+        "To provide a secure channel for remote access to the network",
+        "To store network data securely"
+      ],
+      "explanation": "An Intrusion Prevention System (IPS) is designed to detect and prevent identified threats in real-time. It actively analyzes network traffic and takes immediate action to prevent potential threats from causing harm to the network.\\nOption A is incorrect.\\nEncrypting data transmissions is not the primary role of an IPS, this is typically done by encryption protocols.\\nOption C is incorrect.\\nProviding a secure channel for remote access is a function of Virtual Private Networks (VPNs), not an IPS.\\nOption D is incorrect.\\nSecure data storage is outside the scope of an IPS, which is focused on real-time threat detection and prevention.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In system security, what is the primary function of a firewall?",
+      "answers": [
+        "To manage data backups",
+        "To enhance system processing speeds",
+        "To control and filter incoming and outgoing network traffic",
+        "To encrypt stored data on the system"
+      ],
+      "explanation": "The primary function of a firewall in system security is to control and filter incoming and outgoing network traffic based on predetermined security rules. This helps to protect the system from unauthorized access and various network threats.\\nOption A is incorrect.\\nManaging data backups is crucial for data recovery, but it is not the function of a firewall.\\nOption B is incorrect.\\nEnhancing system processing speeds is not related to the functionality of a firewall.\\nOption D is incorrect.\\nEncrypting stored data is important for securing data at rest, but it is not a primary function of a firewall, which focuses on network traffic.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In the context of cybersecurity, what is the primary purpose of regularly updating software and operating systems?",
+      "answers": [
+        "To add new features to the software",
+        "To improve user interface design",
+        "To patch security vulnerabilities and protect against threats",
+        "To ensure compatibility with new hardware"
+      ],
+      "explanation": "The primary purpose of regularly updating software and operating systems is to patch security vulnerabilities and protect against threats. Software updates often include fixes for security loopholes that have been discovered, thereby enhancing the overall security of the system.\\nOption A is incorrect.\\nWhile adding new features can be a part of software updates, the primary purpose in a cybersecurity context is to patch vulnerabilities.\\nOption B is incorrect.\\nImproving user interface design might be a goal of some updates, but it is not the primary cybersecurity-related reason for regular updates.\\nOption D is incorrect.\\nEnsuring compatibility with new hardware is important, but the main cybersecurity-related reason for updates is to patch vulnerabilities.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In the context of data security, what is the primary purpose of implementing a data backup strategy?",
+      "answers": [
+        "To speed up data retrieval processes",
+        "To prevent unauthorized access to data",
+        "To ensure data availability in case of system failures or disasters",
+        "To encrypt sensitive information"
+      ],
+      "explanation": "The primary purpose of a data backup strategy is to ensure data availability and recovery in the event of system failures, data corruption, or disasters. Regular backups help in quickly restoring lost or damaged data, minimizing downtime and data loss.\\nOption A is incorrect.\\nWhile data retrieval is important, the primary purpose of data backup is not to speed up this process but to ensure data availability in case of failures or disasters.\\nOption B is incorrect.\\nPreventing unauthorized access to data is more related to access controls and encryption rather than to data backup strategies.\\nOption D is incorrect.\\nEncrypting sensitive information is a method of data protection, but it is not the primary purpose of a data backup strategy.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "In the context of data security, what is the purpose of implementing regular data backups?",
+      "answers": [
+        "To enhance the speed of data processing",
+        "To ensure data integrity and availability in case of data loss events",
+        "To prevent unauthorized external access to data",
+        "To encrypt sensitive data"
+      ],
+      "explanation": "The primary purpose of implementing regular data backups is to ensure data integrity and availability in case of data loss events such as system failures, data corruption, or disasters. Regular backups enable quick restoration of lost or damaged data, reducing the impact of such events.\\nOption A is incorrect.\\nEnhancing the speed of data processing is not the main purpose of data backups, backups are for securing data against loss or corruption.\\nOption C is incorrect.\\nPreventing unauthorized external access to data is more related to security measures like firewalls and encryption, not to data backup strategies.\\nOption D is incorrect.\\nEncrypting sensitive data is important for data security, but it is not the primary purpose of regular data backups, which focus on data recovery and availability.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "In the context of system security, why is it important to regularly update system software and applications?",
+      "answers": [
+        "To enhance the user interface experience",
+        "To patch security vulnerabilities and protect against emerging threats",
+        "To increase the data storage capacity of the system",
+        "To improve the speed of internet connectivity"
+      ],
+      "explanation": "Regularly updating system software and applications is crucial in system security to patch security vulnerabilities and protect against emerging threats. These updates often include fixes for security weaknesses that could be exploited by cyber threats, thereby helping to maintain the overall security of the system.\\nOption A is incorrect.\\nEnhancing the user interface experience may be a benefit of updates, but it is not the primary reason for updates in the context of system security.\\nOption C is incorrect.\\nIncreasing the data storage capacity of the system is unrelated to software updates focused on security.\\nOption D is incorrect.\\nImproving the speed of internet connectivity is not the primary objective of regular software and application updates in terms of system security.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is a common use of Public Key Infrastructure (PKI) in securing data?",
+      "answers": [
+        "To enable load balancing for web servers",
+        "To manage application dependencies",
+        "To provide encryption and digital signatures using public and private keys",
+        "To configure proxy servers"
+      ],
+      "explanation": "PKI is a framework used to manage digital certificates and public-key encryption. It allows secure exchange of information in untrusted environments. PKI provides authentication (via certificates), data integrity (digital signatures), and encryption (using key pairs). When someone sends a message encrypted with your public key, only your private key can decrypt it. PKI is not used for load balancing, proxy configuration, or application packaging.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is a strong indicator of a phishing attack?",
+      "answers": [
+        "An email from a known contact with expected content",
+        "A system prompt asking for updates",
+        "A message asking for login credentials via an unfamiliar link",
+        "A file download requiring antivirus verification"
+      ],
+      "explanation": "Phishing attacks typically involve fraudulent emails or messages that try to trick users into revealing sensitive information like passwords, credit card numbers, or login credentials. These messages often include fake URLs that mimic legitimate websites. A key warning sign is being asked to click on unfamiliar links or input credentials outside of known secure login portals. Legitimate systems rarely ask users to log in through unexpected links or non-secure websites.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the function of an Intrusion Detection System (IDS)?",
+      "answers": [
+        "It prevents attacks by blocking all incoming traffic",
+        "It detects suspicious or malicious activity within a network or host",
+        "It creates regular data backups",
+        "It enforces password complexity rules"
+      ],
+      "explanation": "An IDS monitors network traffic or system behavior to detect potential security threats, such as unauthorized access, malware signatures, or policy violations. It typically operates passively by logging and alerting administrators. Unlike an IPS (Intrusion Prevention System), which actively blocks threats, an IDS focuses on detection and analysis. It doesn't perform backups, enforce policies, or block traffic by itself. Its purpose is early warning, not enforcement.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the main function of a firewall in network security?",
+      "answers": [
+        "Encrypts all outbound data",
+        "Prevents unauthorized access by filtering traffic",
+        "Manages disk permissions for users",
+        "Detects malware within file systems"
+      ],
+      "explanation": "Firewalls are systems (either hardware, software, or both) that monitor and control incoming and outgoing network traffic based on predetermined security rules. Their main purpose is to enforce a barrier between trusted internal networks and untrusted external networks (like the internet). They can allow or deny traffic based on IP address, port number, protocol, or content. Firewalls do not encrypt data, manage filesystem permissions, or directly detect malware (that's typically an antivirus or IDS/IPS role).",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the main function of a network firewall in an organization's cybersecurity infrastructure?",
+      "answers": [
+        "To physically protect the network servers",
+        "To monitor and control the incoming and outgoing network traffic based on security rules",
+        "To provide data storage and backup services",
+        "To optimize the network speed and performance"
+      ],
+      "explanation": "A network firewall's main function in cybersecurity is to monitor and control incoming and outgoing network traffic based on predefined security rules. This helps to protect the organization's network from unauthorized access and various network-based threats by filtering traffic and blocking potentially harmful communications.\\nOption A is incorrect.\\nPhysical protection of network servers is important but is not the primary role of a network firewall, which focuses on managing network traffic.\\nOption C is incorrect.\\nProviding data storage and backup services is not a function of a network firewall. These services are typically managed by other systems in the IT infrastructure.\\nOption D is incorrect.\\nWhile network optimization is important, the main role of a network firewall is security-focused, particularly on controlling and securing network traffic, not on optimizing network speed and performance.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the main purpose of implementing Role-Based Access Control (RBAC) in data security?",
+      "answers": [
+        "To increase data processing speed",
+        "To ensure that individuals have access to data necessary for their roles",
+        "To provide redundant data storage",
+        "To enhance the graphical interface of data management systems"
+      ],
+      "explanation": "Role-Based Access Control (RBAC) is implemented in data security to ensure that individuals have access only to the data necessary for their roles. It restricts data access based on the roles of individual users within an organization, thereby minimizing the risk of unauthorized data access or exposure.\\nOption A is incorrect.\\nRBAC is not about increasing data processing speed, it's focused on securing access to data based on user roles.\\nOption C is incorrect.\\nProviding redundant data storage is a different aspect of data security and is not directly related to RBAC.\\nOption D is incorrect.\\nEnhancing the graphical interface of data management systems is not the purpose of RBAC, which is concerned with controlling access to data.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the primary function of a Virtual Private Network (VPN) in enhancing online security and privacy?",
+      "answers": [
+        "To monitor and log user activity",
+        "To provide a secure and encrypted connection over a public network",
+        "To increase internet connection speed",
+        "To filter out malicious content from websites."
+      ],
+      "explanation": "The primary function of a Virtual Private Network (VPN) is to provide a secure and encrypted connection over a public network, such as the internet. This encryption ensures that data transmitted over the network is secure from eavesdropping and interception, thereby enhancing online security and privacy.\\nOption A is incorrect.\\nMonitoring and logging user activity is not the primary function of a VPN, its main purpose is to secure and encrypt connections.\\nOption C is incorrect.\\nVPNs do not primarily focus on increasing internet connection speed, their main role is to secure data transmission.\\nOption D is incorrect.\\nFiltering out malicious content from websites is more the function of web security tools, not the primary function of a VPN.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the primary function of an Intrusion Detection System (IDS) in network security?",
+      "answers": [
+        "To manage network bandwidth and data throughput",
+        "To detect and alert on potential security threats within a network",
+        "To encrypt data as it travels across the network",
+        "To physically protect network infrastructure from damage"
+      ],
+      "explanation": "An Intrusion Detection System (IDS) is designed to detect and alert on potential security threats and malicious activities within a network. It monitors network traffic and analyzes it for signs of any suspicious activities or policy violations, thereby playing a crucial role in the identification of potential security breaches.\\nOption A is incorrect.\\nManaging network bandwidth and data throughput is not the function of an IDS, its focus is on security monitoring and threat detection.\\nOption C is incorrect.\\nEncrypting data as it travels across the network is typically the function of encryption protocols like TLS, not an IDS.\\nOption D is incorrect.\\nPhysical protection of network infrastructure is a different aspect of security and is not related to the IDS's role in monitoring and detecting network threats.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the primary function of antivirus software in computer security?",
+      "answers": [
+        "To manage user access to different parts of the system",
+        "To encrypt sensitive data stored on the computer",
+        "To detect, prevent, and remove malware and other threats",
+        "To create backup copies of important files and documents"
+      ],
+      "explanation": "The primary function of antivirus software is to detect, prevent, and remove malware (like viruses, worms, trojans) and other malicious threats from a computer system. It scans the computer and files for malicious activities and takes appropriate actions to secure the system.\\nOption A is incorrect.\\nManaging user access to different parts of the system is typically the role of access control systems or permissions settings, not antivirus software.\\nOption B is incorrect.\\nEncrypting sensitive data is a function of encryption tools or software, not directly of antivirus software.\\nOption D is incorrect.\\nCreating backup copies of important files and documents is not the primary function of antivirus software. This task is generally performed by backup software or services.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the primary function of encryption in system security?",
+      "answers": [
+        "To increase system processing speed",
+        "To monitor network traffic",
+        "To protect data confidentiality by converting it into a secure format",
+        "To provide physical security to system hardware"
+      ],
+      "explanation": "The primary function of encryption in system security is to protect the confidentiality of data. Encryption converts data into a secure and unreadable format that can only be decrypted and understood by authorized parties, thereby safeguarding sensitive information.\\nOption A is incorrect.\\nIncreasing system processing speed is not related to encryption, encryption focuses on securing data.\\nOption B is incorrect.\\nMonitoring network traffic is more the function of network security tools like firewalls or intrusion detection systems, not encryption.\\nOption D is incorrect.\\nProviding physical security to system hardware is unrelated to encryption, which is a digital method for securing data.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the primary purpose of a network firewall in an organization's security infrastructure?",
+      "answers": [
+        "To detect and remove malware from individual computers",
+        "To monitor and control incoming and outgoing network traffic based on security rules",
+        "To encrypt data being transmitted over the network",
+        "To manage employee access to the internet"
+      ],
+      "explanation": "The primary purpose of a network firewall is to monitor and control incoming and outgoing network traffic based on predetermined security rules set by the organization. This helps to protect the network from unauthorized access and various types of cyber threats.\\nOption A is incorrect.\\nDetecting and removing malware from individual computers is typically the role of antivirus software, not a network firewall.\\nOption C is incorrect.\\nEncrypting data being transmitted over the network is more commonly handled by encryption protocols or services like VPNs, not by network firewalls.\\nOption D is incorrect.\\nManaging employee access to the internet may be a part of what a firewall can do, but it is not its primary purpose. The main function is to monitor and control network traffic for security purposes.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the primary purpose of a security policy within an organization?",
+      "answers": [
+        "To define the roles and responsibilities of the IT department",
+        "To outline the guidelines and procedures for protecting organizational information",
+        "To provide training programs for new employees",
+        "To outline the company's business strategies and objectives"
+      ],
+      "explanation": "The primary purpose of a security policy within an organization is to outline the guidelines and procedures for protecting organizational information and resources. This includes defining how to handle sensitive data, setting user access controls, and specifying how to respond to security incidents.\\nOption A is incorrect.\\nWhile defining roles and responsibilities is important, it is not the primary focus of a security policy. The main aim is to provide guidelines for protecting information.\\nOption C is incorrect.\\nProviding training programs for new employees is a part of organizational HR processes and, while important, is not the primary purpose of a security policy.\\nOption D is incorrect.\\nOutlining the company's business strategies and objectives is more related to overall business planning and is not the primary focus of a security policy.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the primary purpose of data encryption in the context of data security?",
+      "answers": [
+        "To increase data processing speeds",
+        "To enhance the visual presentation of data",
+        "To protect the confidentiality of data by converting it into a coded format",
+        "To expand the storage capacity of data systems"
+      ],
+      "explanation": "Data encryption is primarily used in data security to protect the confidentiality of data. It involves converting sensitive data into a coded format (encrypted form), which can only be accessed or deciphered by authorized individuals who have the decryption key. This process ensures that the data remains secure and inaccessible to unauthorized users.\\nOption A is incorrect.\\nData encryption does not focus on increasing data processing speeds. Its main goal is to secure data.\\nOption B is incorrect.\\nEnhancing the visual presentation of data is not related to data encryption, which is concerned with securing data.\\nOption D is incorrect.\\nExpanding storage capacity is not a function of data encryption. Encryption secures data rather than increasing storage space.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the primary purpose of implementing data encryption in data security?",
+      "answers": [
+        "To improve data processing speed",
+        "To increase data storage capacity",
+        "To protect the confidentiality of data by converting it into a secure format",
+        "To enhance the physical security of storage devices"
+      ],
+      "explanation": "The primary purpose of data encryption in data security is to protect the confidentiality of data by converting it into a secure format that can only be accessed or decrypted by authorized parties. This process ensures that sensitive information is kept safe from unauthorized access or interception, especially during transmission or while stored.\\nOption A is incorrect.\\nData encryption does not aim to improve data processing speed, its focus is on securing data.\\nOption B is incorrect.\\nIncreasing data storage capacity is not related to encryption, which is concerned with the security of data, not the amount of storage.\\nOption D is incorrect.\\nWhile important, enhancing the physical security of storage devices is a separate concern from the encryption of data within those devices.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the primary purpose of implementing multi-factor authentication (MFA) in a security system?",
+      "answers": [
+        "To increase the system's processing speed",
+        "To provide multiple user interfaces",
+        "To enhance security by requiring multiple forms of verification",
+        "To create multiple backup copies of data"
+      ],
+      "explanation": "The primary purpose of implementing multi-factor authentication (MFA) is to enhance security by requiring users to provide multiple forms of verification before gaining access. This typically involves a combination of something the user knows (like a password), something the user has (like a smartphone), and something the user is (like a fingerprint), making unauthorized access more difficult.\\nOption A is incorrect.\\nMFA does not directly impact the system's processing speed, its focus is on enhancing security.\\nOption B is incorrect.\\nProviding multiple user interfaces is not related to multi-factor authentication, which is a security measure.\\nOption D is incorrect.\\nCreating multiple backup copies of data is a data protection strategy, not a function of multi-factor authentication.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the primary purpose of using antivirus software in system security?",
+      "answers": [
+        "To enhance the processing speed of the system",
+        "To detect, prevent, and remove malware and other threats",
+        "To manage user access and permissions",
+        "To encrypt data stored on the system"
+      ],
+      "explanation": "Antivirus software is primarily used in system security to detect, prevent, and remove malware, including viruses, worms, and trojan horses, as well as other malicious software and threats. This software plays a crucial role in protecting systems from various types of cyber threats.\\nOption A is incorrect.\\nEnhancing the processing speed of the system is not the primary function of antivirus software, its main focus is on security against malware.\\nOption C is incorrect.\\nManaging user access and permissions is typically handled by access control systems, not antivirus software.\\nOption D is incorrect.\\nEncrypting data stored on the system is the function of encryption software, not specifically of antivirus software.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What is the primary role of a host-based intrusion detection system (HIDS) in system security?",
+      "answers": [
+        "To optimize system performance",
+        "To manage user access controls",
+        "To detect and respond to malicious activities on a host system",
+        "To serve as the primary data storage solution"
+      ],
+      "explanation": "A host-based intrusion detection system (HIDS) is designed to detect and respond to malicious activities on a host system, such as a server or workstation. It monitors the system for suspicious activity and potential security breaches, analyzing system calls, application logs, and file-system modifications.\\nOption A is incorrect.\\nOptimizing system performance is not the primary function of a HIDS, its focus is on security monitoring and threat detection on the host system.\\nOption B is incorrect.\\nWhile managing user access controls is an important security measure, it is not the primary role of a HIDS, which focuses on intrusion detection.\\nOption D is incorrect.\\nServing as the primary data storage solution is not related to the functionality of a HIDS, which is concerned with detecting and responding to security threats.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the primary role of a Virtual Private Network (VPN) in network security?",
+      "answers": [
+        "To increase internet bandwidth and speed",
+        "To serve as the main antivirus protection",
+        "To encrypt data transmitted over public networks",
+        "To physically protect network infrastructure"
+      ],
+      "explanation": "The primary role of a Virtual Private Network (VPN) in network security is to encrypt data transmitted over public networks. This encryption secures the data from unauthorized access and interception, particularly important when using unsecured or public Wi-Fi networks.\\nOption A is incorrect.\\nIncreasing internet bandwidth and speed is not the primary function of a VPN, its focus is on securing data transmission.\\nOption B is incorrect.\\nA VPN does not serve as antivirus protection. Its purpose is to encrypt network traffic, not to detect or remove malware.\\nOption D is incorrect.\\nPhysical protection of network infrastructure is a separate aspect of security and not the role of a VPN, which is focused on securing data transmission.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What is the role of multi-factor authentication (MFA) in system security?",
+      "answers": [
+        "It replaces the need for passwords",
+        "It allows users to use any device to access the system",
+        "It requires additional verification beyond just a password",
+        "It eliminates brute-force attacks completely"
+      ],
+      "explanation": "MFA strengthens login security by requiring users to provide two or more types of evidence: something they know (password), something they have (e.g., a phone or token), and/or something they are (biometrics). While it doesn't eliminate all attack vectors (e.g., phishing or SIM swapping), it drastically reduces the likelihood that a stolen password alone can lead to unauthorized access. It complementsâ€”not replacesâ€”passwords.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "What security measure is commonly used to protect a system from unauthorized access by requiring proof of identity?",
+      "answers": [
+        "Data Encryption",
+        "User Authentication",
+        "Firewall Implementation",
+        "Network Monitoring"
+      ],
+      "explanation": "User Authentication is a security measure used to protect a system from unauthorized access by requiring proof of identity. This can involve various methods such as passwords, biometrics, or multi-factor authentication, ensuring that only authorized users can access the system.\\nOption A is incorrect.\\nData Encryption is used to protect data by converting it into a coded format, but it does not involve proving user identity for system access.\\nOption C is incorrect.\\nFirewall Implementation is about controlling network traffic based on security rules, not directly about verifying user identity for system access.\\nOption D is incorrect.\\nNetwork Monitoring involves watching for suspicious activities or threats on the network, but it is not a method for requiring proof of identity for system access.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "What security measure is primarily used to protect data at rest on a storage device from unauthorized access?",
+      "answers": [
+        "Network Firewall",
+        "Data Encryption",
+        "Antivirus Software",
+        "Role-Based Access Control"
+      ],
+      "explanation": "Data Encryption is the security measure used to protect data at rest on a storage device. It involves converting data into a coded format that can only be accessed or decrypted by authorized individuals with the decryption key, thereby preventing unauthorized access to the data.\\nOption A is incorrect.\\nA Network Firewall is used to monitor and control incoming and outgoing network traffic based on predetermined security rules, but it does not directly protect data at rest on a storage device.\\nOption C is incorrect.\\nAntivirus Software is designed to detect, prevent, and remove malware, not specifically to encrypt or protect data at rest.\\nOption D is incorrect.\\nRole-Based Access Control is a method to restrict system access based on user roles within an organization, but it does not encrypt or directly protect data at rest on a storage device.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which method is commonly used to ensure confidentiality of data in transit over a network?",
+      "answers": [
+        "Data Masking",
+        "Role-Based Access Control",
+        "Data Encryption",
+        "Redundant Data Storage"
+      ],
+      "explanation": "Data Encryption is a method used to secure data in transit over a network. It involves converting the original data into an encoded version, which can only be accessed or decrypted by authorized parties. This ensures the confidentiality and integrity of the data as it moves across networks.\\nOption A is incorrect.\\nData Masking is used to hide specific data within a database to protect it from unauthorized access, but it does not secure data in transit.\\nOption B is incorrect.\\nRole-Based Access Control is a method to restrict network access based on the roles of individual users within an organization, but it does not encrypt or secure data in transit.\\nOption D is incorrect.\\nRedundant Data Storage, such as RAID, is used for data availability and backup but does not encrypt or secure data in transit.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which network security protocol is primarily used to authenticate and secure information exchange between wireless devices and access points?",
+      "answers": [
+        "Secure Shell (SSH)",
+        "Wi-Fi Protected Access (WPA/WPA2)",
+        "Transport Layer Security (TLS)",
+        "Simple Network Management Protocol (SNMP)"
+      ],
+      "explanation": "Wi-Fi Protected Access (WPA/WPA2) is the network security protocol used to authenticate and secure information exchange between wireless devices and access points. WPA/WPA2 provides important security features like encryption to protect wireless networks from unauthorized access and eavesdropping.\\nOption A is incorrect.\\nSecure Shell (SSH) is used for secure data communication, remote command-line login, and other secure network services over an insecure network, primarily between servers, not specifically for wireless communication.\\nOption C is incorrect.\\nTransport Layer Security (TLS) is used for securing communications over computer networks, particularly web browsing, email, and other data transfers, but it is not specifically for wireless device-to-access point security.\\nOption D is incorrect.\\nSimple Network Management Protocol (SNMP) is used for managing devices on IP networks but is not specifically designed for securing wireless communications between devices and access points.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which network security technology is designed to permit or deny network traffic based on a set of security rules, thereby protecting networks from unauthorized access?",
+      "answers": [
+        "Virtual Private Network (VPN)",
+        "Network Firewall",
+        "Intrusion Detection System (IDS)",
+        "Data Encryption"
+      ],
+      "explanation": "A Network Firewall is a security device that is used to permit or deny network traffic based on a set of security rules. Its primary function is to protect networks from unauthorized access by controlling incoming and outgoing network traffic.\\nOption A is incorrect.\\nA Virtual Private Network (VPN) is primarily used to create a secure connection over a public network, but it does not control traffic based on security rules like a firewall.\\nOption C is incorrect.\\nAn Intrusion Detection System (IDS) is used to detect potentially harmful activities within the network, but it does not control network traffic like a firewall.\\nOption D is incorrect.\\nData Encryption is used to secure data by converting it into a coded format, but it does not manage network traffic based on security rules.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Which of the following best defines the purpose of system patching?",
+      "answers": [
+        "To reduce software performance and optimize resources",
+        "To introduce new UI features on demand",
+        "To fix known vulnerabilities and improve system security",
+        "To allow unsupported software to continue functioning"
+      ],
+      "explanation": "System patching involves applying updates released by software vendors to address vulnerabilities, bugs, and performance issues. Security patches specifically close loopholes that attackers might exploit. Failing to patch systems in a timely manner can leave them exposed to known threats. Patches may sometimes include new features, but their main purpose is reliability and securityâ€”not visuals or legacy support.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following best describes the principle of least privilege in a system?",
+      "answers": [
+        "Users should have administrative rights by default",
+        "Only root can execute binaries",
+        "Users should have only the permissions necessary to perform their tasks",
+        "Permissions should be the same for all users for easier management"
+      ],
+      "explanation": "The principle of least privilege is a foundational security concept that restricts user access rights to the bare minimum needed for their role or task. For example, a junior developer shouldn't have access to production databases, and a customer support agent shouldn't be able to restart services. This reduces the attack surface and limits damage in the event of compromised credentials. Option 1 is dangerous and leads to unnecessary exposure. Option 2 is overly restrictive and not practical. Option 4 compromises security by prioritizing convenience over control.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following best describes the purpose of a firewall in network security?",
+      "answers": [
+        "To detect and prevent unauthorized access to or from a private network",
+        "To encrypt data transmitted over the internet",
+        "To provide a backup for data stored on the network",
+        "To increase the speed of network connections"
+      ],
+      "explanation": "A firewall is a network security device that monitors and filters incoming and outgoing network traffic based on an organization's previously established security policies. Its primary purpose is to detect and prevent unauthorized access to or from a private network.\\nOption B is incorrect.\\nEncrypting data transmitted over the internet is typically the function of encryption protocols or software, not a firewall.\\nOption C is incorrect.\\nProviding backup for data stored on the network is not a function of a firewall. This is typically handled by backup software or services.\\nOption D is incorrect.\\nIncreasing the speed of network connections is not the purpose of a firewall. Firewalls focus on security, not on enhancing network performance.",
+      "correct_response": [
+        "a"
+      ]
+    },
+    {
+      "question": "Which of the following is the most secure method to store user passwords?",
+      "answers": [
+        "Plain text storage in a file",
+        "Encrypted using symmetric encryption",
+        "Hashed using a strong algorithm with a salt",
+        "Hidden in a configuration file"
+      ],
+      "explanation": "Passwords should never be stored in plain text or even encrypted using reversible encryption. The best practice is to hash them using a one-way cryptographic algorithm like bcrypt, scrypt, or Argon2. A salt (a random value added before hashing) should also be used to ensure that identical passwords have different hash values. This prevents rainbow table attacks. Encrypting passwords means they can be decrypted if the key is compromised. Hiding passwords in a file is obscurity, not security.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which of the following mechanisms helps ensure data confidentiality?",
+      "answers": [
+        "Compression",
+        "Checksum",
+        "Encryption",
+        "File permissions set to read-only"
+      ],
+      "explanation": "Data confidentiality refers to protecting information from unauthorized access. Encryption ensures that only authorized parties (with the appropriate keys) can view the data. Whether at rest or in transit, encrypted data remains unintelligible to attackers. Compression is unrelated to security, checksums verify integrity (not confidentiality), and file permissions provide access control at a system level but can be bypassed if the system is compromised.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which security concept involves protecting a network by analyzing traffic and blocking potential threats before they enter the system?",
+      "answers": [
+        "Data Encryption",
+        "Physical Security",
+        "Intrusion Prevention System (IPS)",
+        "Software Patching"
+      ],
+      "explanation": "Intrusion Prevention System (IPS)\\nExplantion:\\nAn Intrusion Prevention System (IPS) is designed to protect a network by analyzing traffic and actively blocking potential threats before they enter the system. IPS typically works by inspecting network traffic to identify and prevent vulnerability exploits and attacks.\\nOption A is incorrect.\\nData Encryption is the process of converting data into a coded format to prevent unauthorized access, but it does not involve analyzing and blocking network traffic.\\nOption B is incorrect.\\nPhysical Security involves securing a facility or equipment against physical threats, which is different from protecting a network through traffic analysis.\\nOption D is incorrect.\\nSoftware Patching is the process of updating software to fix vulnerabilities, but it does not directly involve analyzing network traffic to block threats.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which security measure is primarily used to protect against unauthorized software modifications and ensure the integrity of system software?",
+      "answers": [
+        "Network Bandwidth Optimization",
+        "Antivirus Software",
+        "Digital Signatures and Hashing",
+        "Data Encryption"
+      ],
+      "explanation": "Digital Signatures and Hashing are used to protect against unauthorized software modifications. They ensure the integrity of system software by verifying that the software has not been altered or tampered with since it was signed. This is crucial for maintaining system security.\\nOption A is incorrect.\\nNetwork Bandwidth Optimization is related to improving network performance, not specifically for protecting against software modifications.\\nOption B is incorrect.\\nWhile Antivirus Software is important for detecting and removing malware, it is not primarily used for verifying the integrity of system software.\\nOption D is incorrect.\\nData Encryption is used to secure data by converting it into a coded format, but it does not specifically verify the integrity of software.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Which system security practice is essential for ensuring that only authorized individuals have access to specific resources and information?",
+      "answers": [
+        "Implementing a high-speed network",
+        "Regular software updates",
+        "Access Control",
+        "Increasing storage capacity"
+      ],
+      "explanation": "Access Control is a key security practice that ensures only authorized individuals have access to specific resources and information. It involves managing permissions and rights for users and systems, controlling who can view or use various resources within a system.\\nOption A is incorrect.\\nImplementing a high-speed network enhances network performance but does not directly relate to controlling access to resources and information.\\nOption B is incorrect.\\nRegular software updates are important for security but mainly focus on patching vulnerabilities rather than managing access to resources.\\nOption D is incorrect.\\nIncreasing storage capacity is related to data management and does not directly contribute to controlling access to specific resources or information.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Why is data encryption essential in protecting sensitive information stored on a company's servers?",
+      "answers": [
+        "To increase the storage capacity of the servers",
+        "To improve the server's processing power",
+        "To protect the confidentiality of data by making it unreadable to unauthorized users",
+        "To streamline data retrieval and analysis processes"
+      ],
+      "explanation": "Data encryption is essential for protecting sensitive information stored on a company's servers because it converts the data into a secure, encrypted format. This makes the information unreadable and inaccessible to unauthorized users, thereby safeguarding the confidentiality of the data.\\nOption A is incorrect.\\nData encryption does not increase the storage capacity of servers, its primary role is to secure data.\\nOption B is incorrect.\\nImproving a server's processing power is not related to data encryption, which focuses on securing data.\\nOption D is incorrect.\\nStreamlining data retrieval and analysis processes is important, but it is not the primary function of data encryption, which is to secure data confidentiality.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Why is it important to implement an Intrusion Detection System (IDS) in a network security strategy?",
+      "answers": [
+        "To increase the data transfer rates over the network",
+        "To serve as the primary user authentication system",
+        "To detect and alert on potential security threats and unauthorized activities within the network",
+        "To encrypt the data being transmitted across the network"
+      ],
+      "explanation": "Implementing an Intrusion Detection System (IDS) is crucial in a network security strategy because it helps detect and alert on potential security threats and unauthorized activities within the network. An IDS monitors network traffic for suspicious activities and signs of potential attacks, aiding in the early detection and response to cybersecurity incidents.\\nOption A is incorrect.\\nIncreasing data transfer rates over the network is not the function of an IDS, its focus is on security monitoring and threat detection.\\nOption B is incorrect.\\nUser authentication is not the primary purpose of an IDS, instead, IDS systems are designed to monitor for and alert on security threats.\\nOption D is incorrect.\\nWhile data encryption is important for network security, it is not the primary function of an IDS, which is focused on detecting and alerting on network threats.",
+      "correct_response": [
+        "c"
+      ]
+    },
+    {
+      "question": "Why is it important to implement regular data backups as part of a data security strategy?",
+      "answers": [
+        "To improve the computational efficiency of data systems",
+        "To ensure data availability and recovery in case of data loss or corruption",
+        "To facilitate faster internet connectivity",
+        "To automatically update data to its latest version"
+      ],
+      "explanation": "Implementing regular data backups is a crucial part of a data security strategy to ensure data availability and recovery in the event of data loss or corruption. Regular backups provide a way to restore data to a previous state, thus safeguarding against data loss due to system failures, accidents, or malicious attacks.\\nOption A is incorrect.\\nImproving computational efficiency is not the primary purpose of regular data backups. Backups are focused on data recovery and protection.\\nOption C is incorrect.\\nFacilitating faster internet connectivity is not related to data backup practices.\\nOption D is incorrect.\\nAutomatically updating data to its latest version is not the main purpose of data backups, which are intended for recovery and protection against data loss.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Why is it important to regularly update antivirus software in a data security strategy?",
+      "answers": [
+        "To maintain compatibility with new operating systems",
+        "To ensure the software can detect and protect against the latest threats and malware",
+        "To increase the data transfer rate over the network",
+        "To create additional storage space for data backup"
+      ],
+      "explanation": "Regularly updating antivirus software is crucial in a data security strategy to ensure the software is equipped to detect and protect against the latest threats and malware. Antivirus updates often include new virus definitions and security features that can identify and neutralize newly emerging threats, maintaining robust protection for the system.\\nOption A is incorrect.\\nWhile maintaining compatibility with new operating systems is important, the primary reason for updating antivirus software is to keep up with the latest threats.\\nOption C is incorrect.\\nIncreasing the data transfer rate over the network is not the purpose of updating antivirus software, which is focused on security against malware.\\nOption D is incorrect.\\nCreating additional storage space for data backup is unrelated to updating antivirus software, whose main role is in malware detection and prevention.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Why is it important to use updated antivirus software in system security?",
+      "answers": [
+        "To ensure compatibility with the latest software applications",
+        "To protect the system from the latest malware and security threats",
+        "To increase the storage efficiency of the system",
+        "To manage user access and authentication processes"
+      ],
+      "explanation": "Using updated antivirus software is crucial in system security to protect the system from the latest malware and security threats. Updates often include new virus definitions and enhancements that improve the software's ability to detect and neutralize emerging threats.\\nOption A is incorrect.\\nEnsuring compatibility with the latest software applications is important, but the primary reason for updating antivirus software is security against new threats.\\nOption C is incorrect.\\nIncreasing storage efficiency is not the purpose of antivirus software, its main role is in detecting and preventing malware infections.\\nOption D is incorrect.\\nManaging user access and authentication processes is typically handled by access control systems, not by antivirus software.",
+      "correct_response": [
+        "b"
+      ]
+    },
+    {
+      "question": "Why is multi-factor authentication (MFA) important in enhancing an organization's security?",
+      "answers": [
+        "To streamline operational processes",
+        "To ensure that only authorized individuals access sensitive systems and data",
+        "To reduce the organization's operational costs",
+        "To increase data storage capacity"
+      ],
+      "explanation": "Multi-factor authentication (MFA) is important in enhancing an organization's security because it ensures that only authorized individuals can access sensitive systems and data. MFA requires multiple forms of verification from users, such as a password plus a mobile device confirmation, which significantly reduces the risk of unauthorized access.\\nOption A is incorrect.\\nStreamlining operational processes is beneficial but not the primary reason for implementing MFA. The focus of MFA is on securing access.\\nOption C is incorrect.\\nReducing operational costs is not the main purpose of MFA, its primary role is in enhancing security.\\nOption D is incorrect.\\nIncreasing data storage capacity is unrelated to the implementation of MFA, which is focused on securing access to systems and data.",
+      "correct_response": [
+        "b"
+      ]
+    }
+  ]
+}
