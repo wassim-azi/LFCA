@@ -80,24 +80,24 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
 
   return (
     <div
-      className="overflow-y-auto rounded-lg border border-border bg-card p-6 shadow-lg sm:p-8"
+      className="overflow-y-auto rounded-lg border border-border bg-card p-4 shadow-lg sm:p-6 md:p-8"
       style={{ maxHeight: 'calc(100vh - 180px)' }}
       role="article"
       aria-labelledby={`question-${questionNumber}`}
     >
-      <div className="mb-6">
+      <div className="mb-4 sm:mb-6">
         <h2
           id={`question-${questionNumber}`}
-          className="mb-2 text-xl font-semibold text-foreground sm:text-2xl"
+          className="mb-2 text-base font-semibold text-foreground sm:text-xl md:text-2xl"
         >
           {question.text}
         </h2>
         {question.multiple && (
-          <p className="text-sm italic text-muted-foreground">Select all that apply</p>
+          <p className="text-xs italic text-muted-foreground sm:text-sm">Select all that apply</p>
         )}
       </div>
 
-      <div className="mb-6 space-y-3" role="group" aria-label="Answer choices">
+      <div className="mb-4 space-y-2 sm:mb-6 sm:space-y-3" role="group" aria-label="Answer choices">
         {question.multiple ? (
           // Render checkboxes for multiple-choice questions
           question.choices.map((choice, index) => {
@@ -108,7 +108,7 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
               <div
                 key={choice.id}
                 className={cn(
-                  'flex items-start gap-3 rounded-md border-2 p-4 transition-all duration-300',
+                  'flex items-start gap-2 rounded-md border-2 p-3 transition-all duration-300 sm:gap-3 sm:p-4',
                   getChoiceStyle(index),
                   !submitted && 'cursor-pointer',
                 )}
@@ -124,13 +124,13 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
                   checked={isSelected}
                   onCheckedChange={() => handleCheckboxChange(index)}
                   disabled={submitted}
-                  className="mt-0.5 h-5 w-5"
+                  className="mt-0.5 h-4 w-4 sm:h-5 sm:w-5"
                   tabIndex={-1}
                 />
                 <Label
                   htmlFor={choice.id}
                   className={cn(
-                    'flex-1 cursor-pointer select-none text-base leading-relaxed',
+                    'flex-1 cursor-pointer select-none text-sm leading-relaxed sm:text-base',
                     submitted && 'cursor-default',
                   )}
                 >
@@ -139,9 +139,15 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
                 {submitted && (
                   <div className="flex-shrink-0">
                     {isCorrect ? (
-                      <CheckCircle2 className="h-5 w-5 text-success" aria-label="Correct answer" />
+                      <CheckCircle2
+                        className="h-4 w-4 text-success sm:h-5 sm:w-5"
+                        aria-label="Correct answer"
+                      />
                     ) : isSelected ? (
-                      <XCircle className="h-5 w-5 text-destructive" aria-label="Incorrect answer" />
+                      <XCircle
+                        className="h-4 w-4 text-destructive sm:h-5 sm:w-5"
+                        aria-label="Incorrect answer"
+                      />
                     ) : null}
                   </div>
                 )}
@@ -163,7 +169,7 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
                 <div
                   key={choice.id}
                   className={cn(
-                    'flex items-start gap-3 rounded-md border-2 p-4 transition-all duration-300',
+                    'flex items-start gap-2 rounded-md border-2 p-3 transition-all duration-300 sm:gap-3 sm:p-4',
                     getChoiceStyle(index),
                     !submitted && 'cursor-pointer',
                   )}
@@ -178,13 +184,13 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
                     value={index.toString()}
                     id={choice.id}
                     disabled={submitted}
-                    className="mt-0.5 h-5 w-5"
+                    className="mt-0.5 h-4 w-4 sm:h-5 sm:w-5"
                     tabIndex={-1}
                   />
                   <Label
                     htmlFor={choice.id}
                     className={cn(
-                      'flex-1 cursor-pointer select-none text-base leading-relaxed',
+                      'flex-1 cursor-pointer select-none text-sm leading-relaxed sm:text-base',
                       submitted && 'cursor-default',
                     )}
                   >
@@ -194,12 +200,12 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
                     <div className="flex-shrink-0">
                       {isCorrect ? (
                         <CheckCircle2
-                          className="h-5 w-5 text-success"
+                          className="h-4 w-4 text-success sm:h-5 sm:w-5"
                           aria-label="Correct answer"
                         />
                       ) : isSelected ? (
                         <XCircle
-                          className="h-5 w-5 text-destructive"
+                          className="h-4 w-4 text-destructive sm:h-5 sm:w-5"
                           aria-label="Incorrect answer"
                         />
                       ) : null}
@@ -225,20 +231,20 @@ export const QuestionCard = ({ question, questionNumber }: QuestionCardProps) =>
       )}
 
       {submitted && (
-        <div className="mt-6 rounded-lg border border-border bg-secondary p-4">
+        <div className="mt-4 rounded-lg border border-border bg-secondary p-3 sm:mt-6 sm:p-4">
           <div className="mb-2 flex items-center gap-2">
-            <p className={cn('text-lg font-semibold', getFeedback().color)}>
+            <p className={cn('text-base font-semibold sm:text-lg', getFeedback().color)}>
               {getFeedback().message}
             </p>
           </div>
-          <p className="mb-2 text-sm text-muted-foreground">
+          <p className="mb-2 text-xs text-muted-foreground sm:text-sm">
             You selected{' '}
             {selectedIndices.filter((idx) => question.correctIndices.includes(idx)).length}/
             {question.correctIndices.length} correct answer
             {question.correctIndices.length !== 1 ? 's' : ''}
           </p>
           {question.explanation && (
-            <p className="mt-3 text-sm leading-relaxed text-foreground">
+            <p className="mt-3 text-xs leading-relaxed text-foreground sm:text-sm">
               <span className="font-medium">Explanation:</span> {question.explanation}
             </p>
           )}
