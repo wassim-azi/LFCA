@@ -7,7 +7,7 @@ import {
   faGears,
   faClipboardList,
 } from '@fortawesome/free-solid-svg-icons';
-import { faLinux } from '@fortawesome/free-brands-svg-icons';
+import { faLinux, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -60,11 +60,24 @@ const Home = () => {
   return (
     <div className="flex h-screen w-screen flex-col overflow-hidden">
       <header className="border-b border-border bg-card shadow-sm" role="banner">
-        <div className="mx-auto max-w-4xl px-4 py-4">
-          <h1 className="text-2xl font-bold text-foreground sm:text-3xl">LFCA</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Linux Foundation Certified IT Associate (LFCA)
-          </p>
+        <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
+          <div>
+            <h1 className="text-2xl font-bold text-foreground sm:text-3xl">LFCA</h1>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Linux Foundation Certified IT Associate (LFCA)
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://github.com/wassim-azi/LFCA"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open GitHub repository"
+              className="rounded p-2 text-muted-foreground hover:bg-accent/50 hover:text-foreground"
+            >
+              <FontAwesomeIcon icon={faGithub} className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </header>
 

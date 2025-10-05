@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Button } from '@/components/ui/button';
 import { Question } from '@/types/quiz';
 import { loadCategoryQuestions } from '@/lib/questionLoader';
@@ -159,7 +160,17 @@ export const Quiz = ({ category }: QuizProps) => {
                   : 'Linux Foundation Certified IT Associate (LFCA)'}
               </p>
             </div>
-            <div className="w-10 sm:w-10" aria-hidden />
+            <div className="flex w-10 items-center justify-end gap-2 sm:w-10">
+              <a
+                href="https://github.com/wassim-azi/LFCA"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open GitHub repository"
+                className="rounded p-1 text-muted-foreground hover:bg-accent/50 hover:text-foreground"
+              >
+                <FontAwesomeIcon icon={faGithub} className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
       </header>
